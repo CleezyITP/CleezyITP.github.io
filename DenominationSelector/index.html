@@ -1,0 +1,109 @@
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> <!--jQuery-->
+  <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/p5.js/0.3.8/p5.min.js"></script>
+  <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/p5.js/0.3.8/addons/p5.dom.js"></script>
+  <script language="javascript" type="text/javascript" src="markov.js"></script>
+  <script language="javascript" type="text/javascript" src="sketch.js"></script>
+  <script language="javascript" type="text/javascript" src="stellar.js"></script>
+  <style>
+
+  body{
+    background-color:black;
+    text-align: center;
+    font-family: Helvetica;
+  }
+
+
+.line-separator{
+
+height:1px;
+
+background:white;
+
+border-bottom:1px solid #313030;
+
+}
+
+
+  #div1  {
+    
+    background-image: url('ABBEY.jpg');
+    /*background-size: contain;*/
+    /*//background-repeat: no-repeat;*/
+    border-color: #CFB023;
+    border-style: groove;
+    border-width: 10px;
+    background-position: center;
+    position:absolute;
+    width:1000px;
+    height:4000px;
+    margin: 10% 20% 0 20%;
+      
+}
+
+#div2  {
+    
+    background-image: url('ICARUS2.png');
+    /*background-size: contain;*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    position:absolute;
+    /*background-size: contain;*/
+    width:1000px;
+    height:4000px;
+    padding-left: 50%;
+    padding-right: 20%;
+    margin-left: -50%;
+    margin-right: 50%;
+  
+}
+
+#containerDiv{
+width: 1000px;
+height:auto;
+
+}
+    #spacerdiv {
+      height: 4000px;
+      margin-top: 250px;
+      
+      
+    }
+
+    a{
+      color:#CFB023;
+    }
+  </style>
+</head>
+
+<body>
+
+
+<h1 id = "title" style="font-size:118px;margin-top:50px;font-family:black; color:white;text-align:center; padding-bottom:0px;">Which Christian Denomination Should I Choose?</h1>
+<p><a href="#" id = "button" style="text-decoration:none;margin-top:10px;text-align:center;border-style: solid;border-width: 5px; border-radius:25%; padding:10px;">CLICK TO SHOP FOR GOD</a></p>
+<p id = "prompt" style="text-align:center;color:white; margin-bottom:-120px; padding:20px"></p>
+
+
+<div class="line-separator"></div>
+
+<div id="containerDiv">
+<div id="div1" data-stellar-background-ratio="2">
+<div id="div2" data-stellar-background-ratio="0.1">
+</div>
+</div>
+</div>
+<div id = "spacerdiv"></div>
+<h1 id = "name"style="font-size:78px;color:white;text-align:center;" >Empty Shopping Cart</h1>
+
+<p><a href="data/church.txt" style="padding-bottom:200px">List of Christian Denominations</a></p>
+
+</body>
+
+
+<footer style="text-align:center; font-size:18px;color:white;padding-top:50px;">
+  
+  <p>-Here, a Markov Chain algorithm is used to generate a jumbled denomination from a list of 376 real Christian denominations-<br> Based on Daniel Shiffman's "Markov by Character" Example, 2014</p>
+
+
+</footer>
