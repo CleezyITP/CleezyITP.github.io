@@ -88,9 +88,10 @@ float:center;
 		width: 1000px;
 	}
 	
-	#div1 { width: 950px; }
+	#div1 { width: 950px; float:center; }
 	
-	#div2{width: 900px;}
+	#div2{width: 900px;float:center; }
+	.line-separator{margin:auto;}
 	
 }
     
@@ -100,7 +101,7 @@ float:center;
     
     @media screen and (max-width:999px)
 {
-	#containerdiv, .line-separator{ width: 800px; }
+	#containerdiv{ width: 800px; }
 	
 	#titleDiv,#lowerHalf, footer
 	{
@@ -109,6 +110,7 @@ float:center;
 		margin: 50px 0 0 0;
 		width: 550px;
 	}
+	.line-separator{margin:auto;}
 }
 
 @media screen and (max-width:480px)
