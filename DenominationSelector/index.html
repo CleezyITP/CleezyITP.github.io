@@ -77,20 +77,71 @@ float:left;
     a{
       color:#CFB023;
     }
+    
+    @media screen and (max-width:999px)
+{
+	#containerdiv { width: 800px; }
+	
+	#titleDiv, #spacerdiv, #lowerHalf, footer
+	{
+		clear: left;
+		float: none;
+		margin: 0 0 0 225px;
+		width: 550px;
+	}
+}
+
+@media screen and (max-width:480px)
+{
+	#containerdiv { width: 400px; }
+	
+	#titleDiv
+	{
+		float: none;
+		width: auto;
+	}
+	
+	#spacerdiv
+	{
+		float: none;
+		width: auto;
+		margin: 0;
+	}
+	
+	#lowerHalf
+	{
+		float: none;
+		width: auto;
+		margin: 0;
+	}
+	
+	footer {
+	 float: none;
+		width: auto;
+		margin: 0;
+	  
+	}
+}
+
+    
+    
+    
+    
+    
+    
   </style>
 </head>
 
 <body>
 
-
+<div id="titleDiv">
 <h1 id = "title" style="font-size:55px; margin-top: 50px;font-family:black; color:white;text-align:center; padding-bottom:0px;">Which Christian Denomination Should I Choose?</h1>
-
 <p><a href="#" id = "button" style="text-decoration:none;margin: 10% 0 10% 0;text-align:center;border-style: solid;border-width: 5px; border-radius:25%; padding:10px;">CLICK TO SHOP FOR GOD</a></p>
-
 <p id = "prompt" style="text-align:center;color:white; padding:20px"></p>
-
-
 <div class="line-separator"></div>
+</div>
+
+
 
 <div id="containerDiv">
 <div id="div1" data-stellar-background-ratio="2">
@@ -98,10 +149,13 @@ float:left;
 </div>
 </div>
 </div>
+
 <div id = "spacerdiv"></div>
+
+<div id="lowerHalf">
 <h1 id = "name"style="margin-top: -70px;font-size:36px;color:white;text-align:center;" >Empty Shopping Cart</h1>
 <p><a href="data/church.txt" style="text-align:center">List of Christian Denominations</a></p>
-
+</div>
 </body>
 
 
