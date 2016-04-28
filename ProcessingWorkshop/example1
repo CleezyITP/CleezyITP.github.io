@@ -1,0 +1,25 @@
+
+
+<html>
+<head>
+
+<title>Screen Reader Coding Example #1</title>
+
+</head>
+
+
+<body>
+
+ <h1>your heading</h1>
+ 
+<button>name your button</button>
+
+<text>add text</text>
+
+<a href="add url">Link</a>
+
+</body>
+
+</html>
+
+
