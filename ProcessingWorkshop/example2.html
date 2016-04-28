@@ -1,0 +1,60 @@
+
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Screen Reader Coding (example2)</title>
+
+ </head>
+<script type="text/javascript">
+ var time = 0;
+ var greeting= 0;
+ function onClick() {
+time += 1;
+        
+ document.getElementById("clicks").innerHTML = time;
+
+if (time > 1 && time < 3) {
+
+greeting = "what do you want?";
+document.getElementById("clicks").setAttribute("aria-live", "assertive");
+document.getElementById("greeting").innerHTML = greeting;
+document.getElementById("greeting").setAttribute("aria-live", "polite");
+
+
+} 
+else if (time >5 && time < 10) {
+greeting = "that's annoying";
+document.getElementById("clicks").setAttribute("aria-live", "off");
+document.getElementById("greeting").innerHTML = greeting;
+document.getElementById("greeting").setAttribute("aria-live", "assertive");
+
+
+
+} else if (time >11 ) {
+document.getElementById("greeting").innerHTML = greeting;
+greeting = "arrrgh!";
+document.getElementById("greeting").setAttribute("role", "alert");
+
+} 
+
+
+
+    };
+    
+   
+ </script>
+
+<body>
+<p>Number of clicks: <a id="clicks" aria-live="off">0</a></p>
+<text id="time"> </text>
+ <button type="button" onClick="onClick()">click me repeatedly</button>
+ <text id="greeting" aria-live="off" role=""> </text>
+
+    
+
+</body>
+
+</html>
+
+
