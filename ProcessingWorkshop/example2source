@@ -1,3 +1,5 @@
+
+
 <html>
 <head>
   <meta charset="UTF-8">
@@ -5,31 +7,31 @@
 
  </head>
 <script type="text/javascript">
- var time = 0;
+ var counterJavaScript = 0;
  var greeting= 0;
  function onClick() {
-time += 1;
+counterJavaScript += 1;
         
- document.getElementById("clicks").innerHTML = time;
+ document.getElementById("counterJavaScriptHTML").innerHTML = counterJavaScript;
 
-if (time > 1 && time < 3) {
+if (counterJavaScript > 1 && counterJavaScript < 3) {
 
 greeting = "what do you want?";
-document.getElementById("clicks").setAttribute("aria-live", "assertive");
+document.getElementById("counterJavaScriptHTML").setAttribute("aria-live", "assertive");
 document.getElementById("greeting").innerHTML = greeting;
 document.getElementById("greeting").setAttribute("aria-live", "polite");
 
 
 } 
-else if (time >5 && time < 10) {
+else if (counterJavaScript >5 && counterJavaScript < 10) {
 greeting = "that's annoying";
-document.getElementById("clicks").setAttribute("aria-live", "off");
+document.getElementById("counterJavaScriptHTML").setAttribute("aria-live", "off");
 document.getElementById("greeting").innerHTML = greeting;
 document.getElementById("greeting").setAttribute("aria-live", "assertive");
 
 
 
-} else if (time >11 ) {
+} else if (counterJavaScript >11 ) {
 document.getElementById("greeting").innerHTML = greeting;
 greeting = "arrrgh!";
 document.getElementById("greeting").setAttribute("role", "alert");
@@ -44,15 +46,18 @@ document.getElementById("greeting").setAttribute("role", "alert");
  </script>
 
 <body>
-<p>Number of clicks: <a id="clicks" aria-live="off">0</a></p>
-<text id="time"> </text>
+<p>Number of counterJavaScriptHTML: <a id="counterJavaScriptHTML" aria-live="off">0</a></p>
+<text id="counterJavaScript"> </text>
  <button type="button" onClick="onClick()">click me repeatedly</button>
  <text id="greeting" aria-live="off" role=""> </text>
 <br>
 <br>
- <a href="http://cleezyitp.github.io/ProcessingWorkshop/example2Source.html">access code</a>
+ <a href="https://raw.githubusercontent.com/CleezyITP/CleezyITP.github.io/master/ProcessingWorkshop/example2source">access code</a>
 
     
+
 </body>
 
 </html>
+
+
