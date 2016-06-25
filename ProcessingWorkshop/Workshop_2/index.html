@@ -1,0 +1,233 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ScreenReader Coding Workshop</title>
+
+  <style type="text/css">
+  body
+{
+    font-family: Helvetica, Sans-Serif;
+    color: #444444;
+    font-size: 9pt;
+    background-color: #FAFAFA;
+    margin: 50px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1 align="center">ScreenReader Coding Workshop</h1>
+
+<h1>Topics covered</h1>
+        <span>
+                <ul> 
+                <li>General Intro</li>
+                <li>Symbols and Syntax (intro to html)</li>
+                <li>Visual conventions and styling (intro to CSS)</li>
+                <li>Variables</li>
+                <li>Functions</li>
+                <li>Procedures and Generalization</li>
+                <li>Discussion</li>
+                </ul>
+        </span>
+
+<h1>General Intro</h1>
+<span>WiFi Access: (username) guest1 (password) cthliequ</span>
+<span>Helpers: Claire, Nikita, Atul and Taeyoon</span>
+
+<p> Today we are going to continue our introduction to coding concepts and use the notepad text editor to try out some code examples.</p>
+
+<p> Again, we will follow-up with a discussion of p5 editor prototype.</p>
+
+
+<p></p>
+
+<p> Let's begin by introducing ourselves</p>
+
+
+
+<h1>Symbols and Syntax (repeat from last time)</h1>
+
+        <strong><h2>Punctuation</h2></strong>
+
+                <p>Important punctuation symbols</p>
+                
+
+                <ol>
+                    <li>In HTML,"< >" angled brackets or tags contain element types. For example, header level one or h1 tags are opened using <"element type"> and closed using < /"element type" ></li>
+                        
+                        The above mentioned punctuations require left and right symbols to be complete. Forgetting the right or "closing" symbol is one of the most common mistakes that coders make and the # cause of headaches in the United States.  
+
+                        <li>"," commas separate numbers from each other.</li>
+                        <li>";" semi-colons separate parts of code that need to be identified as complete orders or "thoughts". Like a period in written human language</li>
+                </ol>
+
+<strong><h2>Activity:</h2></strong>
+*****
+
+
+<strong><h2>HTML</h2></strong>
+
+                <p>HTML Elements/Tags</p>
+                
+
+                <ol>
+                    	<li>Again,angled brackets (<strong>"< >"</strong>) contain element types or tags in HTML and they should always start with <"element type">, followed by your content and end with <"forward slash element type"></li>
+                    	<li>The <strong>head</strong> tag can contain the document's style, title, meta information and links to accompanying information (separate code folders or libraries). Head tags are written as <"head"> your content <"forward slash head"></li>
+                        <li>The <strong>body</strong> tag defines the document's body. The body element contains all the contents of an HTML document, such as text, hyperlinks, images, tables, lists, etc. It is written as <"body" > and closed using < forward slash body ></li>
+                        <li>The content of a <strong>heading</strong> level one or h1 is contained in <strong><"h1" ></strong> and closed using <strong>< forward slash "h1" ></strong> whatever you write in between is displayed on the screen and read by your screen reader as a higher order heading</li>
+                        <li>The content of a heading level two to six or <strong>h2-h6</strong> is displayed on the screen in descending size and read by your screen reader in descending order</li>
+                        <li>The <strong><"div"></strong> tag defines a division or a section in an HTML document. The <strong><"div"></strong>tag is used to group block-elements to format them with CSS.</li>
+                        <li>The <strong><"p"></strong> tag allows you to insert a paragraph of text into a page. It is written as < p>your content< forward slash p>" (without spaces)</li>
+                        <li>The <strong><"text"></strong> tag allows you to insert a text into a page without the spacing between as in the paragraph tag. It is written as "< text>your content< /text>" (without spaces)</li>
+                        <li> <strong>links</strong> on a page are produced using the <"a"> tag. They are written as "< a "space" href="your link in quotations"> text to be displayed< /a>" (without spaces)</li>
+						<li>The <strong><"button"></strong> tag defines a clickable button.
+						Inside a <strong><"button"></strong> element you can put content, like text or images.</li>
+                        <li>The <strong><"nav"></strong> tag defines a set of navigation links.The <strong><"nav"></strong> element is intended only for major block of navigation links.
+						Screen readers, can use this element to determine whether to omit the initial rendering of this content.</li>
+						<li>The <strong><"form"></strong> tag is used to create an HTML form for user input.
+						The <strong><"form"></strong> element can contain one or more of the following form elements:
+						<"input">
+						<"textarea">
+						<"button">
+						<"select">
+						<"option">
+						<"optgroup">
+						<"fieldset">
+						<"label">
+						</li>
+				</ol>
+
+Find a complete <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element"> list of HTML tags </a>
+
+<strong><h2>Activities:</h2></strong>
+<ol>
+<li>go to the file open in the application Notepad++ and run it by using the keyboard short cut "ctrl+alt+shift+r"</li>
+<li>copy the html at the link provided below, open in Notepad++ and edit the elements. 
+<a href="">link to code example</a></li>
+
+
+<h1>Variables</h1>
+
+
+    <p>As we have mentioned before, CSS is a language for specifying how documents are presented to users — how they are styled, laid out, etc.<br><br>
+
+    A document is usually a text file structured using a markup language — HTML is the most common markup language, but you will also come across other markup languages such as SVG or XML.<br><br>
+
+    Presenting a document to a user means converting it into a usable form for your audience. Browsers, like Firefox, Chrome or Internet Explorer, are designed to present documents visually, for example, on a computer screen, projector or printer.<br><br>
+
+    How does CSS affect HTML?
+Web browsers apply CSS rules to a document to affect how they are displayed. A CSS rule is formed from:<br>
+
+A set of properties, which have values set to update how the HTML content is displayed, for example I want my element's width to be 50% of its parent element, and its background to be red.<br><br>
+A selector, which selects the element(s) you want to apply the updated property values to. For example, I want to apply my CSS rule to all the paragraphs in my HTML document.
+A set of CSS rules contained within a stylesheet determines how a webpage should look. You will learn a lot more about what CSS syntax looks like in the next article of the module — CSS Syntax.<br><br>
+
+<strong><h2>Activity:</h2></strong>
+
+Let's take a simple HTML document, containing an <h1> and a <p> (notice that a stylesheet is applied to the HTML using a <link> element):
+
+
+
+</p>
+
+
+
+<h1>Coding as instruction set</h1>
+
+pseudo code
+
+psuedo code is not actually code
+pseudo code is a rehearsal
+psuedo code helps you understand how to
+
+help you structure your actual code
+
+
+<h1>ReIntroduction to Algorithms</h1>
+
+<p>Code and algorithms are just a set of instructions we give to computers to complete a task. Computers need to be told exactly what to do before they can do anything. </p>
+
+<h1>Javascript</h1>
+
+<p>What happens when we want to interact with a website? We need Javascript! Javascript is the most popular coding language in the world. We use it to change HTML element content (innerHTML), attributes as well as collect, manipulate and validate data.</p>
+
+
+<ul>
+<li>In javascript, "{}" curly braces are like a fence that protects the statements that live inside.</li>
+<li>In javascript, "()" left paren, right paren - parentheses contain parameters for the statements.</li>
+
+</ul>
+
+<h1>Variables</h1>
+
+
+vars
+
+variables come in many types, but are all
+
+declared in the same way:
+
+var message = “Hello”
+
+var collectionOfMessage = [“hi”, “goodbye”,
+
+“nice to meet you”]
+
+
+
+
+<p>Variables are simply placeholders for data and meant to change with our interactions and other variables. Variables are like a big bucket with a name on it. You can put anything you want in that bucket, but the name stays the same. In this way, we change the value of the variable but not the name of it.</p>
+
+<p>In Javascript, we first declare our variable name and its original value. We write var name; We then initialize it by giving it a value. We write var name=any number, or string of text in qutations; After you delare and initialize your variable, you can call upon it a number of times and reassign its value. In our First example, we will have a counter variable that starts at zero, but adds 1 everytime a button is pressed. 
+
+Global Variables − A global variable has global scope which means it can be defined anywhere in your JavaScript code.
+
+Local Variables − A local variable will be visible only within a function where it is defined. Function parameters are always local to that function.
+
+<h1>Functions</h1>
+
+<p> Like when we had to perform several sub tasks in order to tie our shoes, a function is a "subprogram" that can be called by code. Like the whole program itself, a function is composed of a sequence of statements. Values can be passed to a function, and the function will return a value. </p>
+
+<h1>Procedures and Generalizations</h1>
+
+
+        <p>Operators can be very useful for coding complex behaviors. Common relational and operators include:</p>
+                
+        <strong><text>Relational:</text></strong>
+
+        <ul>
+        <li>The greater than symbol = > </li>
+                <li>The less than symbol = <  </li>
+                </ul>
+
+                <strong><text>Assignment:</text></strong>
+
+       <ul><li>The equal symbol assigns something as = </li></ul>
+        <strong><h2>Activity:</h2></strong>
+        lesson and activity adapted from Taeyoon Choi
+
+                <p>The goal of generalizations is to make a solution for one problem usable for a larger class of related problems. This is the ultimate in code reuse: build it once and use it over and over again. As long as the generalization is done correctly, there is no danger of it failing, though there is always the possibility of not taking it far enough.</p>
+
+        <strong><h2>Activity:</h2></strong>
+
+        <a href="http://cleezyitp.github.io/ProcessingWorkshop/example2.html">Example2</a>
+
+<h1>Discussion</h1>
+
+<ul>
+<li>What are your thoughts about the workshop in general?</li>
+<li>What did you think about the games and tactile tools?</li>
+<li>Were they useful?</li>
+<li>How about the main document?</li>
+<li>Was the content clear? Why?/Why not?</li>
+<li>What can we do differently next time?</li>
+<li>Regarding the processing redesign, what would you like to be different?</li>
+</ul>
+
+
+
+</body>
+</html>
