@@ -1,7 +1,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>ScreenReader Coding Workshop</title>
+  <title>ScreenReader Coding Workshop 2</title>
 
   <style type="text/css">
   body
@@ -24,8 +24,8 @@
         <span>
                 <ul> 
                 <li>General Intro</li>
-                <li>Symbols and Syntax (intro to html)</li>
-                <li>Visual conventions and styling (intro to CSS)</li>
+                <li>HTML</li>
+                <li>Visual conventions and CSS</li>
                 <li>Variables</li>
                 <li>Functions</li>
                 <li>Procedures and Generalization</li>
@@ -42,13 +42,15 @@
 <p> Again, we will follow-up with a discussion of p5 editor prototype.</p>
 
 
-<p></p>
+<p>We are doing some web development basics here. We will cover basic HTML, CSS and Javascript. HTML (Hyper Text Markup Language) is the content of a web page, CSS (Cascading Style Sheets) is the visual styling and Javascript handles interaction</p>
 
-<p> Let's begin by introducing ourselves</p>
+<p> Let's begin by introducing ourselves!</p>
 
 
 
-<h1>Symbols and Syntax (repeat from last time)</h1>
+<h1>HTML</h1>
+
+<text>HTML (“HyperText Markup Language”) is a language to describe the contents of web documents. It uses a special syntax containing markers (called “elements”) which are wrapped around the text within the document to indicate how user agents (eg. web browsers) should interpret that portion of the document.</text>
 
         <strong><h2>Punctuation</h2></strong>
 
@@ -64,13 +66,39 @@
                         <li>";" semi-colons separate parts of code that need to be identified as complete orders or "thoughts". Like a period in written human language</li>
                 </ol>
 
-<strong><h2>Activity:</h2></strong>
-*****
+
+<strong><h2>Activity 1:</h2></strong>
+<ol><text>Let's write out some html together. Go to the file open in the application Notepad++ and run it by using the keyboard short cut "ctrl+alt+shift+r"</text>
+
+<li> try:
+<br>
+<br>
+< !DOCTYPE html><br>
+< html><br>
+< head><br>
+< meta charset="UTF-8"><br>
+< title>title</title><br>
+< /head><br>
+< body><br>
+  
+< /body><br>
+< /html><br>
+<br>
+<br>
+IMPORTANT:no spaces after < 
+<br><br>
+</li>
 
 
-<strong><h2>HTML</h2></strong>
+<li>Try to save it to a new file on your desktop as index.html. Run it and try to break it by leaving out punctuation. </li>
 
-                <p>HTML Elements/Tags</p>
+<a href="">link to code activity 1</a></li>
+</ol>
+
+
+<strong><h2>HTML Tags and Elements</h2></strong>
+
+                <p>these are the meat and potatos of web content (sorry to any vegetarians)</p>
                 
 
                 <ol>
@@ -105,25 +133,52 @@ Find a complete <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Eleme
 <strong><h2>Activities:</h2></strong>
 <ol>
 <li>go to the file open in the application Notepad++ and run it by using the keyboard short cut "ctrl+alt+shift+r"</li>
-<li>copy the html at the link provided below, open in Notepad++ and edit the elements. 
-<a href="">link to code example</a></li>
+<li>Make <br> 
+a) a < !DOCTYPE html> tag <br>
+b) html tags<br>
+c) within the html tags, make head tags<br>
+d) body tags<br>
+e) within the body, make a div <br>
+f) within the div, make a heading <br>
+g) make a paragraph tag to introduce your site <br>
+h) make a link to your favorite song<br>
+
+<a href="">link to code example 2</a></li>
+
+</ol>
 
 
-<h1>Variables</h1>
+<strong><h2>HTML Attributes</h2></strong>
+
+<text>Attributes provide additional information about an element and allow us to target them specifically and manipulate them. They are always specified in the start tag and come in name/value pairs like: name="value"<text>
+
+<br>
+<br>
+<p>ID</p>
+<text> IDs are unique and each element can only have one ID. Each page can have only one element with that ID</text>
+
+<p>Class</p>
+<text> classes are not unique and you can use the same one on multiple elements. You can also use multiple classes on the same element.</text>
 
 
-    <p>As we have mentioned before, CSS is a language for specifying how documents are presented to users — how they are styled, laid out, etc.<br><br>
+<h1>Visual conventions and CSS</h1>
 
-    A document is usually a text file structured using a markup language — HTML is the most common markup language, but you will also come across other markup languages such as SVG or XML.<br><br>
+    <p>Parent and Child Elements</p>
 
-    Presenting a document to a user means converting it into a usable form for your audience. Browsers, like Firefox, Chrome or Internet Explorer, are designed to present documents visually, for example, on a computer screen, projector or printer.<br><br>
+    <text>Elements that begin and contain other elements are parents to those elements. Elements that are contained within another are it's children. <br><br>
 
-    How does CSS affect HTML?
-Web browsers apply CSS rules to a document to affect how they are displayed. A CSS rule is formed from:<br>
+    The convention is to create an indent or "tab" when creating child elements
 
-A set of properties, which have values set to update how the HTML content is displayed, for example I want my element's width to be 50% of its parent element, and its background to be red.<br><br>
-A selector, which selects the element(s) you want to apply the updated property values to. For example, I want to apply my CSS rule to all the paragraphs in my HTML document.
-A set of CSS rules contained within a stylesheet determines how a webpage should look. You will learn a lot more about what CSS syntax looks like in the next article of the module — CSS Syntax.<br><br>
+    </text>
+
+    <p>CSS is a language for specifying how documents are visually presented to users — how they are styled, laid out, etc.<br><br>
+
+    CSS is a set of rules that are applied to html to affect how they are displayed. 
+
+    Basically, you can assign values to change how the HTML looks. For example, you can set an element's width to be 50% of its "parent element", and its background to be red.<br><br>
+
+    A selector, which selects the element(s) you want to apply the updated property values to. For example, I want to apply my CSS rule to all the paragraphs in my HTML document.
+    A set of CSS rules contained within a stylesheet determines how a webpage should look.<br><br>
 
 <strong><h2>Activity:</h2></strong>
 
@@ -137,14 +192,15 @@ Let's take a simple HTML document, containing an <h1> and a <p> (notice that a s
 
 <h1>Coding as instruction set</h1>
 
-pseudo code
+<p>pseudo code
+
 
 psuedo code is not actually code
 pseudo code is a rehearsal
 psuedo code helps you understand how to
 
 help you structure your actual code
-
+</p>
 
 <h1>ReIntroduction to Algorithms</h1>
 
