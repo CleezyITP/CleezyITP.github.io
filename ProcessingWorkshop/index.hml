@@ -1,0 +1,30 @@
+Now that we have explored and mastered the use of headers, links and paragraph text...Let's make a table!!!
+Tables are started with <table> (opening tag) and finished with </table>
+Table row tags define the number of rows and columns in a table they start with <tr> and are finished with </tr> tags
+You create headings for your table by starting with the <th> tag, adding your heading name and ending with </th>
+The cells of your table and the contents within them are defined using the table data tags. <td> to start, table cell content in the middle and finished with </td>
+Here's an example that you can copy/paste and run in any text editor
+
+<p>Your Table's Name</p>
+
+<table>
+
+<tr>
+    <th>your table heading</th>
+    <th>your table heading</th>
+    <th>your table heading</th>
+    <th>your table heading</th>
+  </tr>
+  <tr>
+    <td>your table data</td>
+    <td>your table data</td>
+    <td>your table data</td>
+    <td>your table data</td>
+  </tr>
+  <tr>
+    <td>your table data</td>
+    <td>your table data</td>
+    <td>your table data</td>
+    <td>your table data</td>
+  </tr>
+</table>

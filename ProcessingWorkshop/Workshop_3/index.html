@@ -1,7 +1,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>ScreenReader Coding Workshop #2</title>
+  <title>ScreenReader Coding Workshop #3</title>
 
   <style type="text/css">
   
@@ -23,14 +23,17 @@
 
 <body>
 
-<h1 align="center">ScreenReader Coding Workshop 2</h1>
+<h1 align="center">ScreenReader Coding Workshop 3</h1>
+
 
 <h1>Topics covered</h1>
         <span>
                 <ul> 
-                <li>General Intro</li>
-                <li>HTML</li>
-                <li>Visual conventions and CSS</li>
+                <li>Intro</li>
+                <li>Github and PODE Intro</li>
+                <li>HTML Continued</li>
+                <li>CSS</li>
+                <li>BREAK!</li>
                 <li>Variables</li>
                 <li>Functions</li>
                 <li>Procedures and Generalization</li>
@@ -38,92 +41,110 @@
                 </ul>
         </span>
 
-<h1>General Intro</h1>
-<span>WiFi Access: (username) guest1 (password) cthliequ</span>
-<span>Helpers: Atul, Taeyoon and Claire</span>
+<strong><h2>Intro</h2></strong>
+
+<span>WiFi Access: (username) ________ (password) _________</span>
+<span>Helpers: Elite, Atul, Meina, Matt and Claire</span>
 
 <p> Today we are going to continue our introduction to coding concepts and use the notepad text editor to try out some code examples.</p>
 
-<p> Again, we will follow-up with a discussion of p5 editor prototype.</p>
+<p> Again, we will follow-up with a discussion of the p5 editor prototype.</p>
 
 
 <p>We are doing some web development basics here. We will cover basic HTML, CSS and Javascript. HTML (Hyper Text Markup Language) is the content of a web page, CSS (Cascading Style Sheets) is the visual styling and Javascript handles interaction</p>
 
-<p> Let's begin by introducing ourselves!</p>
+<p> Let's introduce ourselves!</p>
 
 
 
-<h1>HTML</h1>
+<strong><h2>Github and PODE Intro</h2></strong>
 
-<text>HTML (“HyperText Markup Language”) is a language to describe the contents of web documents. It uses a special syntax containing markers (called “elements”) which are wrapped around the text within the document to indicate how user agents (eg. web browsers) should interpret that portion of the document.</text>
+<a href="https://pode.herokuapp.com/"> PODE Editor </a><br>
 
-        <strong><h2>Punctuation</h2></strong>
+<a href="https://github.com/join?source=header-home"> Github </a>
 
-                <p>Important punctuation symbols</p>
-                
+<strong><h2>HTML Continued...</h2></strong>
+
+<p>Homework Followup:<br><br>
+
+Now that we have explored and mastered the use of headers, links and paragraph text...Let's make a table!!!<br>
+<ul>
+<li>Tables are started with &lt;table> (opening tag) and finished with &lt;/table></li>
+<li>Table row tags define the number of rows and columns in a table they start with &lt;tr> and are finished with &lt;/tr> tags</li>
+<li>You create headings for your table by starting with the &lt;th> tag, adding your heading name and ending with &lt;/th>&gt;</li>
+<li>The cells of your table and the contents within them are defined using the table data tags. &lt;td>&gt; to start, table cell content in the middle and finished with &lt;/td>&gt;</li>
+</ul>
+
+
+Here's an example that you can copy/paste and run in any text editor<br>
+<br>
+
+in code:<br><br>
+
+
+&lt;p>Your Table's Name</p>
+
+
+&lt;table><br>
+
+ <br>
+
+&lt;tr>
+   &lt;th>heading 1&lt;/th><br>
+   &lt;th>heading 2&lt;/th><br>
+   &lt;th>heading 3&lt;/th><br>
+    &lt;th>heading 4&lt;/th><br>
+ &lt;/tr><br>
+ &lt;tr><br>
+    &lt;td>data 1&lt;/td><br>
+    &lt;td>data 2&lt;/td><br>
+    &lt;td>data 3&lt;/td><br>
+    &lt;td>data 4&lt;/td><br>
+  &lt;/tr><br>
+  &lt;tr><br>
+    &lt;td>data 5&lt;/td><br>
+    &lt;td>data 6&lt;/td><br>
+    &lt;td>data 7&lt;/td><br>
+    &lt;td>data 8&lt;/td><br>
+  &lt;/tr><br>
+  &lt;/table><br>
+<br>
+<br>
+on the page:<br>
+<br>
+<table>
+
+<tr>
+    <th>heading 1</th>
+    <th>heading 2</th>
+    <th>heading 3</th>
+    <th>heading 4</th>
+  </tr>
+  <tr>
+    <td>data 1</td>
+    <td>data 2</td>
+    <td>data 3</td>
+    <td>data 4</td>
+  </tr>
+  <tr>
+    <td>data 5</td>
+    <td>data 6</td>
+    <td>data 7</td>
+    <td>data 8</td>
+  </tr>
+</table>
+
+<section role="contentinfo" aria-label="review of html">
+<strong><h2>Review of HTML Tags and Elements (skip this section to start activity) </h2></strong>               
 
                 <ol>
-                    <li>In HTML,"< >" angled brackets or tags contain element types. element tags are opened using <"element type"> and closed using < /"element type" >
-
-
-
-                    </li>
-
-                     <li>For example, header level one or h1 tags are opened using &lt;h1&gt; and closed using &lt;/h1&gt;
-
-
-
-                    </li>
-
-
-
-                    &lt;  &gt;
-                        
-                        The above mentioned punctuations require left and right symbols to be complete. Forgetting the right or "closing" symbol is one of the most common mistakes that coders make and the # cause of headaches in the United States.  
-
-                        <li>"," commas separate numbers from each other.</li>
-                        <li>";" semicolons separate parts of code that need to be identified as complete orders or "thoughts". Like a period in written human language</li>
-                </ol>
-
-
-<strong><h2>Activity 1:</h2></strong>
-<ol><text>Let's write out some html together. Go to the file open in the application Notepad++ and run it by using the keyboard shortcut "ctrl+alt+shift+r"</text>
-
-<li> try:
-<br>
-<br>
-&lt;!DOCTYPE html><br>
-&lt;html><br>
-&lt;head><br>
-&lt;meta charset="UTF-8"><br>
-&lt;title>title</ title><br>
-&lt;/head><br>
-&lt;body><br>
-  
-&lt;/body><br>
-&lt;/html><br>
-<br>
-<br>
-IMPORTANT:no spaces after < 
-<br><br>
-</li>
-
-
-<li>Try to save it to a new file on your desktop as index.html. Run it and try to break it by leaving out punctuation. </li>
-<br>
-<a href="https://raw.githubusercontent.com/CleezyITP/CleezyITP.github.io/master/ProcessingWorkshop/Workshop_2/example_1.html">Link to code activity 1</a></li>
-</ol>
-
-
-<strong><h2>HTML Tags and Elements</h2></strong>
-
-                <p>these are the meat and potatoes of web content (sorry to any vegetarians)</p>
-                
-
-                <ol>
-                        <li>Again,angled brackets (<strong>"< >"</strong>) contain element types or tags in HTML and they should always start with <"element type">, followed by your content and end with <"forward slash element type"></li>
+                        <li>Remember, angled brackets (<strong>"< >"</strong>) contain element types or tags in HTML and they should always start with <"element type">, followed by your content and end with <"forward slash element type"></li>
                         <li>The <strong>head</strong> tag can contain the document's style, title, meta information and links to accompanying information (separate code folders or libraries). Head tags are written as &lt;head> your content &lt;/head></li>
                         <li>The <strong>body</strong> tag defines the document's body. The body element contains all the contents of an HTML document, such as text, hyperlinks, images, tables, lists, etc. It is written as &lt;body> and closed using &lt;/body ></li>
+                        ***<li>The <strong><&lt;section></strong> element represents a generic section of a document or application. A section, in this context, is a thematic grouping of content, typically with a heading.<br>
+
+                        A Web site's home page could be split into sections for an introduction, news items, and contact information. The <strong>&lt;section></strong> element is intended only for major block of navigation links.
+                        Screen readers, can use this element to determine whether to omit the initial rendering of this content.</li>****
                         <li>The content of a <strong>heading</strong> level one or h1 is contained in <strong>&lt;h1></strong> and closed using <strong>&lt;/h1></strong> whatever you write in between is displayed on the screen and read by your screen reader as a higher order heading</li>
                         <li>The content of a heading level two to six or <strong>h2-h6</strong> is displayed on the screen in descending size and read by your screen reader in descending order</li>
                         <li>The <strong>&lt;div></strong> tag defines a division or a section in an HTML document. The <strong>&lt;div></strong>tag is used to group block-elements to format them with CSS.</li>
@@ -148,75 +169,30 @@ IMPORTANT:no spaces after <
                 </ol>
 
 Find a complete <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element"> list of HTML tags </a>
+</section>
 
+<section role="contentinfo" aria-label="Activity #1">
 <strong><h2>Activities:</h2></strong>
 <ol>
-<li>go to the file open in the application Notepad and run it by using the keyboard short cut "ctrl+alt+shift+r"</li>
+<li>go to PODE <a href="https://pode.herokuapp.com">(link to pode)</a></li>
+<li> start a new project by selecting link "create a new HTML page"</li>
 <li>Make <br> 
-a) a < !DOCTYPE html> tag <br>
-b) html tags<br>
-c) within the html tags, make head tags<br>
-d) body tags<br>
-e) within the body, make a div <br>
-f) within the div, make a heading <br>
-g) make a paragraph tag to introduce your site <br>
-h) make a link to your favorite song<br>
-
-<br>
-
-<a href="https://raw.githubusercontent.com/CleezyITP/CleezyITP.github.io/master/ProcessingWorkshop/Workshop_2/example_2.html">
-Link to Activity 2</a></li>
-
-</ol>
-
-
-<strong><h2>HTML Attributes</h2></strong>
-
-<text>Attributes provide additional information about an element and allow us to target them specifically and manipulate them. They are always specified in the start tag and come in name/value pairs like: name="value"<text>
-
-<br>
-<br>
-<u><p>ID</p></u>
-<text> IDs are unique and each element can only have one ID. Each page can have only one element with that ID</text>
-
-<br><text> example:
-
-&lt;p id="Claire"> text here &lt;/p>
-
-</text>
-
-<u><p>Class</p></u>
-<text> classes are not unique and you can use the same one on multiple elements. You can also use multiple classes on the same element.</text>
-
-<br><text> example:
-
-&lt;p id="Claire" class="NYU"> text here &lt;/p>
-&lt;p id="Atul" class="NYU"> text here &lt;/p>
-
-
-</text>
-
-<br><text> example:
-
-&lt;img src="h"> text here &lt;/p>
-
-</text>
-
-
-<h1>Visual conventions and CSS</h1>
-
-    <p>CSS is a language for specifying how documents are visually presented to users — how they are styled, laid out, etc.<br><br>
-
-    CSS is a set of rules that are applied to html to affect how they are displayed. 
-
-    Basically, you can assign values to change how the HTML looks. For example, you can set an element's width to be 50% of its "parent element", and its background to be red.<br><br>
-
-    e.g. 
+a) a website for a friend (business or personal site)<br>
+b) create a plan for what you want to include (nav, headings, images, styles) in comments (using &lt;!-- and -->)<br>
+c) include a title<br>
+d) start by making section tags within the body<br>
+&lt;section> &lt;/section> elements are used content inside is grouped (i.e. relates to a single theme)<br>
+e) label them with class attributes (&lt;section class="your class"> &lt;/section><br>
+f) for everything you do not know how to make use comments to identify where in the site you would like something to happen<br>
+g) Add some style your page!
+example: 
     
     IN-LINE: <br>
     &lt;p style="width:50%; background-color:red;"> paragraph text&lt;/p><br>
-    or, STYLE SHEET (linked to in the head tag)<br>
     
+    IN-HEAD:<br>
+    &lt;style type="text/css">
+
     p{<br>
     background-color:red;<br>
     }<br>
@@ -229,13 +205,12 @@ Link to Activity 2</a></li>
     background-color:red;<br>
     }<br>
 <br>
-
-
+    &lt;/style>
 <p> 
 
-a) command = "insert" + number line 5 when using JAWS will read the styling of elements when they are in focus will give forground and background color. <br><br>
+- command = "insert" + number line 5 when using JAWS will read the styling of elements when they are in focus will give forground and background color. <br><br>
 
-b) insert + f will read font-stule, size, justification, etc.
+- insert + f will read font-stule, size, justification, etc.
 
 </p>
     A selector, which selects the element(s) you want to apply the updated property values to. For example, you can apply CSS rules to <br>
@@ -246,32 +221,21 @@ b) insert + f will read font-stule, size, justification, etc.
         <li>The paragraphs with the class in my HTML document. </li>
     </ul>
 
-     <p>Parent and Child Elements</p>
 
-    <text>Elements that begin and contain other elements are parents to those elements. Elements that are contained within another are its children. <br><br>
-
-    The convention is to create an indent or "tab" when creating child elements
-
-    </text>
+h) ASK FOR HELP! </li>
 
 
+</ol>
 
+<p> let's spend about 45 minutes on this then break</p>
 
-<strong><h2>Activity:</h2></strong>
+<section role="contentinfo" aria-label="BREAK">
+<strong><h2>BREAK</h2></strong> 
+<p> Stretch, get a drink of water, etc.</p>
+</section>
 
-<text>Atul's Touchscreen prototype!</text><br>
-
-<a href="http://getbootstrap.com/css/">Bootstrap</a>
-<h1>Coding as instruction set</h1>
-
-<p>"pseudo code" is not actually code, but is a rehearsal that helps you understand how to operationalize and structure your actual code
-</p>
-
-<h1>ReIntroduction to Algorithms</h1>
-
-<p>Code and algorithms are just a set of instructions we give to computers to complete a task. Computers need to be told exactly what to do before they can do anything. </p>
-
-<h1>Javascript</h1>
+<section role="contentinfo" aria-label="javascript">
+<strong><h2>Javascript</h2></strong> 
 
 <p>What happens when we want to interact with a website? We need Javascript! Javascript is the most popular coding language in the world. We use it to change HTML element content (innerHTML), attributes as well as collect, manipulate and validate data.</p>
 
@@ -284,7 +248,7 @@ b) insert + f will read font-stule, size, justification, etc.
 
 <h1>Variables</h1>
 
-<text>variables come in many types, but are all declared in the same way:<br><br>
+<text>Are called variables because they change and are at the heart of many interactions. Variables come in many types, but are all declared in the same way:<br><br>
 
 a) var message = “Hello” <br>
 
@@ -327,9 +291,9 @@ Local Variables − A local variable will be visible only within a function wher
 Loops can execute a block of code as long as a specified condition is true. The while loop loops through a block of code as long as a specified condition is true.<br>
 </text>
 
-        <strong><h2>Activity:</h2></strong>
+        <strong><h2>Activity 2:</h2></strong>
 
-<!-- //hheuerhe -->
+
 &lt;script><br>
     var bottle=99;<br>
     var song=' ';<br>
@@ -341,20 +305,28 @@ Loops can execute a block of code as long as a specified condition is true. The 
 &lt;/script> <br>       
     
 
-<a href="https://raw.githubusercontent.com/CleezyITP/CleezyITP.github.io/master/ProcessingWorkshop/Workshop_2/example_3/example3.html">Link to Activity 3</a>
+<a href="https://raw.githubusercontent.com/CleezyITP/CleezyITP.github.io/master/ProcessingWorkshop/Workshop_2/example_3/example3.html">Link to Activity 2</a>
 
-<h1><a href="http://mathuramg.com/CodeMirrorTest/version1/">p5 test!</a></h1>
+
+
+<h1><a href="">p5 test!</a></h1>
 
 <ul>
-<li>Is the content readable by Voiceover or JAWS?</li>
-<li>Is it possible to bring the editor into focus?</li>
-<li>How is the feedback from the editor while typing? Are the letter read out?</li>
-<li>Are the line number read out?</li>
-<li>Currently, the autocomplete is turned on for brackets and parenthesis. Implying you type the left parenthesis and the right one is automatically typed in. Is that feature usable with screen readers?</li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
 </ul>
+
+
+</section>
+
 
 
 
 </body>
+
 </html>
+
 
