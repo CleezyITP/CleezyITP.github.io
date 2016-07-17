@@ -59,9 +59,28 @@
 
 <strong><h2>Github and PODE Intro</h2></strong>
 
-<a href="https://pode.herokuapp.com/"> PODE Editor </a><br>
+<p>PODE is an editor made for this workshop when we found that there don't seem to be any online code editors made with accessibility in mind, and there don't seem to be any good minimalistic code editors that work for both PC and Mac.</p>
 
-<a href="https://github.com/join?source=header-home"> Github </a>
+<p>We can always add new features to PODE and fix bugs so your feedback (good or bad) is very helpful!</p>
+
+<p>To access PODE you first need to <a href="https://github.com/join?source=header-home">sign up for Github </a> if you haven't already done so. GitHub should be accessible; a number of programmers who are vision impaired use it, and it is also the home of <a href="https://github.com/nvaccess/nvda">NVDA</a>, the free and open-source screen reader for Windows. It's also where coders from all over the world collaborate and share work with each other.</p>
+
+<p>
+  Once signed in to GitHub you can <a href="https://pode.herokuapp.com/">log in to the PODE Editor</a>.
+</p>
+
+<p>
+  Things to try in PODE:
+</p>
+
+<ol>
+  <li>Create a new HTML document
+  <li>View your new HTML document in a new tab/window
+  <li>Make a trivial edit to your HTML document, save your changes, and reload the other tab/window to see your changes take effect
+  <li>Try using the <kbd>Ctrl</kbd> + <kbd>H</kbd> key combination to get help on your current cursor position in the editor.
+</ol>
+
+</li>
 
 <strong><h2>HTML Continued...</h2></strong>
 
@@ -81,33 +100,30 @@ Here's an example that you can copy/paste and run in any text editor<br>
 
 in code:<br><br>
 
+<pre>
+&lt;p>Your Table's Name&lt;/p>
 
-&lt;p>Your Table's Name</p>
-
-
-&lt;table><br>
-
- <br>
-
+&lt;table>
 &lt;tr>
-   &lt;th>heading 1&lt;/th><br>
-   &lt;th>heading 2&lt;/th><br>
-   &lt;th>heading 3&lt;/th><br>
-    &lt;th>heading 4&lt;/th><br>
- &lt;/tr><br>
- &lt;tr><br>
-    &lt;td>data 1&lt;/td><br>
-    &lt;td>data 2&lt;/td><br>
-    &lt;td>data 3&lt;/td><br>
-    &lt;td>data 4&lt;/td><br>
-  &lt;/tr><br>
-  &lt;tr><br>
-    &lt;td>data 5&lt;/td><br>
-    &lt;td>data 6&lt;/td><br>
-    &lt;td>data 7&lt;/td><br>
-    &lt;td>data 8&lt;/td><br>
-  &lt;/tr><br>
-  &lt;/table><br>
+   &lt;th>heading 1&lt;/th>
+   &lt;th>heading 2&lt;/th>
+   &lt;th>heading 3&lt;/th>
+    &lt;th>heading 4&lt;/th>
+ &lt;/tr>
+ &lt;tr>
+    &lt;td>data 1&lt;/td>
+    &lt;td>data 2&lt;/td>
+    &lt;td>data 3&lt;/td>
+    &lt;td>data 4&lt;/td>
+  &lt;/tr>
+  &lt;tr>
+    &lt;td>data 5&lt;/td>
+    &lt;td>data 6&lt;/td>
+    &lt;td>data 7&lt;/td>
+    &lt;td>data 8&lt;/td>
+  &lt;/tr>
+  &lt;/table>
+</pre>
 <br>
 <br>
 on the page:<br>
@@ -176,53 +192,58 @@ Find a complete <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Eleme
 <ol>
 <li>go to PODE <a href="https://pode.herokuapp.com">(link to pode)</a></li>
 <li> start a new project by selecting link "create a new HTML page"</li>
-<li>Make <br> 
-a) a website for a friend (business or personal site)<br>
-b) create a plan for what you want to include (nav, headings, images, styles) in comments (using &lt;!-- and -->)<br>
-c) include a title<br>
-d) start by making section tags within the body<br>
-&lt;section> &lt;/section> elements are used content inside is grouped (i.e. relates to a single theme)<br>
-e) label them with class attributes (&lt;section class="your class"> &lt;/section><br>
-f) for everything you do not know how to make use comments to identify where in the site you would like something to happen<br>
-g) Add some style your page!
-example: 
+<li>Make
+<ol style="list-style-type: lower-alpha">
+  <li>a website for a friend (business or personal site)
+  <li>create a plan for what you want to include (nav, headings, images, styles) in comments (using &lt;!-- and -->)
+  <li>include a title
+  <li>start by making section tags within the body. <code>&lt;section> &lt;/section></code> elements are used content inside is grouped (i.e. relates to a single theme)
+  <li>label them with class attributes (<code>&lt;section class="your class"> &lt;/section></code>)
+  <li>for everything you do not know how to make use comments to identify where in the site you would like something to happen
+  <li>Add some style your page!
     
-    IN-LINE: <br>
-    &lt;p style="width:50%; background-color:red;"> paragraph text&lt;/p><br>
-    
-    IN-HEAD:<br>
-    &lt;style type="text/css">
+    <p>IN-LINE example:</p>
 
-    p{<br>
-    background-color:red;<br>
-    }<br>
-<br>
-    #Claire{<br>
-    background-color:red;<br>
-    }<br>
-<br>
-    .NYU{<br>
-    background-color:red;<br>
-    }<br>
-<br>
+    <pre>
+    &lt;p style="width:50%; background-color:red;"> paragraph text&lt;/p>
+    </pre>
+    
+    <p>IN-HEAD example:</p>
+
+    <pre>
+    &lt;style>
+    p {
+    background-color:red;
+    }
+
+    #Claire {
+    background-color:red;
+    }
+
+    .NYU {
+    background-color:red;
+    }
     &lt;/style>
-<p> 
+    </pre>
 
-- command = "insert" + number line 5 when using JAWS will read the styling of elements when they are in focus will give forground and background color. <br><br>
+<p>JAWS tips:</p>
+<ul>
+<li>command = "insert" + number line 5 when using JAWS will read the styling of elements when they are in focus will give forground and background color.
+<li>insert + f will read font-stule, size, justification, etc.
+</ul>
 
-- insert + f will read font-stule, size, justification, etc.
-
+<p>
+    A selector selects the element(s) you want to apply the updated property values to. For example, you can apply CSS rules to:
 </p>
-    A selector, which selects the element(s) you want to apply the updated property values to. For example, you can apply CSS rules to <br>
-    </p>
     <ul>
         <li>All the paragraphs in my HTML document. </li>
         <li>All the paragraphs with the class in my HTML document. </li>
         <li>The paragraphs with the class in my HTML document. </li>
     </ul>
 
-
-h) ASK FOR HELP! </li>
+</li>
+<li>ASK FOR HELP! </li>
+</ol>
 
 
 </ol>
@@ -248,14 +269,12 @@ h) ASK FOR HELP! </li>
 
 <h1>Variables</h1>
 
-<text>Are called variables because they change and are at the heart of many interactions. Variables come in many types, but are all declared in the same way:<br><br>
+<p>Are called variables because they change and are at the heart of many interactions. Variables come in many types, but are all declared in the same way:</p>
 
-a) var message = “Hello” <br>
-
-b) var collectionOfMessage = [“hi”, “goodbye”,“nice to meet you”]
-
-</text>
-
+<ol style="list-style-type: lower-alpha">
+<li><code>var message = “Hello”</code>
+<li><code>var collectionOfMessage = [“hi”, “goodbye”,“nice to meet you”]</code>
+</ol>
 
 <p>Variables are simply placeholders for data and meant to change with our interactions and other variables. Variables are like a big bucket with a name on it. You can put anything you want in that bucket, but the name stays the same. In this way, we change the value of the variable but not the name of it.</p>
 
@@ -274,35 +293,37 @@ Local Variables − A local variable will be visible only within a function wher
 
         <p>Operators can be very useful for coding complex behaviors. Common relational and operators include:</p>
                 
-        <strong><text>Relational:</text></strong>
+        <strong>Relational:</strong>
 
         <ul>
         <li>The greater than symbol = > </li>
                 <li>The less than symbol = <  </li>
                 </ul>
 
-                <strong><text>Assignment:</text></strong>
+                <strong>Assignment:</strong>
 
        <ul><li>The equal symbol assigns something as = </li></ul>
 
 <strong><h2>while loops</h2></strong>
 
-<text> what happens when we want to do the same thing over and over again?<br>
-Loops can execute a block of code as long as a specified condition is true. The while loop loops through a block of code as long as a specified condition is true.<br>
-</text>
+<p> what happens when we want to do the same thing over and over again?</p>
+
+<p>Loops can execute a block of code as long as a specified condition is true. The while loop loops through a block of code as long as a specified condition is true.</p>
 
         <strong><h2>Activity 2:</h2></strong>
 
-
-&lt;script><br>
-    var bottle=99;<br>
-    var song=' ';<br>
-    while (bottle>0){<br>
-        song = song + bottle + "bottles of beer on the wall";<br>
-        bottle--;<br>
-    }<br>
-    document.write(song);<br>
-&lt;/script> <br>       
+<pre>
+&lt;script src="https://cleezyitp.github.io/ProcessingWorkshop/errorHelper.js">&lt;/script>
+&lt;script>
+    var bottle=99;
+    var song=' ';
+    while (bottle>0){
+        song = song + bottle + "bottles of beer on the wall";
+        bottle--;
+    }
+    document.write(song);
+&lt;/script>
+</pre>
     
 
 <a href="https://raw.githubusercontent.com/CleezyITP/CleezyITP.github.io/master/ProcessingWorkshop/Workshop_2/example_3/example3.html">Link to Activity 2</a>
