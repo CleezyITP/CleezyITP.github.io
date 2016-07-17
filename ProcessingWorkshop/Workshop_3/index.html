@@ -81,33 +81,30 @@ Here's an example that you can copy/paste and run in any text editor<br>
 
 in code:<br><br>
 
+<pre>
+&lt;p>Your Table's Name&lt;/p>
 
-&lt;p>Your Table's Name</p>
-
-
-&lt;table><br>
-
- <br>
-
+&lt;table>
 &lt;tr>
-   &lt;th>heading 1&lt;/th><br>
-   &lt;th>heading 2&lt;/th><br>
-   &lt;th>heading 3&lt;/th><br>
-    &lt;th>heading 4&lt;/th><br>
- &lt;/tr><br>
- &lt;tr><br>
-    &lt;td>data 1&lt;/td><br>
-    &lt;td>data 2&lt;/td><br>
-    &lt;td>data 3&lt;/td><br>
-    &lt;td>data 4&lt;/td><br>
-  &lt;/tr><br>
-  &lt;tr><br>
-    &lt;td>data 5&lt;/td><br>
-    &lt;td>data 6&lt;/td><br>
-    &lt;td>data 7&lt;/td><br>
-    &lt;td>data 8&lt;/td><br>
-  &lt;/tr><br>
-  &lt;/table><br>
+   &lt;th>heading 1&lt;/th>
+   &lt;th>heading 2&lt;/th>
+   &lt;th>heading 3&lt;/th>
+    &lt;th>heading 4&lt;/th>
+ &lt;/tr>
+ &lt;tr>
+    &lt;td>data 1&lt;/td>
+    &lt;td>data 2&lt;/td>
+    &lt;td>data 3&lt;/td>
+    &lt;td>data 4&lt;/td>
+  &lt;/tr>
+  &lt;tr>
+    &lt;td>data 5&lt;/td>
+    &lt;td>data 6&lt;/td>
+    &lt;td>data 7&lt;/td>
+    &lt;td>data 8&lt;/td>
+  &lt;/tr>
+  &lt;/table>
+</pre>
 <br>
 <br>
 on the page:<br>
@@ -187,25 +184,27 @@ f) for everything you do not know how to make use comments to identify where in 
 g) Add some style your page!
 example: 
     
-    IN-LINE: <br>
-    &lt;p style="width:50%; background-color:red;"> paragraph text&lt;/p><br>
+    IN-LINE:
+    <pre>
+    &lt;p style="width:50%; background-color:red;"> paragraph text&lt;/p>
+    </pre>
     
-    IN-HEAD:<br>
-    &lt;style type="text/css">
+    IN-HEAD:
+    <pre>
+    &lt;style>
+    p {
+    background-color:red;
+    }
 
-    p{<br>
-    background-color:red;<br>
-    }<br>
-<br>
-    #Claire{<br>
-    background-color:red;<br>
-    }<br>
-<br>
-    .NYU{<br>
-    background-color:red;<br>
-    }<br>
-<br>
+    #Claire {
+    background-color:red;
+    }
+
+    .NYU {
+    background-color:red;
+    }
     &lt;/style>
+    </pre>
 <p> 
 
 - command = "insert" + number line 5 when using JAWS will read the styling of elements when they are in focus will give forground and background color. <br><br>
@@ -293,16 +292,17 @@ Loops can execute a block of code as long as a specified condition is true. The 
 
         <strong><h2>Activity 2:</h2></strong>
 
-
-&lt;script><br>
-    var bottle=99;<br>
-    var song=' ';<br>
-    while (bottle>0){<br>
-        song = song + bottle + "bottles of beer on the wall";<br>
-        bottle--;<br>
-    }<br>
-    document.write(song);<br>
-&lt;/script> <br>       
+<pre>
+&lt;script>
+    var bottle=99;
+    var song=' ';
+    while (bottle>0){
+        song = song + bottle + "bottles of beer on the wall";
+        bottle--;
+    }
+    document.write(song);
+&lt;/script>
+</pre>
     
 
 <a href="https://raw.githubusercontent.com/CleezyITP/CleezyITP.github.io/master/ProcessingWorkshop/Workshop_2/example_3/example3.html">Link to Activity 2</a>
