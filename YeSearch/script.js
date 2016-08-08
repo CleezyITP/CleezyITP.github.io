@@ -128,11 +128,6 @@ function searchLyrics(searchTerm){
 			//console.log("stringResp"+stringResp);
 			//var dataLength= data.responseText.length;
 			var dataObj = JSON.parse(stringResp);
-			for (var i = 0; i <1000; i++) {
-				//console.log(dataObj[i].sort);
-			}
-			
-
 			searTer=searchTerm;
 
 			
@@ -185,7 +180,7 @@ function searchLyrics(searchTerm){
 		press=true;
 		
 		
-		var theInputValue = $('#theInput').val();
+		var theInputValue = $('#theInput').val().toLowerCase();
 		//console.log(theInputValue);
 
 		$('#theSearchResults').html('');
