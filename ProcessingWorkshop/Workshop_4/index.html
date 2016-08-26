@@ -1,0 +1,380 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ScreenReader Coding Workshop #4</title>
+
+  <style type="text/css">
+  
+
+  
+
+
+  body
+{
+    font-family: Helvetica, Sans-Serif;
+    color: #444444;
+    font-size: 9pt;
+    background-color: #FAFAFA;
+    margin: 50px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1 align="center">ScreenReader Coding Workshop 4</h1>
+
+
+<h1>Topics covered</h1>
+        <span>
+                <ul> 
+                <li>Intro</li>
+                <li>Github and PODE Intro</li>
+                <li>HTML Continued</li>
+                <li>CSS</li>
+                <li>BREAK!</li>
+                <li>Variables</li>
+                <li>Functions</li>
+                <li>Procedures and Generalization</li>
+                <li>Discussion</li>
+                </ul>
+        </span>
+
+<strong><h2>Intro</h2></strong>
+
+<span>WiFi Access: (username) guest1 (password) nlunungu</span>
+<span>Helpers: Elite, Atul, Meina, Matt and Claire</span>
+
+<p> Today we are going to rehash our introduction to coding concepts and use the notepad text editor to try out some code examples.</p>
+
+<p> Then, we will follow-up with testing the p5 editor prototype.</p>
+
+
+<p>We are doing some web development basics here. We will cover basic HTML, CSS and Javascript. HTML (Hyper Text Markup Language) is the content of a web page, CSS (Cascading Style Sheets) is the visual styling and Javascript handles interaction</p>
+
+<p> Let's introduce ourselves!</p>
+
+
+
+<strong><h2>Github and PODE Intro</h2></strong>
+
+<p>PODE is an editor made for this workshop when we found that there don't seem to be any online code editors made with accessibility in mind, and there don't seem to be any good minimalistic code editors that work for both PC and Mac.</p>
+
+<p>We can always add new features to PODE and fix bugs so your feedback (good or bad) is very helpful!</p>
+
+<p>To access PODE you first need to <a href="https://github.com/join?source=header-home">sign up for Github </a> if you haven't already done so. GitHub should be accessible; a number of programmers who are vision impaired use it, and it is also the home of <a href="https://github.com/nvaccess/nvda">NVDA</a>, the free and open-source screen reader for Windows. It's also where coders from all over the world collaborate and share work with each other.</p>
+
+<p>
+  Once signed in to GitHub you can <a href="https://pode.herokuapp.com/">log in to the PODE Editor</a>.
+</p>
+
+<p>
+  Things to try in PODE:
+</p>
+
+<ol>
+  <li>Create a new HTML document
+  <li>View your new HTML document in a new tab/window
+  <li>Make a trivial edit to your HTML document, save your changes, and reload the other tab/window to see your changes take effect
+  <li>Try using the <kbd>Ctrl</kbd> + <kbd>H</kbd> key combination to get help on your current cursor position in the editor.
+</ol>
+
+</li>
+
+<strong><h2>HTML Continued...</h2></strong>
+
+<p>Homework Followup:<br><br>
+
+Now that we have explored and mastered the use of headers, links and paragraph text...Let's make a table!!!<br>
+<ul>
+<li>Tables are started with &lt;table> (opening tag) and finished with &lt;/table></li>
+<li>Table row tags define the number of rows and columns in a table they start with &lt;tr> and are finished with &lt;/tr> tags</li>
+<li>You create headings for your table by starting with the &lt;th> tag, adding your heading name and ending with &lt;/th>&gt;</li>
+<li>The cells of your table and the contents within them are defined using the table data tags. &lt;td>&gt; to start, table cell content in the middle and finished with &lt;/td>&gt;</li>
+</ul>
+
+
+Here's an example that you can copy/paste and run in any text editor<br>
+<br>
+
+in code:<br><br>
+
+<pre>
+&lt;p>Your Table's Name&lt;/p>
+
+&lt;table>
+&lt;tr>
+   &lt;th>heading 1&lt;/th>
+   &lt;th>heading 2&lt;/th>
+   &lt;th>heading 3&lt;/th>
+    &lt;th>heading 4&lt;/th>
+ &lt;/tr>
+ &lt;tr>
+    &lt;td>data 1&lt;/td>
+    &lt;td>data 2&lt;/td>
+    &lt;td>data 3&lt;/td>
+    &lt;td>data 4&lt;/td>
+  &lt;/tr>
+  &lt;tr>
+    &lt;td>data 5&lt;/td>
+    &lt;td>data 6&lt;/td>
+    &lt;td>data 7&lt;/td>
+    &lt;td>data 8&lt;/td>
+  &lt;/tr>
+  &lt;/table>
+</pre>
+<br>
+<br>
+on the page:<br>
+<br>
+<table>
+
+<tr>
+    <th>heading 1</th>
+    <th>heading 2</th>
+    <th>heading 3</th>
+    <th>heading 4</th>
+  </tr>
+  <tr>
+    <td>data 1</td>
+    <td>data 2</td>
+    <td>data 3</td>
+    <td>data 4</td>
+  </tr>
+  <tr>
+    <td>data 5</td>
+    <td>data 6</td>
+    <td>data 7</td>
+    <td>data 8</td>
+  </tr>
+</table>
+
+<section role="contentinfo" aria-label="review of html">
+<strong><h2>Review of HTML Tags and Elements (skip this section to start activity) </h2></strong>               
+
+                <ol>
+                        <li>Remember, angled brackets (<strong>"< >"</strong>) contain element types or tags in HTML and they should always start with <"element type">, followed by your content and end with <"forward slash element type"></li>
+                        <li>The <strong>head</strong> tag can contain the document's style, title, meta information and links to accompanying information (separate code folders or libraries). Head tags are written as &lt;head> your content &lt;/head></li>
+                        <li>The <strong>body</strong> tag defines the document's body. The body element contains all the contents of an HTML document, such as text, hyperlinks, images, tables, lists, etc. It is written as &lt;body> and closed using &lt;/body ></li>
+                        ***<li>The <strong>&lt;section></strong> element represents a generic section of a document or application. A section, in this context, is a thematic grouping of content, typically with a heading.<br>
+
+                        A Web site's home page could be split into sections for an introduction, news items, and contact information. The <strong>&lt;section></strong> element is intended only for major block of navigation links.
+                        Screen readers, can use this element to determine whether to omit the initial rendering of this content.</li>****
+                        <li>The content of a <strong>heading</strong> level one or h1 is contained in <strong>&lt;h1></strong> and closed using <strong>&lt;/h1></strong> whatever you write in between is displayed on the screen and read by your screen reader as a higher order heading</li>
+                        <li>The content of a heading level two to six or <strong>h2-h6</strong> is displayed on the screen in descending size and read by your screen reader in descending order</li>
+                        <li>The <strong>&lt;div></strong> tag defines a division or a section in an HTML document. The <strong>&lt;div></strong>tag is used to group block-elements to format them with CSS.</li>
+                        <li>The <strong>&lt;p></strong> tag allows you to insert a paragraph of text into a page. It is written as &lt;p>your content<&lt;/p>" (without spaces)</li>
+                        <li>The <strong>&lt;text></strong> tag allows you to insert a text into a page without the spacing between as in the paragraph tag. It is written as &lt;text>your content&lt;/text> </li>
+                        <li> <strong>links</strong> on a page are produced using the &lt;a> tag. They are written as &lt;a  href="your link in quotations"> text to be displayed&lt;/a> (without spaces)</li>
+                        <li>The <strong>&lt;button></strong> tag defines a clickable button.
+                        Inside a <strong>&lt;button></strong> element you can put content, like text or images.</li>
+                        <li>The <strong>&lt;nav></strong> tag defines a set of navigation links.The <strong>&lt;nav></strong> element is intended only for major block of navigation links.
+                        Screen readers, can use this element to determine whether to omit the initial rendering of this content.</li>
+                        <li>The <strong>&lt;form></strong> tag is used to create an HTML form for user input.
+                        The <strong>&lt;form></strong> element can contain one or more of the following form elements:
+                        &lt;input>
+                        &lt;textarea>
+                        &lt;button>
+                        &lt;select>
+                        &lt;option>
+                        &lt;optgroup>
+                        &lt;fieldset>
+                        &lt;label>
+                        </li>
+                </ol>
+
+Find a complete <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element"> list of HTML tags </a>
+</section>
+
+<section role="contentinfo" aria-label="Activity #1">
+<strong><h2>Activity 1:</h2></strong>
+<ol>
+<li>go to PODE <a href="https://pode.herokuapp.com">(link to pode)</a></li>
+<li> start a new project by selecting link "create a new HTML page"</li>
+<li>Make
+<ol style="list-style-type: lower-alpha">
+  <li>a website for a friend (business or personal site)
+  <li>create a plan for what you want to include (nav, headings, images, styles) in comments (using &lt;!-- and -->)
+  <li>include a title
+  <li>start by making section tags within the body. <code>&lt;section> &lt;/section></code> elements are used content inside is grouped (i.e. relates to a single theme)
+  <li>label them with class attributes (<code>&lt;section class="your class"> &lt;/section></code>)
+  <li>for everything you do not know how to make use comments to identify where in the site you would like something to happen
+  <li>Add some style your page!
+    
+    <p>IN-LINE example:</p>
+
+    <pre>
+    &lt;p style="width:50%; background-color:red;"> paragraph text&lt;/p>
+    </pre>
+    
+    <p>IN-HEAD example:</p>
+
+    <pre>
+    &lt;style>
+    p {
+    background-color:red;
+    }
+
+    #Claire {
+    background-color:red;
+    }
+
+    .NYU {
+    background-color:red;
+    }
+    &lt;/style>
+    </pre>
+
+<p>JAWS tips:</p>
+<ul>
+<li>command = "insert" + number line 5 when using JAWS will read the styling of elements when they are in focus will give forground and background color.
+<li>insert + f will read font-stule, size, justification, etc.
+</ul>
+
+<p>
+    A selector selects the element(s) you want to apply the updated property values to. For example, you can apply CSS rules to:
+</p>
+    <ul>
+        <li>All the paragraphs in my HTML document. </li>
+        <li>All the paragraphs with the class in my HTML document. </li>
+        <li>The paragraphs with the class in my HTML document. </li>
+    </ul>
+
+</li>
+<li>ASK FOR HELP! </li>
+</ol>
+
+
+</ol>
+
+<p> let's spend about 45 minutes on this then break</p>
+
+<section role="contentinfo" aria-label="BREAK">
+<strong><h2>BREAK</h2></strong> 
+<p> Stretch, get a drink of water, etc.</p>
+</section>
+
+<section role="contentinfo" aria-label="javascript">
+<strong><h2>Javascript</h2></strong> 
+
+<p>What happens when we want to interact with a website? We need Javascript! Javascript is the most popular coding language in the world. We use it to change HTML element content (innerHTML), attributes as well as collect, manipulate and validate data.</p>
+
+
+<ul>
+<li>In javascript, "{}" curly braces are like a fence that protects the statements that live inside.</li>
+<li>In javascript, "()" left paren, right paren - parentheses contain parameters for the statements.</li>
+
+</ul>
+
+<h1>Variables</h1>
+
+<p>Are called variables because they change and are at the heart of many interactions. Variables come in many types, but are all declared in the same way:</p>
+
+<ol style="list-style-type: lower-alpha">
+<li><code>var message = “Hello”</code>
+<li><code>var counter = 0</code>
+<li><code>var collectionOfMessage = [“hi”, “goodbye”,“nice to meet you”]</code>
+</ol>
+
+<p>Variables are simply placeholders for data and meant to change with our interactions and other variables. Variables are like a big bucket with a name on it. You can put anything you want in that bucket, but the name stays the same. In this way, we change the value of the variable but not the name of it.</p>
+
+<p>In Javascript, we first declare our variable name and its original value. We write var name; We then initialize it by giving it a value. We write var name=any number, or string of text in quotations; After you declare and initialize your variable, you can call upon it a number of times and reassign its value. In our First example, we will have a counter variable that starts at zero, but adds 1 every time a button is pressed. 
+
+Global Variables − A global variable has global scope which means it can be defined anywhere in your JavaScript code.
+
+Local Variables − A local variable will be visible only within a function where it is defined. Function parameters are always local to that function.
+
+<h1>Functions</h1>
+
+<p> Like when we had to perform several sub tasks in order to tie our shoes, a function is a "subprogram" that can be called by code. Like the whole program itself, a function is composed of a sequence of statements. Values can be passed to a function, and the function will return a value. </p>
+
+<h1>Procedures and Generalizations</h1>
+
+
+        <p>Operators can be very useful for coding complex behaviors. Common relational and operators include:</p>
+                
+        <strong>Relational:</strong>
+
+        <ul>
+        <li>The greater than symbol = > </li>
+                <li>The less than symbol = <  </li>
+                </ul>
+
+                <strong>Assignment:</strong>
+
+       <ul><li>The equal symbol assigns something as = </li></ul>
+
+<strong><h2>while loops</h2></strong>
+
+<p> what happens when we want to do the same thing over and over again?</p>
+
+<p>Loops can execute a block of code as long as a specified condition is true. The while loop loops through a block of code as long as a specified condition is true.</p>
+
+        <strong><h2>Activity 2:</h2></strong>
+
+<pre>
+&lt;script src="https://cleezyitp.github.io/ProcessingWorkshop/errorHelper.js">&lt;/script>
+&lt;script>
+    var bottle=99;
+    var song=' ';
+    while (bottle>0){
+        song = song + bottle + "bottles of beer on the wall";
+        bottle--;
+    }
+    document.write(song);
+&lt;/script>
+</pre>
+    
+
+<a href="https://raw.githubusercontent.com/CleezyITP/CleezyITP.github.io/master/ProcessingWorkshop/Workshop_2/example_3/example3.html">Link to Activity 2</a>
+
+
+
+<h1>p5 test!</h1>
+
+<ol>
+
+<a href="http://alpha.editor.p5js.org/"/>P5 Web Editor</a>
+<span>- works best with JAWS/ie11 and Voiceover/Firefox</span>
+
+<span>Here are some tasks we would like to complete:</span>
+<li> Go to Preferences and turn on lint warning sound</li>
+
+<li>Write some code that will draw a red ball (copy and paste code text below)<br><br>
+
+function setup() { <br>
+  createCanvas(400, 400); <br>
+  print('hello'); <br>
+ 
+} <br>
+function draw() { <br>
+  background(220);<br>
+  fill(255,0,0);<br>
+  ellipse(20,20,20,20);<br>
+} <br>
+ 
+ </li>
+ 
+<li>Play the sketch and see if you have desired result in output</li>
+
+<li>What do you think about the use of two play buttons vs. option in preference vs. both?</li>
+
+<li> Break the code by removing a curly bracket </li>
+
+<li>Logout and log back in and open the sketch </li>
+
+<li> Explore the IDE and tell us your thoughts as you do!</li>
+
+</ol>
+
+
+</section>
+
+
+
+
+</body>
+
+</html>
+
