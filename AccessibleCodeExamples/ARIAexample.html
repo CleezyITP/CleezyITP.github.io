@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>ARIA Example</title>
+  </head>
+  <body>
+    <h1>ARIA in Action</h1>
+
+    <span>Number of times clicked:</span>
+   
+    <span id="counterJavaScriptHTML">0</span>
+    
+    <button type="button" onClick="onClick()">select me repeatedly</button>
+    
+    <p id="greeting" aria-live="polite">  </p>
+    
+    <p id="alert-greeting" role="alert"></p>
+
+    <br>
+    <br>
+
+    <a href="https://raw.githubusercontent.com/CleezyITP/CleezyITP.github.io/master/ProcessingWorkshop/example2source">access code</a>
+
+    <script type="text/javascript">
+      var counterJavaScript = 0;
+      var greeting = 0;
+      var counterEl = document.querySelector("#counterJavaScriptHTML");
+      var politeEl = document.querySelector("#greeting");
+      var alertEl = document.querySelector("#alert-greeting");
+      
+      function onClick() {
+        counterJavaScript += 1;
+        counterEl.innerHTML = counterJavaScript;
+        greeting = counterJavaScript;
+        
+        if (counterJavaScript > 1 && counterJavaScript < 3) {
+          greeting = "what do you want?";
+          politeEl.innerHTML = greeting;
+        } else if (counterJavaScript >5 && counterJavaScript < 8) {
+          greeting = "that's annoying";
+          alertEl.innerHTML = greeting;
+        } else if (counterJavaScript >8 ) {
+          greeting = "arrrgh!";
+          alertEl.innerHTML = greeting;
+        }
+      };
+    </script>
+  </body>
+</html>
