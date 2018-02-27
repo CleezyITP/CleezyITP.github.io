@@ -16,7 +16,7 @@
 <body>
 
 <div name="Workshop Title" id="Workshop Title" style="text-align: center">
-<h1 >Introduction to 3D Printing with a Screen Reader</h1>
+<h1 >3D Printing with a Screen Reader</h1>
 <p> Claire Kearney-Volpe (ITP) and Gabriella Camaratta (IDM)</p>
 </div>
 
@@ -28,19 +28,23 @@
   <li><a href="#Types of 3D Printing">Types of 3D Printing</a></li>
   <li><a href="#Process">Process</a></li>
   <li><a href="#Hardware">Hardware</a></li>
+  <li><a href="#Materials">Materials</a></li>
   <li><a href="#Printers">Printers</a></li>
   <li><a href="#Software ">Software </a></li>
     <ul>
       <li><a href="#OpenSCAD Basics">OpenSCAD Basics</a></li>
         <ul>
-          <li><a href="#"></a></li>
-          <li><a href="#"></a></li>
-          <li><a href="#"></a></li>
-          <li><a href="#"></a></li>
-          <li><a href="#"></a></li>
+          <li><a href="#Syntax">Syntax</a></li>
+          <li><a href="#Primitives">Primitives</a></li>
+          <li><a href="#Translate">Translate</a></li>
+          <li><a href="#Rotate">Rotate</a></li>
+          <li><a href="#Scaling">Scaling</a></li>
+          <li><a href="#Union">Union</a></li>
+          <li><a href="#Difference">Difference</a></li>
+          
         </ul>
     </ul>
-  <li><a href="#"></a></li>
+  
   <li><a href="#"></a></li>
   <li><a href="#"></a></li>
   <li><a href="#"></a></li>
@@ -83,7 +87,7 @@
         </li>
       </ul>
     <h2 name="Hardware" id="Hardware">Hardware</h2>
-      <h3 name="" id="">Materials</h3>
+      <h3 name="Materials" id="Materials">Materials</h3>
         <ul>
           <li><strong>ABS (Acrylonitrile Butadiene Styrene)</strong> is a thermoplastic that can be found in toy blocks, music recorders and plastic lunch boxes! This popular, 3D printer filament works well for high-printing speeds. </li>
           <li><strong>PLA (PLA (polylactic acid) </strong>is a bioplastic-- which means it's made of starches. It’s harder than ABS and melts at a lower temperature, making it a popular choice for beginners. </li>
@@ -114,7 +118,7 @@
         
 
       <h3 name="OpenSCAD Basics" id="OpenSCAD Basics">OpenSCAD Basics</h3>
-        <h4 name="" id="">Syntax</h4>
+        <h4 name="Syntax" id="Syntax">Syntax</h4>
           <ul>
                <li>3D workspace is unlike classic cartesian plane. X, is left and right in 3D space. Y, is toward and away from user. Z, is up and down. </li>
                <li> Syntax: left and right parentheses () are like the beginning and end of bits of information/like top and bottom pieced of bread in a sandwich. Everything in between these symbols is included information.</li>
@@ -125,7 +129,7 @@
           </ul>
 
 
-        <h4 name="" id="">Primitives</h4>
+        <h4 name="Primitives" id="Primitives">Primitives</h4>
          These are the basic shapes that are the building blocks of our designs.
         <ol>
           <li>cube([10, 20, 15], center = true);  
@@ -143,7 +147,7 @@
 
 
 
-<h4 name="" id="">Translate</h4>
+<h4 name="Translate" id="Translate">Translate</h4>
 
 <p>Translate helps you move objects in the workplane. Translations are written as follows: translate( [x-value, y-value, z-value]);</p>
 
@@ -167,7 +171,7 @@ translate( [-20, 0, 20])
 
 
 
-<h4 name="" id="">Rotate</h4>
+<h4 name="Rotate" id="Rotate">Rotate</h4>
 
 <ol>
 <li>The following will an object 45 degrees along the x axis:
@@ -184,7 +188,7 @@ rotate([0, -30, 0])  // then applied second
 
   
 
- <h4 name="" id="">Scaling</h4>
+ <h4 name="Scaling" id="Scaling">Scaling</h4>
 
 <p>Scaling will help you bend and shape your primitives.
 <pre>
@@ -192,7 +196,7 @@ scale([1, 1, 1.5])
  sphere(r = 10);
 </pre>This creates an egg shape.</p>
  
-<h4 name="" id="">Union</h4>
+<h4 name="Union" id="Union">Union</h4>
 <p>Union joins together objects and is the sum of all shapes between its brackets. 
  <pre>
 union() {
@@ -203,7 +207,7 @@ union() {
 </pre>
 </p>
 
- <h4 name="" id="">Difference</h4>
+ <h4 name="Difference" id="Difference">Difference</h4>
 <p> 
 Difference is using the second shape (and all subsequent shapes in the bracket) to cut out from the first shape.
 <pre>
