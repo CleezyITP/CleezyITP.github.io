@@ -1,0 +1,123 @@
+<html>
+
+<head>
+    <title>CSS Review</title>
+    
+   <style>
+    body{font-family: "Arial", Arial, sans-serif;}
+    </style> 
+</head>
+
+<body>
+<a href="index.html">Lesson Home</a>
+    <h1>CSS Review</h1>
+    
+    <p>Note: on this page you will find 3 activities. Read through the information and complete the activities in order</p>
+
+    <p>CSS stands for Cascading Style Sheet, and CSS describes the visual style of a page. If HTML is the skeleton of your webpage or defining structure, CSS is the skin or visual appearance. The syntax of the language is different from HTML and there are a number of different ways to use it. </p>
+
+    <h2>Syntax</h2>
+    
+    <p>When incorporating CSS in your website, there is a specific way the code is formatted. You must write
+        <ol>
+            <li>the element type/selector</li>
+            <li> a left curly brace,</li> 
+            <li>whatever visual aspect you want to change (for example, the font family)</li>
+            <li>a colon</li>
+            <li>a value</li>
+            <li>a semi-colon</li>
+            <li>right curly brace</li>
+        </ol>
+
+        For example, changing the entire background of my site to the color red will be written as the following: body { background-color : red ; }
+
+    </p>
+
+    <h2>How to incorporate CSS into your HTML</h2>
+
+    <p>Here are the three ways that you can include CSS and visual styles into your websites:
+
+    <ol>
+    	<li>You can link to an external CSS file and link to the external file from (External style sheet)</li>
+    	<li>You can write CSS in the <em>head</em> of your page (Internal style sheet)</li> 
+    	<li>You can write CSS as an attribute of an element (Inline style)</li>
+    </ol>
+
+    </p>
+
+    <h2>Activity 1</h2>
+
+    <p> The link below contains example files for each way of implementing CSS. Open these files in a text editor (notepad or <a href="https://notepad-plus-plus.org/">notepad ++</a> will do) and change the background color to lightblue (all one word).</p>
+
+    <a href="cssExamples.zip">Zipped CSS Download Folder</a>
+    
+ <h2>Ways of using CSS: Selectors</h2>
+    <p>CSS can be used to style a page in four different ways.
+        <ol>
+            <li><strong>Element selector</strong>: You can apply a style to every element of a paricular type. For example, you can have the text in every paragraph tag be colored purple:</li>
+            <pre>
+                p{
+                color:purple;
+            }
+            </pre>
+
+            <li><strong>Class</strong>: You can apply visual style to a specific html elements by adding the class attribute. You may call your class by any name, as an example, you can write class attributes like this: class="moving". Classes allow you to target specific elements and modify them. This is often used with the <em>div</em> element for layout purposes. 
+
+
+            <li><strong>ID</strong> : You can also apply visual style to a specific html elements by adding the I D attribute. I Ds give you the ability to change style and content using Javascript. I Ds are useful for adressing specific elements with unique I D s and therefore, you should only use an I D once.</li>
+
+            
+            <li><strong>Pseudo class</strong> : you can apply a style to elements when an action happens. For example, when you select a link, you can italicize the text.</li>
+
+        </ol>
+    </p> 
+
+<h3>Element selector</h3>
+
+<h4>in HTML:</h4>&#x3C;h1>Home Page&#x3C;/h1>
+
+<h4>in CSS:</h4>
+h1 {
+font-style : italic ;
+color : blue ;
+}
+
+<h3>Class selector</h3>
+
+<h4>in HTML:</h4>&#x3C;p class=information>...&#x3C;/p>  
+
+<h4>in CSS:</h4>
+.information {
+font-face : san-serif ;
+background-color : aliceblue ;
+}
+
+<h3>ID selector</h3>
+
+<h4>in HTML:</h4>&#x3C;p id="update">....&#x3C;/p>
+
+<h4>in CSS:</h4>
+#update {
+border-style : dashed ;
+border-width : thin ;
+}
+
+    <br>
+<h2>Activity 2</h2>
+
+    <p> Return to one of the example files you downloaded earlier. In one, add a class to your heading, and a unique id to each paragraph </p>      
+
+<h2>Style and Color</h2>
+
+<p> We spoke before about using high contrast (very different) colors for background and fonts. Specifically, the ratio of contrast needs to be 4.5:1 in order to be considered accessible.</p>
+<h2>Activity 3</h2>
+
+<ol>
+    <li>select several color pairs from the <a href="webcolors.html" target="_blank">webcolor table (opens new tab)</a>, or by generating them with RGB values using the <a href="http://mathuramg.com/color-namer/standAlone/index.html" target="_blank">color namer (opens new tab)</a></li>
+    <li>add the values of each color-pair to the <a href="https://webaim.org/resources/contrastchecker/" target="_blank">color contrast checker (opens new tab)</a> in order to rate whether the colors have sufficient contrast. 
+    
+</body>
+
+<p> Now, on to <a href="javaScriptReview.html">Javascript</a>!
+
+</html>
