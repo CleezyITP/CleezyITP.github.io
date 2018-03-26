@@ -1,6 +1,6 @@
 # Screen-reader Web development workshop
 
-Intended for a five day introductory web-development workshop for students that are blind and use screen reader technology. Part of the <a href="http://oystersandpearls.org">Oysters and Pearls 2018 Tech Camp</a> at Northland High School in Gulu, Uganda running from January 12-16, 2018
+The following introductory web-development content was originally developed for students that are blind and use screen reader technology, as part of the <a href="http://oystersandpearls.org">Oysters and Pearls 2018 Tech Camp</a> at Northland High School in Gulu, Uganda (January 12-16, 2018).
 
 <ul>
   <li><a href="http://cleezyitp.github.io/Screen_Reader_Web_Development_Workshop/Day_1/">Day 1</a></li>
