@@ -1,6 +1,6 @@
 # CleezyITP.github.io
 
-a collection of accessibility-related workshops and lessons
+A collection of accessibility-related workshops and lessons
 
 <ul>
 <li href="https://cleezyitp.github.io/AccessibleCodeExamples"><a>Accessible Code Examples</a></li>
