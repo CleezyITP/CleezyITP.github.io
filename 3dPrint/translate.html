@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>Transformations</title>
+</head>
+<body lang="en">
+
+<style>
+  body {
+    font-family:"Helvetica", sans-serif;
+  }
+
+  h1 {
+    text-align: center;
+  }
+</style>
+
+
+<h1>Transformations</h1>
+<h2>Union</h2>
+union() {
+ 	cylinder (h = 4, r=1, center = true, $fn=100);
+ 	rotate ([90,0,0]) cylinder (h = 4, r=0.9, center = true, $fn=100);
+ }
+<h2>Difference </h2>
+difference() {
+	cylinder (h = 4, r=1, center = true, $fn=100);
+	rotate ([90,0,0]) cylinder (h = 4, r=0.9, center = true, $fn=100);
+}
+
+<h2>Translate (Move)</h2>
+Translates moves its child elements along the specified vector. The argument name is optional.
+translate(v = [x, y, z]) { ... }
+
+cube([2,3,4]);
+translate([3,0,0]) {
+  cube([2,3,4]);
+}
+
+
+<h2>Rotate</h2>
+<p>Rotates its child 'a' degrees about the axis of the coordinate system or around an arbitrary axis. The argument names are optional if the arguments are given in the same order as specified.</p>
+
+rotate(a = deg_a, v = [x, y, z]) { ... }
+
+<h2>Parameters</h2>
+<ul>
+
+<li>"x" is a rotation about the X axis, from the +Y axis, toward the +Z axis. </li>
+<li>"y" is a rotation about the Y axis, from the +Z axis, toward the +X axis. </li>
+<li>"z" is a rotation about the Z axis, from the +X axis, toward the +Y axis.</li>
+
+<p>Point your right thumb along the positive axis, your fingers rotate in the direction of the rotation.</p>
+
+
+
+<h2>Mirror</h2>
+<p>mirror(v= [x, y, z] ) { ... }</p><br>
+<p>mirror([1,0,0])cube([2,3,4]);</p>
+
+<nav>
+<ul>
+<a href="polygon.html"><li>Previous: Polygon</li></a>
+<a href="ring.html"><li>Next: Ring Exercise</li></a>
+<a href="index.html"><li>3D Modeling Day 1 Home</li></a>
+</ul>
+</nav>
+</body>
+</html>

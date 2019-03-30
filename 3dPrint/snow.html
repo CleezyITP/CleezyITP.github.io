@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>Snowperson Exercise</title>
+</head>
+<body lang="en">
+
+<style>
+  body {
+    font-family:"Helvetica", sans-serif;
+  }
+
+  h1 {
+    text-align: center;
+  }
+</style>
+
+
+<h1>Snowperson Exercise</h1>
+//base snowball
+<p>translate([0,0,25]) {
+<p>sphere(r = 40, center=false);
+<p>}</p>
+
+//center snowball
+<p>translate([0,0,75]) {</p>
+<p>sphere(r = 30, center=false);</p>
+<p>};</p>
+
+//upper snowball
+<p>translate([0,0,120]) {</p>
+<p>sphere(r = 20, center=false);</p>
+<p>};</p>
+
+//carrot nose
+<p>translate([0,0,120]) rotate(a=90, v=[1,0,0]){</p>
+<p>cylinder(h=35, r1=6, r2=1);</p>
+<p>};</p>
+
+module arm(){
+<p>translate([0,0,70]) rotate(a = 70, v = [0, 1, 0]){ </p>
+<p>cube([2,3,80]);}</p>
+<p>}</p>
+<p>arm();<br></p>
+<p>mirror([1,0,0])arm();</p><br>
+
+
+
+<nav>
+<ul>
+<a href="ring.html"><li>Previous: Ring</li></a>
+<a href="index.html"><li>3D Modeling Day 1 Home</li></a>
+</ul>
+</nav>
+</body>
+</html>
