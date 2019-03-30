@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>3D Cylinder</title>
+</head>
+<body lang="en">
+
+<style>
+  body {
+    font-family:"Helvetica", sans-serif;
+  }
+
+  h1 {
+    text-align: center;
+  }
+</style>
+
+<h1>cylinder</h1>
+<span>cylinder(h = height, r1 = BottomRadius, r2 = TopRadius, center = true/false);</span>
+<h2>Parameters</h2>
+<ul>
+<li>h : height of the cylinder or cone</li>
+<li>r  : radius of cylinder. r1 = r2 = r</li>
+<li>r1 : radius, bottom of cone</li>
+<li>r2 : radius, top of cone</li>
+<li>d  : diameter of cylinder. r1 = r2 = d /2</li>
+<li>d1 : diameter, bottom of cone. r1 = d1 /2</li>
+<li>d2 : diameter, top of cone. r2 = d2 /2</li>
+<li>Center:</li>
+<ul>
+<li>center=false is the default, z ranges from 0 to h</li>
+<li>center=true, z ranges from -h/2 to +h/2</li>
+</ul>
+<li>To create a cone shape, make one radius equal to zero: cylinder(h = 40, r1 = 20, r2 = 0);</li>
+
+</ul>
+
+<h2>Quick Notes:</h2>
+<ul>
+	<li>In order to increase the resolution of your rounded objects, you can add the parameter $fn</li>
+	<li>Usually an $fn value equal to 50 will do, and over 100 is not recommended because it slows performance</li>
+</ul>
+
+<nav>
+<ul>
+<a href="cube.html"><li>Previous: Cube</li></a>
+<a href="polygon.html"><li>Next:Polygon</li></a>
+<a href="index.html"><li>3D Modeling Day 1 Home</li></a>
+</ul>
+</nav>
+</body>
+</html>
+
+
+
+
