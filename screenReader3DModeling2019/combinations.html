@@ -17,19 +17,52 @@
 
 <h1>Transformations</h1>
 <h2>Union</h2>
+
+<p>Union joins together objects and is the sum of all shapes between its brackets. 
+ <pre>
 union() {
- 	cylinder (h = 4, r=1, center = true, $fn=100);
- 	rotate ([90,0,0]) cylinder (h = 4, r=0.9, center = true, $fn=100);
- }
-<h2>Difference </h2>
-difference() {
-	cylinder (h = 4, r=1, center = true, $fn=100);
-	rotate ([90,0,0]) cylinder (h = 4, r=0.9, center = true, $fn=100);
+  cylinder(h = 40, r = 10, center = true);
+  rotate([90, 0, 0])
+    cylinder (h = 40, r = 9, center = true);
 }
+</pre>
+</p>
+
+
+<h2>Difference </h2>
+<p> 
+Difference is using the second shape (and all subsequent shapes in the bracket) to cut out from the first shape.
+<pre>
+difference() {
+  cylinder(h = 40, r = 10, center = true);
+  rotate([90, 0, 0])
+    cylinder(40, r = 9, center = true);
+}
+</pre></p>
 
 <h2>Translate (Move)</h2>
-Translates moves its child elements along the specified vector. The argument name is optional.
-translate(v = [x, y, z]) { ... }
+
+<p>Translate helps you move objects in the workplane. Translations are written as follows: translate( [x-value, y-value, z-value]);</p>
+
+<p>Positive X values, move objects to the right. Negative X values, move objects to the left. Positive Y values, move objects away from the user. Negative Y values, move objects toward the user. Positive Z values, move objects up. Negative Z values, move objects down. </p>
+
+<ol>
+<li>This is how you move an object away from the center of the workplane:
+<pre>￼
+translate( [0, 0, 20])
+      sphere(r = 20);</pre>
+</li>
+
+<li>The primitive below a translate line and before the semi-colon that is found at the end of the sphere, gets moved. 
+
+<pre>￼
+translate( [-20, 0, 20])
+  cube( [30,30,30]);
+</pre></li>
+
+</ol>
+
+
 
 cube([2,3,4]);
 translate([3,0,0]) {
@@ -42,6 +75,13 @@ translate([3,0,0]) {
 
 rotate(a = deg_a, v = [x, y, z]) { ... }
 
+<ol>
+<li>The following will an object 45 degrees along the x axis:
+<pre>
+rotate([45, 0, 0])
+  cube([10, 20, 15]);
+</pre></li>
+
 <h2>Parameters</h2>
 <ul>
 
@@ -51,7 +91,12 @@ rotate(a = deg_a, v = [x, y, z]) { ... }
 
 <p>Point your right thumb along the positive axis, your fingers rotate in the direction of the rotation.</p>
 
-
+<h2>Scaling</h2>
+<p>Scaling will help you bend and shape your primitives. The following example creates a vertically elongated egg shape.
+<pre>
+scale([1, 1, 1.5])
+sphere(r = 10);
+</pre></p>
 
 <h2>Mirror</h2>
 <p>mirror(v= [x, y, z] ) { ... }</p><br>
