@@ -17,9 +17,12 @@
 
 <h1>Snowperson Exercise</h1>
 //base snowball
-<p>translate([0,0,25]) {
-<p>sphere(r = 40, center=false);
-<p>}</p>
+
+<p>hull() {</p>
+    <p>cylinder(h=20,r=40); </p>
+    <p>translate([0,0,40]) sphere(40);</p>
+    
+}</p>
 
 //center snowball
 <p>translate([0,0,75]) {</p>

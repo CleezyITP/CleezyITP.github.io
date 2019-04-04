@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>Adding Complexity</title>
+</head>
+<body lang="en">
+
+<style>
+  body {
+    font-family:"Helvetica", sans-serif;
+  }
+
+  h1 {
+    text-align: center;
+  }
+</style>
+
+
+<h1>Adding Complexity</h1>
+
+<h2>Vectors</h2>
+<span>A collection or list of values</span>
+cube( [width,depth,height] );         
+translate( [x,y,z] )
+polygon( [ [x0,y0],  [x1,y1],  [x2,y2] ] );
+
+<h2>Variables</h2>
+
+<span>Use any expression (arbitrary or meaningful), add an equal sign, assign it numeric, string, or vector values and add a semicolon. Once assigned a value, you can use them in different places and swap/reassign the values. Examples: 
+
+<ol>
+<li>var = 25;</li>
+<li> coolGuy = "66"; </li>
+<li>myVector = [1,2,3];</li>
+</ol>
+
+OpenSCAD variable values can vary, but if they are assigned a value multiple times, only the last assigned value is used in all places in the code.
+</span>
+
+
+<h2>Modules </h2>
+<p> 
+boop.
+<pre>
+difference() {
+  cylinder(h = 40, r = 10, center = true);
+  rotate([90, 0, 0])
+    cylinder(40, r = 9, center = true);
+}
+</pre></p>
+
+<h2>For Loops</h2>
+
+<p>boop</p>
+
+
+<pre>￼
+translate( [-20, 0, 20])
+  cube( [30,30,30]);
+</pre></li>
+
+
+<nav>
+<ul>
+<a href="transform.html"><li>Previous: Transformation Review</li></a>
+<a href="ring.html"><li>Next: Ring Exercise</li></a>
+<a href="index.html"><li>3D Modeling Day 1 Home</li></a>
+</ul>
+</nav>
+</body>
+</html>

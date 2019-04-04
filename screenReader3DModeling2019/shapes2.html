@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>3D Sphere</title>
+</head>
+<body lang="en">
+
+<style>
+  body {
+    font-family:"Helvetica", sans-serif;
+  }
+
+  h1 {
+    text-align: center;
+  }
+</style>
+
+<h1>Basic Shapes Review</h1>
+
+<h2>Sphere</h2>
+<span>sphere(d = 5);</span><br>
+<span>sphere(r = 10);</span><br>
+<span>*centered around the z-axis by default</span>
+
+<h2>Cube</h2>
+<span>cube(size = [x,y,z]);</span><br>
+
+<span>defaults to one corner being at 0,0,0 of the z-axis (flat on top on the x-axis)</span><br>
+<span>cube(size = [20]);</span><br>
+<span>cube(size = [10, 15, 20]);</span><br>
+<span>cube(size = [20], center=true);</span><br>
+
+<h3>Quick Note:</h3>
+<span>when centered, cubes are centered on the x, y, and z-axes</span>
+
+<h2>Cylinder</h2>
+<span>cylinder(h = height, r1 = BottomRadius, r2 = TopRadius, center = true/false);</span>
+<h3>Parameters</h3>
+<ul>
+<li>h : height of the cylinder or cone</li>
+<li>r  : radius of cylinder. r1 = r2 = r</li>
+<li>r1 : radius, bottom of cone</li>
+<li>r2 : radius, top of cone</li>
+<li>d  : diameter of cylinder. r1 = r2 = d /2</li>
+<li>d1 : diameter, bottom of cone. r1 = d1 /2</li>
+<li>d2 : diameter, top of cone. r2 = d2 /2</li>
+<li>Center:</li>
+<ul>
+<li>center=false is the default, z ranges from 0 to h</li>
+<li>center=true, z ranges from -h/2 to +h/2</li>
+</ul>
+<li>To create a cone shape, make one radius equal to zero: cylinder(h = 40, r1 = 20, r2 = 0);</li>
+
+</ul>
+
+<h2>Quick Note:</h2>
+<ul>
+	<li>In order to increase the resolution of your rounded objects, you can add the parameter $fn</li>
+	<li>Usually an $fn value equal to 50 will do, and over 100 is not recommended because it slows performance</li>
+</ul>
+
+<nav>
+<ul>
+<a href="translate.html"><li>Previous: Intro to Transformations</li></a>
+<a href="transform.html"><li>Next: Transformations Review</li></a>
+<a href="index.html"><li>3D Modeling Home</li></a>
+</ul>
+</nav>
+</body>
+</html>
+
+
+
+
