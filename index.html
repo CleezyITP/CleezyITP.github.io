@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claire Ferrari, PhD</title>
+<meta name="description" content="Claire Ferrari, PhD. UX research leader in mixed methods, accessibility, design systems and AI-enabled research.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single reading column with a left "study log" rail. Each case study reads like a research readout: question, method, n, finding, what changed. */
+:root {
+  --paper: #f6f7f4;
+  --surface: #ffffff;
+  --ink: #18212b;
+  --muted: #46515b;
+  --rule: #d9ddd6;
+  --accent: #1f5c4d;
+  --accent-soft: #e2ede8;
+  --mark: #f2d488;
+  --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --step-0: 1.0625rem;
+  --step-1: 1.25rem;
+  --step-2: 1.6rem;
+  --step-3: clamp(2.1rem, 5vw, 3.4rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #12171c; --surface: #1a2128; --ink: #e6e9e4; --muted: #adb7be;
+    --rule: #2c353d; --accent: #7cc4ad; --accent-soft: #1d3530; --mark: #5a4b22;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #12171c; --surface: #1a2128; --ink: #e6e9e4; --muted: #adb7be;
+  --rule: #2c353d; --accent: #7cc4ad; --accent-soft: #1d3530; --mark: #5a4b22;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+img { max-width: 100%; height: auto; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; line-height: 1.15; margin: 0; }
+p { margin: 0; }
+
+.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: var(--paper); padding: 12px 16px; min-height: 44px; z-index: 20; }
+.sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.skip:focus { left: max(16px, env(safe-area-inset-left, 0px)); }
+
+.wrap {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Top bar */
+.bar { border-bottom: 1px solid var(--rule); }
+.bar .wrap { display: flex; flex-wrap: wrap; gap: 4px 24px; align-items: center; justify-content: space-between; padding-block: 6px; }
+.bar .name { font-family: var(--font-display); font-weight: 700; font-size: 1rem; letter-spacing: 0.01em; }
+.bar nav { display: flex; flex-wrap: wrap; gap: 0 8px; font-family: var(--font-data); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.bar nav a { color: var(--muted); text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; padding: 0 8px; }
+.bar nav a:hover { color: var(--accent); }
+
+/* Hero */
+.hero .wrap { padding-block: 64px 48px; display: grid; gap: 32px; grid-template-columns: minmax(0, 1fr) 220px; align-items: start; }
+.eyebrow { font-family: var(--font-data); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+.hero h1 { font-size: var(--step-3); font-weight: 700; margin-top: 12px; max-width: 18ch; }
+.hero h1 mark { background: linear-gradient(transparent 58%, var(--mark) 58%); color: inherit; padding: 0 2px; }
+.hero .lede { margin-top: 20px; font-size: var(--step-1); max-width: 58ch; color: var(--ink); }
+.hero .contact { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 8px 20px; font-family: var(--font-data); font-size: 0.85rem; color: var(--muted); }
+.hero .contact span { user-select: all; }
+.hero .contact a { display: inline-flex; align-items: center; min-height: 44px; }
+.hero .contact { align-items: center; }
+.portrait {
+  display: block; aspect-ratio: 1 / 1; width: 100%; max-width: 100%; height: auto;
+  object-fit: cover; border-radius: 4px; background: var(--surface);
+}
+
+/* Focus areas strip */
+.areas { border-block: 1px solid var(--rule); background: var(--surface); }
+.areas .wrap { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; padding-block: 28px; }
+.areas h3 { font-size: 1rem; font-weight: 700; }
+.areas p { font-size: 0.95rem; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+
+/* Section heads */
+section.block .wrap { padding-block: 64px 16px; }
+.section-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; border-bottom: 2px solid var(--ink); padding-bottom: 10px; }
+.section-head h2 { font-size: var(--step-2); }
+.section-head p { font-family: var(--font-data); font-size: 0.8rem; color: var(--muted); }
+
+/* Case studies */
+.study { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 32px; padding-block: 40px; border-bottom: 1px solid var(--rule); }
+.study:last-child { border-bottom: 0; }
+.log { font-family: var(--font-data); font-size: 0.8rem; color: var(--muted); display: flex; flex-direction: column; gap: 10px; }
+.log dt { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.7rem; }
+.log dd { margin: 2px 0 0; color: var(--ink); }
+.log dl { margin: 0; display: grid; gap: 10px; }
+.study h3 { font-size: var(--step-2); font-weight: 700; }
+.study .q { margin-top: 10px; font-style: italic; color: var(--muted); max-width: 62ch; }
+.study .body { margin-top: 1.5em; display: grid; gap: 2.25em; max-width: 66ch; }
+.study .body h4 { font-family: var(--font-data); font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin: 0 0 4px; }
+.study ul { margin: 0; padding-left: 1.1em; display: grid; gap: 0.5em; }
+.edu-h { font-size: 1.1rem; margin-top: 40px; }
+abbr[title] { text-decoration: underline dotted; text-underline-offset: 3px; cursor: help; }
+
+.figures { margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; }
+.figures div { background: var(--surface); padding: 14px 16px; }
+.figures b { display: block; font-family: var(--font-display); font-size: 1.7rem; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--accent); line-height: 1.1; }
+.figures span { display: block; font-size: 0.88rem; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+.source { margin-top: 8px; font-family: var(--font-data); font-size: 0.72rem; color: var(--muted); }
+
+.shot {
+  margin-top: 24px; aspect-ratio: 16 / 9; max-width: 100%;
+  border: 1.5px dashed var(--rule); border-radius: 4px; background: var(--surface);
+  display: grid; place-items: center; text-align: center; padding: 16px;
+  font-family: var(--font-data); font-size: 0.78rem; color: var(--muted);
+}
+
+/* Earlier work */
+.earlier { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px 24px; padding-top: 28px; list-style: none; margin: 0; padding-left: 0; }
+.earlier li { display: grid; gap: 12px; align-content: start; min-width: 0; }
+.earlier figure { margin: 0; }
+.earlier img { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 2 / 1; object-fit: cover; border: 1px solid var(--rule); border-radius: 4px; background: var(--surface); }
+.earlier .kicker { font-family: var(--font-data); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+.earlier h3 { font-size: 1.05rem; }
+.earlier p { color: var(--muted); font-size: 0.92rem; max-width: 60ch; }
+.earlier a.more { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--font-data); font-size: 0.8rem; }
+@media (max-width: 1000px) { .earlier { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Practice + publications */
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5em 48px; padding-top: 28px; }
+.two h3 { font-size: 1.1rem; margin-bottom: 8px; }
+.two p { color: var(--muted); font-size: 0.98rem; }
+.pubs { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 14px; }
+.pubs li { display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: 16px; border-bottom: 1px solid var(--rule); padding-bottom: 14px; }
+.pubs .yr { font-family: var(--font-data); font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.pubs .venue { display: block; font-family: var(--font-data); font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+
+/* Timeline */
+.timeline { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 0; }
+.timeline li { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 20px; padding-block: 14px; border-bottom: 1px solid var(--rule); }
+.timeline .yr { font-family: var(--font-data); font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.timeline b { font-family: var(--font-display); font-weight: 700; }
+.timeline .org { color: var(--muted); }
+.timeline p { font-size: 0.95rem; color: var(--muted); margin-top: 2px; }
+
+footer { margin-top: 64px; }
+.foot-earlier { background: var(--surface); border-top: 1px solid var(--rule); }
+.foot-earlier .wrap { padding-block: 48px; }
+.foot-earlier .section-head { border-bottom-width: 1px; }
+.foot-earlier .section-head h2 { font-size: var(--step-1); }
+.foot-contact { background: var(--ink); color: var(--paper); }
+.foot-contact .wrap { padding-block: 40px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 32px; align-items: baseline; }
+.foot-contact h2 { font-size: var(--step-2); color: var(--paper); }
+.foot-contact p { font-family: var(--font-data); font-size: 0.85rem; }
+.foot-contact span { user-select: all; }
+
+@media (max-width: 760px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); padding-block: 40px 32px; }
+  .portrait { max-width: 180px; }
+  .areas .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .study { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .log dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .two, .earlier { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 420px) {
+  .areas .wrap { grid-template-columns: minmax(0, 1fr); }
+  .timeline li, .pubs li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#work">Skip to selected work</a>
+
+<header class="bar">
+  <div class="wrap">
+    <span class="name">Claire Ferrari, PhD</span>
+    <nav aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#practice">How I lead</a>
+      <a href="#experience">Experience</a>
+      <a href="#writing">Writing</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="intro">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow"><abbr title="user experience">UX</abbr> research leader · Human-Computer Interaction</p>
+        <h1 id="intro">I find out what people actually do, and help teams <mark>build for all of them</mark>.</h1>
+        <p class="lede">I lead UX research programs across consumer technology, telecommunications, media streaming and emerging tech. My work pairs behavioral data with qualitative depth, puts accessibility at the center of product decisions, and uses <abbr title="artificial intelligence">AI</abbr> to make research faster without making it sloppier.</p>
+        <p class="contact">
+          <span>clairev8@gmail.com</span>
+          <a href="https://www.linkedin.com/in/claireferrari/">LinkedIn</a>
+          <a href="https://scholar.google.com/citations?user=S8_5jfsAAAAJ&amp;hl=en">Google Scholar</a>
+        </p>
+      </div>
+      <img class="portrait" src="img/claire-ferrari-headshot.jpg" width="600" height="600" alt="Portrait of Claire Ferrari">
+    </div>
+  </section>
+
+  <section class="areas" aria-labelledby="areas-h">
+    <h2 id="areas-h" class="sr">Focus areas</h2>
+    <div class="wrap">
+      <div><h3>Mixed methods</h3><p>Analytics show where people drop off. Interviews and usability work explain why.</p></div>
+      <div><h3>Inclusive design</h3><p>Assistive technology benchmarking, <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2.2, and research with disabled participants.</p></div>
+      <div><h3>Design systems</h3><p>Research programs that make shared components worth adopting.</p></div>
+      <div><h3>AI-enabled research</h3><p>Repositories, synthetic testing and tooling, validated before they're trusted.</p></div>
+    </div>
+  </section>
+
+  <section class="block" id="work" aria-labelledby="work-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="work-h">Selected work</h2>
+        <p>5 studies · 2018–2026</p>
+      </div>
+
+      <!-- 1. My Offers -->
+      <article class="study" aria-labelledby="s1">
+        <div class="log">
+          <dl>
+            <div><dt>Org</dt><dd>Verizon</dd></div>
+            <div><dt>Year</dt><dd>2025</dd></div>
+            <div><dt>Role</dt><dd>Research lead, Offer Orchestration</dd></div>
+            <div><dt>Methods</dt><dd>Behavioral analytics, in-depth interviews, usability, color study</dd></div>
+          </dl>
+        </div>
+        <div>
+          <h3 id="s1">Making personalized offers easier to act on</h3>
+          <p class="q">Why were customers bouncing off offers that were built for them?</p>
+          <div class="body">
+            <div><h4>Context</h4><p>Verizon was consolidating personalized offers into a single My Offers experience across the app and website. Engagement was falling, and new multi-offer tiles were about to roll out.</p></div>
+            <div><h4>Approach</h4><p>I paired behavioral telemetry with in-depth interviews, then synthesized findings across several offer studies, including a color study and tile usability testing run by my team. The data showed where people dropped off. The interviews explained why: competing visual hierarchies, crowded tiles and brand color combinations that added friction.</p></div>
+            <div><h4>What changed</h4><p>The synthesis became a set of experience principles for offer strategy. Design used it to rework tile layout, color and placement, and I made the case to executives for end-to-end usability over isolated feature scores.</p></div>
+          </div>
+          <div class="figures" role="list">
+            <div role="listitem"><b>+265%</b><span>average monthly traffic to My Offers</span></div>
+            <div role="listitem"><b>+121%</b><span>average monthly click-through rate</span></div>
+            <div role="listitem"><b>+216%</b><span>average monthly add-a-line orders</span></div>
+          </div>
+          <p class="source">Program results, 9-month monthly averages before vs. after the work began (March 2025).</p>
+          <div class="shot">Image to come: before and after of the offer tiles</div>
+        </div>
+      </article>
+
+      <!-- 2. Verizon Assistant -->
+      <article class="study" aria-labelledby="s2">
+        <div class="log">
+          <dl>
+            <div><dt>Org</dt><dd>Verizon</dd></div>
+            <div><dt>Year</dt><dd>2026</dd></div>
+            <div><dt>Role</dt><dd>Research lead, design system research</dd></div>
+            <div><dt>Methods</dt><dd>Unmoderated interaction testing, n=193</dd></div>
+          </dl>
+        </div>
+        <div>
+          <h3 id="s2">Choosing a line or device inside a chat</h3>
+          <p class="q">What selection pattern helps people pick the right line or device in Verizon Assistant, on a phone screen?</p>
+          <div class="body">
+            <div><h4>Context</h4><p>Teams were building line and device pickers into the Verizon Assistant chat interface with no shared standard. Carousels, radio lists and cards all coexisted.</p></div>
+            <div><h4>Approach</h4><p>I ran unmoderated interaction tests with 193 participants, comparing layout orientation, selection controls and four levels of information density, from a bare phone number up to name, number, device image, plan and price.</p></div>
+            <div><h4>What changed</h4><p>Vertical layouts beat carousels on speed, and richer detail beat minimal cards on confidence. The findings became two standards: vertical orientation on mobile across plan management flows, and a device image on every troubleshooting line selection.</p></div>
+          </div>
+          <div class="figures" role="list">
+            <div role="listitem"><b>193</b><span>participants</span></div>
+            <div role="listitem"><b>10 sec</b><span>faster median task time, vertical vs. carousel</span></div>
+            <div role="listitem"><b>70%</b><span>confidence at the highest detail level</span></div>
+          </div>
+          <div class="shot">Image to come: the tested selection patterns side by side</div>
+        </div>
+      </article>
+
+      <!-- 3. NGD accessibility -->
+      <article class="study" aria-labelledby="s3">
+        <div class="log">
+          <dl>
+            <div><dt>Org</dt><dd>Verizon</dd></div>
+            <div><dt>Year</dt><dd>2026</dd></div>
+            <div><dt>Role</dt><dd>Lead, accessibility research and benchmarking</dd></div>
+            <div><dt>Methods</dt><dd>Assistive technology usability, n=27</dd></div>
+          </dl>
+        </div>
+        <div>
+          <h3 id="s3">Finding the traps in a mobile checkout</h3>
+          <p class="q">Could people using assistive technology actually buy a phone in the reskinned mobile sales flow?</p>
+          <div class="body">
+            <div><h4>Context</h4><p>Verizon's Next Gen Digital mobile sales flow was being reskinned under the new Monarch brand. Visual changes like this often break things that only assistive technology users notice.</p></div>
+            <div><h4>Approach</h4><p>I ran a study with 27 participants: 16 screen reader users, 5 switch and voice control users, and 6 low-vision magnification users. They worked through real purchase tasks while I logged where and why they got stuck.</p></div>
+            <div><h4>Findings</h4>
+              <ul>
+                <li>Sign-in loops that sent authenticated customers back to the login screen</li>
+                <li>A focus trap in the Estimated Next Bill modal</li>
+                <li>Unlabeled trade-in and porting options that a screen reader announced as "Object Object"</li>
+                <li>Layout density that made magnified screens hard to follow</li>
+              </ul>
+            </div>
+            <div><h4>What changed</h4><p>I turned the findings into a prioritized remediation list for engineering and design, aimed at the checkout steps where high-intent customers were dropping out.</p></div>
+          </div>
+          <div class="figures" role="list">
+            <div role="listitem"><b>27</b><span>assistive technology users</span></div>
+            <div role="listitem"><b>30%</b><span>task failure rate overall</span></div>
+            <div role="listitem"><b>50%</b><span>task failure among existing customers</span></div>
+          </div>
+          <div class="shot">Image to come: a redacted findings slide or annotated flow</div>
+        </div>
+      </article>
+
+      <!-- 4. VDS + repository -->
+      <article class="study" aria-labelledby="s4">
+        <div class="log">
+          <dl>
+            <div><dt>Org</dt><dd>Verizon</dd></div>
+            <div><dt>Year</dt><dd>2025–2026</dd></div>
+            <div><dt>Role</dt><dd>Built and leads the design system research program</dd></div>
+            <div><dt>Methods</dt><dd>AI-assisted component audit, stakeholder interviews, taxonomy design</dd></div>
+          </dl>
+        </div>
+        <div>
+          <h3 id="s4">Research infrastructure for a design system</h3>
+          <p class="q">Why were product teams leaving the Verizon Design System (VDS), and how could years of research become findable?</p>
+          <div class="body">
+            <div><h4>Context</h4><p>Product teams were detaching from central VDS components and building their own. Separately, the research team's archive of more than a thousand studies was hard to search, so findings got repeated instead of reused.</p></div>
+            <div><h4>Approach</h4><p>I configured an AI design audit tool to find the 10 components with the highest detachment rates, then interviewed designers and engineers about why. In parallel I designed a 7-facet taxonomy and content model for the research archive, consolidated three glossaries into one acronym list, and pressure-tested it against real datasets like MaxDiff surveys and monadic tests.</p></div>
+            <div><h4>What changed</h4><p>The adoption study named the gaps (a web-first bias, missing complex components, poor discoverability, fragile version upgrades) and led to recommendations including leadership acceptance criteria, sprint time for visual quality defects, and a contribution path for teams. The taxonomy shipped as production files for semantic search in the team's Stravito repository.</p></div>
+          </div>
+          <div class="figures" role="list">
+            <div role="listitem"><b><span aria-hidden="true">up to 5×</span><span class="sr">up to 5 times</span></b><span>faster design workflows with system components, per adoption study</span></div>
+            <div role="listitem"><b>1,043</b><span>studies organized for retrieval</span></div>
+            <div role="listitem"><b>1,492</b><span>acronyms consolidated from 3 glossaries</span></div>
+          </div>
+          <div class="shot">Image to come: taxonomy diagram or component audit summary</div>
+        </div>
+      </article>
+
+      <!-- 5. Creatability -->
+      <article class="study" aria-labelledby="s5">
+        <div class="log">
+          <dl>
+            <div><dt>Org</dt><dd>Google Creative Lab, with NYU Ability Project</dd></div>
+            <div><dt>Year</dt><dd>2018–2019</dd></div>
+            <div><dt>Role</dt><dd>Creative Technologist, user research</dd></div>
+            <div><dt>Methods</dt><dd>Participatory research, multimodal prototype testing</dd></div>
+          </dl>
+        </div>
+        <div>
+          <h3 id="s5">Creative tools for people of all abilities</h3>
+          <p class="q">How do gesture, sight and sound work as inputs for making art and music, for people with diverse physical, sensory and cognitive abilities?</p>
+          <div class="body">
+            <div><h4>Context</h4><p>Creatability is an open-source set of experiments that use machine learning to make creative tools more accessible, built by Google Creative Lab with NYU's Ability Project.</p></div>
+            <div><h4>Approach</h4><p>I ran user research with people with diverse abilities and tested new interaction modes as they were built, working across research, design and engineering.</p></div>
+            <div><h4>What changed</h4><p>The research shaped how the tools handled input and feedback. The project went on to win the 2019 Cannes Lions Design Grand Prix.</p></div>
+          </div>
+          <div class="shot">Image to come: a still from the Creatability experiments</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="practice" aria-labelledby="practice-h">
+    <div class="wrap">
+      <div class="section-head"><h2 id="practice-h">How I lead</h2></div>
+      <div class="two">
+        <div><h3>Choosing the method for the question</h3><p>Conjoint showed people liked each feature of a purchase flow on its own. Usability testing showed they got lost when the features were combined. I pick methods by the evidence a decision needs, like using diary studies over interviews to see how disabled people fit connected devices into daily routines.</p></div>
+        <div><h3>Growing researchers</h3><p>I managed and coached a team of six early-career rapid researchers on study design, synthesis and holding up under stakeholder questions. Four moved into senior roles.</p></div>
+        <div><h3>Raising the bar on rigor</h3><p>I partnered with Verizon's Insights Center of Excellence on standards for sample size, data quality and representation, and wrote the team's internal accessibility guidelines for surveys and vendors.</p></div>
+        <div><h3>Moving faster with AI</h3><p>I lead the design and validation of the team's AI research tools: repositories, synthetic user testing, an automated readability crawler for verizon.com, and an AI tree-testing audit engine that compares how different AI agents navigate a site.</p></div>
+        <div><h3>Accessibility beyond the product</h3><p>I led the Insights Association's 2025 research initiative on disability identity, ran a workshop and certification at <abbr title="The Market Research Event">TMRE</abbr>, presented at the <abbr title="Corporate Researchers Conference">CRC</abbr>, and helped the Accessible Insights Consortium double its membership. I also mentored two American Foundation for the Blind interns on a study of AI assistants and assistive technology.</p></div>
+        <div><h3>Telling the story</h3><p>Research only matters when it changes a decision. I write memos, readouts and executive presentations that make findings simple enough to act on.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="experience" aria-labelledby="exp-h">
+    <div class="wrap">
+      <div class="section-head"><h2 id="exp-h">Experience</h2></div>
+      <ol class="timeline">
+        <li><span class="yr">2023–now</span><div><b>Senior UX Research Manager</b> <span class="org">· Verizon</span><p>Owns the customer experience (CX) and UX research roadmap. Built and leads the design system, brand perception and accessibility research programs.</p></div></li>
+        <li><span class="yr">2020–2022</span><div><b>Manager, UX Research</b> <span class="org">· Verizon</span><p>Led a team of six researchers on subscription plan and loyalty strategy.</p></div></li>
+        <li><span class="yr">2018–2019</span><div><b>Creative Technologist</b> <span class="org">· Google Creative Lab</span><p>User research and design exploration for Creatability.</p></div></li>
+        <li><span class="yr">2018–2019</span><div><b>Accessibility Specialist</b> <span class="org">· 2U</span><p>Usability and accessibility research for e-learning tools.</p></div></li>
+        <li><span class="yr">2015–2018</span><div><b>HCI Research Fellow</b> <span class="org">· New York University</span><p>Accessibility studies for Spectrum, Cooper Hewitt and the Processing Foundation, and a stroke rehabilitation device with NYU Rusk.</p></div></li>
+      </ol>
+      <h3 class="edu-h" id="edu-h">Education</h3>
+      <ol class="timeline" aria-labelledby="edu-h">
+        <li><span class="yr">2021</span><div><b>PhD, Human-Computer Interaction (HCI)</b> <span class="org">· New York University</span></div></li>
+        <li><span class="yr">2015</span><div><b>Master of Professional Studies, Interactive Telecommunications</b> <span class="org">· NYU Interactive Telecommunications Program</span></div></li>
+        <li><span class="yr">2009</span><div><b>Bachelor of Arts, Psychology and Visual Arts</b> <span class="org">· University of British Columbia</span></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="writing" aria-labelledby="writing-h">
+    <div class="wrap">
+      <div class="section-head"><h2 id="writing-h">Selected publications</h2><p>More on <a href="https://scholar.google.com/citations?user=S8_5jfsAAAAJ&amp;hl=en">Google Scholar</a></p></div>
+      <ul class="pubs">
+        <li><span class="yr">2023</span><span>Tangible Progress: Tools, Techniques, and the Impacts of Teaching<span class="venue">ACM Transactions on Accessible Computing (TACCESS)</span></span></li>
+        <li><span class="yr">2021</span><span>Accessible Web Development<span class="venue">ACM TACCESS</span></span></li>
+        <li><span class="yr">2021</span><span>Making the Elusive More Tangible<span class="venue"><abbr title="Web for All Conference">W4A</abbr></span></span></li>
+        <li><span class="yr">2019</span><span>Entertainment for All: Understanding Media Streaming Accessibility<span class="venue"><abbr title="ACM Conference on Human Factors in Computing Systems">CHI</abbr> Extended Abstracts</span></span></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <section class="foot-earlier" id="earlier" aria-labelledby="earlier-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="earlier-h">Earlier work</h2>
+        <p>NYU Ability Project · 2015–2019</p>
+      </div>
+      <ul class="earlier">
+        <li>
+          <figure><img src="img/p5-access-project.png" width="1500" height="748" alt="p5* Access Project logo on a field of pink branching dot patterns."></figure>
+          <p class="kicker">UX Research I · Processing Foundation</p>
+          <h3>p5.js Access Project</h3>
+          <p>Accessibility and usability research for p5.js, the Processing Foundation's open-source creative coding library, so that people using screen readers and other assistive technology can learn to code with it.</p>
+        </li>
+        <li>
+          <figure><img src="img/charter-usability-testing.jpg" width="1000" height="750" alt="Presenting usability testing findings to a team seated around laptops in NYU's Ability Studio. The slide lists issues found on the app and website, including content linearization, missing feedback on interactions, insufficient labelling of buttons and input fields, timeouts, pinch and zoom being disabled, and touch gestures screen reader users rely on not being available on tablet."></figure>
+          <p class="kicker">UX Research II · Charter Communications</p>
+          <h3>Spectrum app and website accessibility</h3>
+          <p>Accessibility and usability studies of Charter's Spectrum app and website with assistive technology users, turned into prioritized findings for the product team.</p>
+        </li>
+        <li>
+          <figure><img src="img/rekinect.png" width="1500" height="748" alt="Illustration of a conductor's silhouette facing an orchestra seating chart made of instrument icons, with the piano and French horn sections highlighted in red."></figure>
+          <p class="kicker">NYU Research Fellowship · NYU Rusk Rehabilitation</p>
+          <h3>Rekinect</h3>
+          <p>Research and development for a stroke rehabilitation device and interactive exercise program, in partnership with NYU's Rusk Rehabilitation Center.</p>
+        </li>
+        <li>
+          <figure><img src="img/cooper-hewitt-design-for-access.png" width="1500" height="748" alt="Design for Access: Cooper Hewitt Co-Lab, shown beside a 3D model of the Cooper Hewitt mansion on a yellow background."></figure>
+          <p class="kicker">Teaching · Cooper Hewitt, Smithsonian Design Museum</p>
+          <h3>Design for Access</h3>
+          <p>Teaching accessible and inclusive design, including the Design for Access Co-Lab with Cooper Hewitt, Smithsonian Design Museum.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <div class="foot-contact">
+  <div class="wrap">
+    <h2>Let's talk research.</h2>
+    <p><span>clairev8@gmail.com</span></p>
+  </div>
+  </div>
+</footer>
+</body>
+</html>
