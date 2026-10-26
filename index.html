@@ -1,9 +1,7 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Claire Ferrari, PhD</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<script>document.documentElement.lang = "en";</script>
 <meta name="description" content="Claire Ferrari, PhD. UX research leader in mixed methods, accessibility, design systems and AI-enabled research.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,8 +39,6 @@
 }
 
 * { box-sizing: border-box; }
-body { margin: 0; }
-img { max-width: 100%; height: auto; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body {
@@ -77,7 +73,8 @@ p { margin: 0; }
 .bar nav a:hover { color: var(--accent); }
 
 /* Hero */
-.hero .wrap { padding-block: 64px 48px; display: grid; gap: 32px; grid-template-columns: minmax(0, 1fr) 220px; align-items: start; }
+.hero .wrap { padding-block: 64px 56px; display: grid; gap: 48px; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: center; }
+.hero .portrait { justify-self: center; max-width: 400px; }
 .eyebrow { font-family: var(--font-data); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
 .hero h1 { font-size: var(--step-3); font-weight: 700; margin-top: 12px; max-width: 18ch; }
 .hero h1 mark { background: linear-gradient(transparent 58%, var(--mark) 58%); color: inherit; padding: 0 2px; }
@@ -172,7 +169,7 @@ footer { margin-top: 64px; }
 
 @media (max-width: 760px) {
   .hero .wrap { grid-template-columns: minmax(0, 1fr); padding-block: 40px 32px; }
-  .portrait { max-width: 180px; }
+  .hero .portrait { max-width: 280px; justify-self: start; }
   .areas .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .study { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   .log dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -183,8 +180,7 @@ footer { margin-top: 64px; }
   .timeline li, .pubs li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
 }
 </style>
-</head>
-<body>
+
 <a class="skip" href="#work">Skip to selected work</a>
 
 <header class="bar">
@@ -212,7 +208,7 @@ footer { margin-top: 64px; }
           <a href="https://scholar.google.com/citations?user=S8_5jfsAAAAJ&amp;hl=en">Google Scholar</a>
         </p>
       </div>
-      <img class="portrait" src="img/claire-ferrari-headshot.jpg" width="600" height="600" alt="Portrait of Claire Ferrari">
+      <img class="portrait" src="img/claire-ferrari-headshot.jpg" width="800" height="800" alt="Portrait of Claire Ferrari">
     </div>
   </section>
 
@@ -433,24 +429,28 @@ footer { margin-top: 64px; }
           <p class="kicker">UX Research I · Processing Foundation</p>
           <h3>p5.js Access Project</h3>
           <p>Accessibility and usability research for p5.js, the Processing Foundation's open-source creative coding library, so that people using screen readers and other assistive technology can learn to code with it.</p>
+          <a class="more" href="https://www.claireferrari.com/p5js-ux-research">p5.js Access Project on claireferrari.com</a>
         </li>
         <li>
           <figure><img src="img/charter-usability-testing.jpg" width="1000" height="750" alt="Presenting usability testing findings to a team seated around laptops in NYU's Ability Studio. The slide lists issues found on the app and website, including content linearization, missing feedback on interactions, insufficient labelling of buttons and input fields, timeouts, pinch and zoom being disabled, and touch gestures screen reader users rely on not being available on tablet."></figure>
           <p class="kicker">UX Research II · Charter Communications</p>
           <h3>Spectrum app and website accessibility</h3>
           <p>Accessibility and usability studies of Charter's Spectrum app and website with assistive technology users, turned into prioritized findings for the product team.</p>
+          <a class="more" href="https://www.claireferrari.com/charter-communications-ux-research">Charter case study on claireferrari.com</a>
         </li>
         <li>
           <figure><img src="img/rekinect.png" width="1500" height="748" alt="Illustration of a conductor's silhouette facing an orchestra seating chart made of instrument icons, with the piano and French horn sections highlighted in red."></figure>
           <p class="kicker">NYU Research Fellowship · NYU Rusk Rehabilitation</p>
           <h3>Rekinect</h3>
           <p>Research and development for a stroke rehabilitation device and interactive exercise program, in partnership with NYU's Rusk Rehabilitation Center.</p>
+          <a class="more" href="https://www.claireferrari.com/research">NYU fellowship on claireferrari.com</a>
         </li>
         <li>
           <figure><img src="img/cooper-hewitt-design-for-access.png" width="1500" height="748" alt="Design for Access: Cooper Hewitt Co-Lab, shown beside a 3D model of the Cooper Hewitt mansion on a yellow background."></figure>
           <p class="kicker">Teaching · Cooper Hewitt, Smithsonian Design Museum</p>
           <h3>Design for Access</h3>
           <p>Teaching accessible and inclusive design, including the Design for Access Co-Lab with Cooper Hewitt, Smithsonian Design Museum.</p>
+          <a class="more" href="https://www.claireferrari.com/teaching">Teaching on claireferrari.com</a>
         </li>
       </ul>
     </div>
@@ -462,5 +462,5 @@ footer { margin-top: 64px; }
   </div>
   </div>
 </footer>
-</body>
-</html>
+
+</body></html>
