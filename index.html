@@ -5,7 +5,7 @@
 <meta name="description" content="Claire Ferrari, PhD. UX research leader in mixed methods, accessibility, design systems and AI-enabled research.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;700&display=swap">
 <style>
 /* Layout: a single reading column with a left "study log" rail. Each case study reads like a research readout: question, method, n, finding, what changed. */
 :root {
@@ -104,7 +104,7 @@ section.block .wrap { padding-block: 64px 16px; }
 .study { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 32px; padding-block: 40px; border-bottom: 1px solid var(--rule); }
 .study:last-child { border-bottom: 0; }
 .log { font-family: var(--font-data); font-size: 0.8rem; color: var(--muted); display: flex; flex-direction: column; gap: 10px; }
-.log dt { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.7rem; }
+.log dt { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.7rem; font-weight: 700; }
 .log dd { margin: 2px 0 0; color: var(--ink); }
 .log dl { margin: 0; display: grid; gap: 10px; }
 .study h3 { font-size: var(--step-2); font-weight: 700; }
@@ -121,6 +121,15 @@ abbr[title] { text-decoration: underline dotted; text-underline-offset: 3px; cur
 .figures span { display: block; font-size: 0.88rem; color: var(--muted); margin-top: 4px; line-height: 1.4; }
 .source { margin-top: 8px; font-family: var(--font-data); font-size: 0.72rem; color: var(--muted); }
 
+.study-fig { margin: 24px 0 0; }
+.study-fig img { display: block; width: 100%; max-width: 100%; height: auto; border-radius: 4px; }
+.study-fig--square { max-width: 520px; margin-inline: 0; }
+.study .gallery { list-style: none; margin: 12px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.gallery li { min-width: 0; display: grid; gap: 6px; align-content: start; }
+.gallery img, .gallery video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 4px; background: var(--surface); }
+.gallery-desc { font-family: var(--font-data); font-size: 0.75rem; color: var(--muted); line-height: 1.45; }
+@media (max-width: 560px) { .study .gallery { grid-template-columns: minmax(0, 1fr); } }
+.study-fig figcaption { margin-top: 8px; font-family: var(--font-data); font-size: 0.78rem; color: var(--muted); }
 .shot {
   margin-top: 24px; aspect-ratio: 16 / 9; max-width: 100%;
   border: 1.5px dashed var(--rule); border-radius: 4px; background: var(--surface);
@@ -200,7 +209,7 @@ footer { margin-top: 64px; }
     <div class="wrap">
       <div>
         <p class="eyebrow"><abbr title="user experience">UX</abbr> research leader · Human-Computer Interaction</p>
-        <h1 id="intro">I find out what people actually do, and help teams <mark>build for all of them</mark>.</h1>
+        <h1 id="intro">Technology serves people best when they <mark>participate in its design</mark>.</h1>
         <p class="lede">I lead UX research programs across consumer technology, telecommunications, media streaming and emerging tech. My work pairs behavioral data with qualitative depth, puts accessibility at the center of product decisions, and uses <abbr title="artificial intelligence">AI</abbr> to make research faster without making it sloppier.</p>
         <p class="contact">
           <span>clairev8@gmail.com</span>
@@ -253,7 +262,10 @@ footer { margin-top: 64px; }
             <div role="listitem"><b>+216%</b><span>average monthly add-a-line orders</span></div>
           </div>
           <p class="source">Program results, 9-month monthly averages before vs. after the work began (March 2025).</p>
-          <div class="shot">Image to come: before and after of the offer tiles</div>
+          <figure class="study-fig">
+            <img src="img/my-offers-tiles.jpg" width="2400" height="1322" alt="Two versions of the My Offers page side by side. Before, on the left: a For All lines dropdown, a long row of filter chips, and a grid of offer tiles in mixed white, black and bright red with competing headline colors. After, on the right: Phone offers and Home internet offers tabs, shorter filter labels, a personalized Save $10 a month tile first, and a calmer grid of mostly neutral tiles with consistent headline color.">
+            <figcaption>My Offers before (left) and after (right) the redesign.</figcaption>
+          </figure>
         </div>
       </article>
 
@@ -280,7 +292,10 @@ footer { margin-top: 64px; }
             <div role="listitem"><b>10 sec</b><span>faster median task time, vertical vs. carousel</span></div>
             <div role="listitem"><b>70%</b><span>confidence at the highest detail level</span></div>
           </div>
-          <div class="shot">Image to come: the tested selection patterns side by side</div>
+          <figure class="study-fig">
+            <img src="img/vza-selection-patterns-ab.jpg" width="1600" height="1085" alt="Two Verizon Assistant chat screens, labeled A and B, asking which line eligible for international travel to start with. A: each line is a row with a device image, the line owner's name, the phone number and an arrow, so one tap selects it. B: the same rows with radio buttons, the first line selected, and a Confirm button below.">
+            <figcaption>Two of the tested line selection patterns: tap-to-select rows (A) and radio buttons with Confirm (B).</figcaption>
+          </figure>
         </div>
       </article>
 
@@ -315,7 +330,10 @@ footer { margin-top: 64px; }
             <div role="listitem"><b>30%</b><span>task failure rate overall</span></div>
             <div role="listitem"><b>50%</b><span>task failure among existing customers</span></div>
           </div>
-          <div class="shot">Image to come: a redacted findings slide or annotated flow</div>
+          <figure class="study-fig">
+            <img src="img/ngd-sales-flow.png" width="1676" height="720" alt="Flow diagram of the Next Gen Digital purchase journey tested in the study: 13 screenshots in three rows joined by arrows. It starts at Account Overview and moves through choosing an Unlimited plan, browsing smartphones, customizing an iPhone 17 Pro, picking an offer, getting a new number or bringing one, device protection, a rewards card prompt, accessories and the cart, ending at a Bill Pay Estimate. The first and last screens are labeled Existing Customer only.">
+            <figcaption>The purchase flow participants worked through, from Account Overview to Bill Pay Estimate. <a href="img/ngd-sales-flow.png">Open the full-size flow</a></figcaption>
+          </figure>
         </div>
       </article>
 
@@ -342,7 +360,9 @@ footer { margin-top: 64px; }
             <div role="listitem"><b>1,043</b><span>studies organized for retrieval</span></div>
             <div role="listitem"><b>1,492</b><span>acronyms consolidated from 3 glossaries</span></div>
           </div>
-          <div class="shot">Image to come: taxonomy diagram or component audit summary</div>
+          <figure class="study-fig">
+            <img src="img/vds-illustration.jpg" width="1588" height="1030" alt="Illustration in three panels of yellow, red and neutral blocks. Left: two pairs of stacked blocks, one with a wide gap and one with a narrow gap, marked by red arrows. Middle: three blocks nested inside a framed container. Right: a tree that branches from one large red block down through a smaller red block to two yellow blocks and three neutral blocks.">
+          </figure>
         </div>
       </article>
 
@@ -364,7 +384,22 @@ footer { margin-top: 64px; }
             <div><h4>Approach</h4><p>I ran user research with people with diverse abilities and tested new interaction modes as they were built, working across research, design and engineering.</p></div>
             <div><h4>What changed</h4><p>The research shaped how the tools handled input and feedback. The project went on to win the 2019 Cannes Lions Design Grand Prix.</p></div>
           </div>
-          <div class="shot">Image to come: a still from the Creatability experiments</div>
+          <figure class="study-fig study-fig--square">
+            <img src="img/creatability.jpg" width="1200" height="1175" alt="Creatability, shown over a darkened photo of a hand on a laptop keyboard. On screen is a Creatability experiment with a Keyboard settings panel, body tracking options and large colored keys labeled C and D.">
+          <ul class="gallery" aria-label="Creatability experiments">
+            <li>
+              <video src="img/creatability-draw.mp4" poster="img/creatability-draw-still.jpg" width="512" height="288" controls muted loop playsinline preload="none" aria-describedby="cr-draw-desc"></video>
+              <p id="cr-draw-desc" class="sr">Video, 8 seconds, no sound: a person faces a webcam and draws looping black lines across the frame by moving their nose, tracked as a blue dot.</p>
+            </li>
+            <li>
+              <img src="img/creatability-body.jpg" width="512" height="288" alt="A person in a striped sweater stands in an office while yellow zigzag lines from body tracking trace their head, shoulders and arms.">
+            </li>
+            <li>
+              <img src="img/creatability-keys.jpg" width="512" height="288" alt="Colored note columns labeled C, D, E, G, A and C over a webcam view of a person. A blue line from their nose points into the D column, which is highlighted orange.">
+            </li>
+          </ul>
+            <figcaption>Creatability – a series of accessible creative tools.</figcaption>
+          </figure>
         </div>
       </article>
     </div>
@@ -429,28 +464,24 @@ footer { margin-top: 64px; }
           <p class="kicker">UX Research I · Processing Foundation</p>
           <h3>p5.js Access Project</h3>
           <p>Accessibility and usability research for p5.js, the Processing Foundation's open-source creative coding library, so that people using screen readers and other assistive technology can learn to code with it.</p>
-          <a class="more" href="https://www.claireferrari.com/p5js-ux-research">p5.js Access Project on claireferrari.com</a>
         </li>
         <li>
           <figure><img src="img/charter-usability-testing.jpg" width="1000" height="750" alt="Presenting usability testing findings to a team seated around laptops in NYU's Ability Studio. The slide lists issues found on the app and website, including content linearization, missing feedback on interactions, insufficient labelling of buttons and input fields, timeouts, pinch and zoom being disabled, and touch gestures screen reader users rely on not being available on tablet."></figure>
           <p class="kicker">UX Research II · Charter Communications</p>
           <h3>Spectrum app and website accessibility</h3>
           <p>Accessibility and usability studies of Charter's Spectrum app and website with assistive technology users, turned into prioritized findings for the product team.</p>
-          <a class="more" href="https://www.claireferrari.com/charter-communications-ux-research">Charter case study on claireferrari.com</a>
         </li>
         <li>
           <figure><img src="img/rekinect.png" width="1500" height="748" alt="Illustration of a conductor's silhouette facing an orchestra seating chart made of instrument icons, with the piano and French horn sections highlighted in red."></figure>
           <p class="kicker">NYU Research Fellowship · NYU Rusk Rehabilitation</p>
           <h3>Rekinect</h3>
           <p>Research and development for a stroke rehabilitation device and interactive exercise program, in partnership with NYU's Rusk Rehabilitation Center.</p>
-          <a class="more" href="https://www.claireferrari.com/research">NYU fellowship on claireferrari.com</a>
         </li>
         <li>
           <figure><img src="img/cooper-hewitt-design-for-access.png" width="1500" height="748" alt="Design for Access: Cooper Hewitt Co-Lab, shown beside a 3D model of the Cooper Hewitt mansion on a yellow background."></figure>
           <p class="kicker">Teaching · Cooper Hewitt, Smithsonian Design Museum</p>
           <h3>Design for Access</h3>
           <p>Teaching accessible and inclusive design, including the Design for Access Co-Lab with Cooper Hewitt, Smithsonian Design Museum.</p>
-          <a class="more" href="https://www.claireferrari.com/teaching">Teaching on claireferrari.com</a>
         </li>
       </ul>
     </div>
