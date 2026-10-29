@@ -109,6 +109,9 @@ section.block .wrap { padding-block: 64px 16px; }
 .log dl { margin: 0; display: grid; gap: 10px; }
 .study h3 { font-size: var(--step-2); font-weight: 700; }
 .study .q { margin-top: 10px; font-style: italic; color: var(--muted); max-width: 62ch; }
+.study .tldr { margin-top: 16px; padding: 12px 16px; border-left: 3px solid var(--accent); background: var(--accent-soft); }
+.study .tldr b { font-family: var(--font-data); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink); margin-right: 6px; }
+.lead-figs { margin-top: 28px; }
 .study .body { margin-top: 1.5em; display: grid; gap: 2.25em; max-width: 66ch; }
 .study .body h4 { font-family: var(--font-data); font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin: 0 0 4px; }
 .study ul { margin: 0; padding-left: 1.1em; display: grid; gap: 0.5em; }
@@ -119,6 +122,7 @@ abbr[title] { text-decoration: underline dotted; text-underline-offset: 3px; cur
 .figures div { background: var(--surface); padding: 14px 16px; }
 .figures b { display: block; font-family: var(--font-display); font-size: 1.7rem; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--accent); line-height: 1.1; }
 .figures span { display: block; font-size: 0.88rem; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+.figures b span { display: inline; font-size: inherit; color: inherit; margin-top: 0; line-height: inherit; }
 .source { margin-top: 8px; font-family: var(--font-data); font-size: 0.72rem; color: var(--muted); }
 
 .study-fig { margin: 24px 0 0; }
@@ -210,7 +214,7 @@ footer { margin-top: 64px; }
       <div>
         <p class="eyebrow"><abbr title="user experience">UX</abbr> research leader · Human-Computer Interaction</p>
         <h1 id="intro">Technology serves people best when they <mark>participate in its design</mark>.</h1>
-        <p class="lede">I lead UX research programs across consumer technology, telecommunications, media streaming and emerging tech. My work pairs behavioral data with qualitative depth, puts accessibility at the center of product decisions, and uses <abbr title="artificial intelligence">AI</abbr> to make research faster without making it sloppier.</p>
+        <p class="lede">For more than 10 years I've built and led UX research programs across consumer technology, telecommunications, healthcare and emerging tech. My work pairs behavioral data with qualitative depth, puts accessibility at the center of product decisions, and uses <abbr title="artificial intelligence">AI</abbr> to make research faster without making it sloppier.</p>
         <p class="contact">
           <span>clairev8@gmail.com</span>
           <a href="https://www.linkedin.com/in/claireferrari/">LinkedIn</a>
@@ -225,7 +229,7 @@ footer { margin-top: 64px; }
     <h2 id="areas-h" class="sr">Focus areas</h2>
     <div class="wrap">
       <div><h3>Mixed methods</h3><p>Analytics show where people drop off. Interviews and usability work explain why.</p></div>
-      <div><h3>Inclusive design</h3><p>Assistive technology benchmarking, <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2.2, and research with disabled participants.</p></div>
+      <div><h3>Inclusive design</h3><p>Assistive technology benchmarking, <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2.2, and research with participants with disabilities.</p></div>
       <div><h3>Design systems</h3><p>Research programs that make shared components worth adopting.</p></div>
       <div><h3>AI-enabled research</h3><p>Repositories, synthetic testing and tooling, validated before they're trusted.</p></div>
     </div>
@@ -251,17 +255,19 @@ footer { margin-top: 64px; }
         <div>
           <h3 id="s1">Making personalized offers easier to act on</h3>
           <p class="q">Why were customers bouncing off offers that were built for them?</p>
+          <p class="tldr"><b>In short</b> My synthesis of Verizon's offer research shaped a tile redesign, and the design changes contributed to a 25% increase in offer acceptance.</p>
           <div class="body">
-            <div><h4>Context</h4><p>Verizon was consolidating personalized offers into a single My Offers experience across the app and website. Engagement was falling, and new multi-offer tiles were about to roll out.</p></div>
-            <div><h4>Approach</h4><p>I paired behavioral telemetry with in-depth interviews, then synthesized findings across several offer studies, including a color study and tile usability testing run by my team. The data showed where people dropped off. The interviews explained why: competing visual hierarchies, crowded tiles and brand color combinations that added friction.</p></div>
-            <div><h4>What changed</h4><p>The synthesis became a set of experience principles for offer strategy. Design used it to rework tile layout, color and placement, and I made the case to executives for end-to-end usability over isolated feature scores.</p></div>
+            <div><h4>Context</h4><p>Verizon was introducing multi-offer tiles to bring personalized offers together across the My Verizon app and website, and offer engagement had declined.</p></div>
+            <div><h4>Approach</h4><p>I paired behavioral telemetry with in-depth interviews, then synthesized findings across several offer studies, including a color study and tile usability testing run by my team. The data showed where people dropped off. The interviews explained why: problems with visual hierarchy, color and typography, including brand color combinations that added friction.</p></div>
+            <div><h4>What changed</h4><p>The synthesis became a set of experience principles for offer strategy, and design used it to rework tile layout, color and placement. Those design changes contributed to a 25% increase in offer acceptance.</p></div>
           </div>
           <div class="figures" role="list">
             <div role="listitem"><b>+265%</b><span>average monthly traffic to My Offers</span></div>
             <div role="listitem"><b>+121%</b><span>average monthly click-through rate</span></div>
             <div role="listitem"><b>+216%</b><span>average monthly add-a-line orders</span></div>
+            <div role="listitem"><b>+25%</b><span>offer acceptance rate</span></div>
           </div>
-          <p class="source">Program results, 9-month monthly averages before vs. after the work began (March 2025).</p>
+          <p class="source">Program results. Traffic, click-through and orders are 9-month monthly averages before vs. after the work began (March 2025). Offer acceptance is from Verizon's analytics team.</p>
           <figure class="study-fig">
             <img src="img/my-offers-tiles.jpg" width="2400" height="1322" alt="Two versions of the My Offers page side by side. Before, on the left: a For All lines dropdown, a long row of filter chips, and a grid of offer tiles in mixed white, black and bright red with competing headline colors. After, on the right: Phone offers and Home internet offers tabs, shorter filter labels, a personalized Save $10 a month tile first, and a calmer grid of mostly neutral tiles with consistent headline color.">
             <figcaption>My Offers before (left) and after (right) the redesign.</figcaption>
@@ -282,10 +288,11 @@ footer { margin-top: 64px; }
         <div>
           <h3 id="s2">Choosing a line or device inside a chat</h3>
           <p class="q">What selection pattern helps people pick the right line or device in Verizon Assistant, on a phone screen?</p>
+          <p class="tldr"><b>In short</b> A 193-person test showed vertical lists were 10 seconds faster than carousels, and led to a recommended standard for choosing a line in chat.</p>
           <div class="body">
-            <div><h4>Context</h4><p>Teams were building line and device pickers into the Verizon Assistant chat interface with no shared standard. Carousels, radio lists and cards all coexisted.</p></div>
-            <div><h4>Approach</h4><p>I ran unmoderated interaction tests with 193 participants, comparing layout orientation, selection controls and four levels of information density, from a bare phone number up to name, number, device image, plan and price.</p></div>
-            <div><h4>What changed</h4><p>Vertical layouts beat carousels on speed, and richer detail beat minimal cards on confidence. The findings became two standards: vertical orientation on mobile across plan management flows, and a device image on every troubleshooting line selection.</p></div>
+            <div><h4>Context</h4><p>Verizon Assistant had no standard template for choosing a line or device in chat. The goal was to find the layout, controls and level of detail that worked best and turn them into a standard.</p></div>
+            <div><h4>Approach</h4><p>I ran unmoderated interaction tests with 193 participants, comparing vertical layouts with carousels, different selection controls, and levels of information density up to Level 4: name, number, device image, plan details and pricing.</p></div>
+            <div><h4>What changed</h4><p>Vertical layouts beat carousels on speed, and the most detailed rows gave people the most confidence. The findings led to a recommendation to standardize vertical layouts on mobile across plan management flows, and a baseline rule requiring a device image for every troubleshooting line selection. People preferred confirming a selection because it prevented mistakes, and the pattern with radio buttons and a confirm step scored 58% confidence and 41% ease of use.</p></div>
           </div>
           <div class="figures" role="list">
             <div role="listitem"><b>193</b><span>participants</span></div>
@@ -312,18 +319,19 @@ footer { margin-top: 64px; }
         <div>
           <h3 id="s3">Finding the traps in a mobile checkout</h3>
           <p class="q">Could people using assistive technology actually buy a phone in the reskinned mobile sales flow?</p>
+          <p class="tldr"><b>In short</b> Assistive technology users failed 30% of purchase tasks. I traced the failures to four causes, and every fix I recommended was remediated.</p>
           <div class="body">
-            <div><h4>Context</h4><p>Verizon's Next Gen Digital mobile sales flow was being reskinned under the new Monarch brand. Visual changes like this often break things that only assistive technology users notice.</p></div>
-            <div><h4>Approach</h4><p>I ran a study with 27 participants: 16 screen reader users, 5 switch and voice control users, and 6 low-vision magnification users. They worked through real purchase tasks while I logged where and why they got stuck.</p></div>
+            <div><h4>Context</h4><p>Verizon's Next Gen Digital mobile sales flow was being reskinned under the new Monarch brand. The study checked whether people using assistive technology could still complete a purchase.</p></div>
+            <div><h4>Approach</h4><p>I ran an unmoderated study with 27 assistive technology users, 10 prospects and 17 existing customers, on desktop and mobile. They included 16 screen reader users, 5 switch and voice control users, and 6 low-vision magnification users, each working through purchase tasks.</p></div>
             <div><h4>Findings</h4>
               <ul>
                 <li>Sign-in loops that sent authenticated customers back to the login screen</li>
                 <li>A focus trap in the Estimated Next Bill modal</li>
                 <li>Unlabeled trade-in and porting options that a screen reader announced as "Object Object"</li>
-                <li>Layout density that made magnified screens hard to follow</li>
+                <li>Visual density that went beyond what participants could comfortably take in</li>
               </ul>
             </div>
-            <div><h4>What changed</h4><p>I turned the findings into a prioritized remediation list for engineering and design, aimed at the checkout steps where high-intent customers were dropping out.</p></div>
+            <div><h4>What changed</h4><p>I turned the findings into prioritized fixes for engineering and design: stop authenticated sessions from resetting, remove the focus trap in the bill review dialog, add programmatic labels to radio buttons, and move dense specs into collapsible sections. Each fix was logged as a Jira ticket and remediated, clearing the blockers from checkout steps where high-intent customers had been dropping out.</p></div>
           </div>
           <div class="figures" role="list">
             <div role="listitem"><b>27</b><span>assistive technology users</span></div>
@@ -337,28 +345,38 @@ footer { margin-top: 64px; }
         </div>
       </article>
 
-      <!-- 4. VDS + repository -->
+      <!-- 4. VDS -->
       <article class="study" aria-labelledby="s4">
         <div class="log">
           <dl>
             <div><dt>Org</dt><dd>Verizon</dd></div>
-            <div><dt>Year</dt><dd>2025–2026</dd></div>
-            <div><dt>Role</dt><dd>Built and leads the design system research program</dd></div>
-            <div><dt>Methods</dt><dd>AI-assisted component audit, stakeholder interviews, taxonomy design</dd></div>
+            <div><dt>Year</dt><dd>2026</dd></div>
+            <div><dt>Role</dt><dd>Leads the design system research program</dd></div>
+            <div><dt>Methods</dt><dd>AI-assisted component analytics audit, designer and developer interviews (n=13), moderated usability, expert accessibility reviews</dd></div>
           </dl>
         </div>
         <div>
-          <h3 id="s4">Research infrastructure for a design system</h3>
-          <p class="q">Why were product teams leaving the Verizon Design System (VDS), and how could years of research become findable?</p>
+          <h3 id="s4">Why teams detach from the design system</h3>
+          <p class="q">Why were product teams detaching from standard Verizon Design System (VDS) components, and what would make the system easier to adopt?</p>
+          <p class="tldr"><b>In short</b> Teams using the design system worked up to 5 times faster. I found the 10 components teams abandon most, and why.</p>
           <div class="body">
-            <div><h4>Context</h4><p>Product teams were detaching from central VDS components and building their own. Separately, the research team's archive of more than a thousand studies was hard to search, so findings got repeated instead of reused.</p></div>
-            <div><h4>Approach</h4><p>I configured an AI design audit tool to find the 10 components with the highest detachment rates, then interviewed designers and engineers about why. In parallel I designed a 7-facet taxonomy and content model for the research archive, consolidated three glossaries into one acronym list, and pressure-tested it against real datasets like MaxDiff surveys and monadic tests.</p></div>
-            <div><h4>What changed</h4><p>The adoption study named the gaps (a web-first bias, missing complex components, poor discoverability, fragile version upgrades) and led to recommendations including leadership acceptance criteria, sprint time for visual quality defects, and a contribution path for teams. The taxonomy shipped as production files for semantic search in the team's Stravito repository.</p></div>
+            <div><h4>Context</h4><p>Product teams were detaching from components in the VDS central library and building their own. This study was part of VDS Promise, a research program testing whether the system delivers on consistency, inclusivity, and speed and efficiency.</p></div>
+            <div><h4>Approach</h4><p>I configured an AI design audit tool to analyze component analytics and find the 10 components with the highest detachment rates. I then interviewed 13 designers and developers on live product teams about adoption, workflow speed and the friction of integrating the system into their work.</p></div>
+            <div><h4>Findings</h4>
+              <ul>
+                <li>Teams using VDS components worked up to 5 times faster than teams building custom ones, saved about 25% of redesign time, shortened development cycles by more than a month, and got pre-vetted accessibility compliance</li>
+                <li>A web-first engineering bias with outdated viewports that didn't support mobile-first layouts</li>
+                <li>A rigid atomic structure that lacked complex, ready-made components</li>
+                <li>Poor discoverability, and error-prone transitions between versions</li>
+              </ul>
+            </div>
+            <div><h4>What changed</h4><p>The audit isolated specific gaps in the system and informed updates to the central library. The adoption study led to four recommendations: make VDS usage part of leadership acceptance criteria, set aside sprint time for visual quality defects, expand Figma and front-end coding training, and open contribution paths so teams can add to the system instead of relying on a central team alone. The VDS Promise research also shaped roadmap items, including a Figma bulk-updating plugin, low-fidelity wireframe libraries and motion packs.</p></div>
           </div>
           <div class="figures" role="list">
-            <div role="listitem"><b><span aria-hidden="true">up to 5×</span><span class="sr">up to 5 times</span></b><span>faster design workflows with system components, per adoption study</span></div>
-            <div role="listitem"><b>1,043</b><span>studies organized for retrieval</span></div>
-            <div role="listitem"><b>1,492</b><span>acronyms consolidated from 3 glossaries</span></div>
+            <div role="listitem"><b>10</b><span>components with the highest detachment rates, found by the audit</span></div>
+            <div role="listitem"><b><span aria-hidden="true">up to 5×</span><span class="sr">up to 5 times</span></b><span>faster design workflows with system components</span></div>
+            <div role="listitem"><b><span aria-hidden="true">~25%</span><span class="sr">about 25%</span></b><span>less redesign time</span></div>
+            <div role="listitem"><b><span aria-hidden="true">1+ month</span><span class="sr">more than 1 month</span></b><span>shorter development cycles</span></div>
           </div>
           <figure class="study-fig">
             <img src="img/vds-illustration.jpg" width="1588" height="1030" alt="Illustration in three panels of yellow, red and neutral blocks. Left: two pairs of stacked blocks, one with a wide gap and one with a narrow gap, marked by red arrows. Middle: three blocks nested inside a framed container. Right: a tree that branches from one large red block down through a smaller red block to two yellow blocks and three neutral blocks.">
@@ -373,16 +391,17 @@ footer { margin-top: 64px; }
             <div><dt>Org</dt><dd>Google Creative Lab, with NYU Ability Project</dd></div>
             <div><dt>Year</dt><dd>2018–2019</dd></div>
             <div><dt>Role</dt><dd>Creative Technologist, user research</dd></div>
-            <div><dt>Methods</dt><dd>Participatory research, multimodal prototype testing</dd></div>
+            <div><dt>Methods</dt><dd>User research, multimodal prototype testing</dd></div>
           </dl>
         </div>
         <div>
           <h3 id="s5">Creative tools for people of all abilities</h3>
           <p class="q">How do gesture, sight and sound work as inputs for making art and music, for people with diverse physical, sensory and cognitive abilities?</p>
+          <p class="tldr"><b>In short</b> User research for a set of accessible creative tools that won the 2019 Cannes Lions Design Grand Prix.</p>
           <div class="body">
             <div><h4>Context</h4><p>Creatability is an open-source set of experiments that use machine learning to make creative tools more accessible, built by Google Creative Lab with NYU's Ability Project.</p></div>
             <div><h4>Approach</h4><p>I ran user research with people with diverse abilities and tested new interaction modes as they were built, working across research, design and engineering.</p></div>
-            <div><h4>What changed</h4><p>The research shaped how the tools handled input and feedback. The project went on to win the 2019 Cannes Lions Design Grand Prix.</p></div>
+            <div><h4>What changed</h4><p>Research findings guided the design of the tools. The project went on to win the 2019 Cannes Lions Design Grand Prix.</p></div>
           </div>
           <figure class="study-fig study-fig--square">
             <img src="img/creatability.jpg" width="1200" height="1175" alt="Creatability, shown over a darkened photo of a hand on a laptop keyboard. On screen is a Creatability experiment with a Keyboard settings panel, body tracking options and large colored keys labeled C and D.">
@@ -408,11 +427,17 @@ footer { margin-top: 64px; }
   <section class="block" id="practice" aria-labelledby="practice-h">
     <div class="wrap">
       <div class="section-head"><h2 id="practice-h">How I lead</h2></div>
+      <div class="figures lead-figs" role="list">
+        <div role="listitem"><b>3</b><span>research programs built at Verizon: design system, brand perception and accessibility</span></div>
+        <div role="listitem"><b>4 of 6</b><span>researchers I led moved into senior roles</span></div>
+        <div role="listitem"><b>1,043</b><span>studies in the searchable research repository I designed</span></div>
+        <div role="listitem"><b><span aria-hidden="true">2×</span><span class="sr">Doubled</span></b><span>Accessible Insights Consortium membership</span></div>
+      </div>
       <div class="two">
-        <div><h3>Choosing the method for the question</h3><p>Conjoint showed people liked each feature of a purchase flow on its own. Usability testing showed they got lost when the features were combined. I pick methods by the evidence a decision needs, like using diary studies over interviews to see how disabled people fit connected devices into daily routines.</p></div>
+        <div><h3>Choosing the method for the question</h3><p>Conjoint showed people liked each feature of a purchase flow on its own. Usability testing showed they got lost when the features were combined. I pick methods by the evidence a decision needs, like using diary studies over interviews to see how people with disabilities fit connected devices into daily routines.</p></div>
         <div><h3>Growing researchers</h3><p>I managed and coached a team of six early-career rapid researchers on study design, synthesis and holding up under stakeholder questions. Four moved into senior roles.</p></div>
         <div><h3>Raising the bar on rigor</h3><p>I partnered with Verizon's Insights Center of Excellence on standards for sample size, data quality and representation, and wrote the team's internal accessibility guidelines for surveys and vendors.</p></div>
-        <div><h3>Moving faster with AI</h3><p>I lead the design and validation of the team's AI research tools: repositories, synthetic user testing, an automated readability crawler for verizon.com, and an AI tree-testing audit engine that compares how different AI agents navigate a site.</p></div>
+        <div><h3>Moving faster with AI</h3><p>I lead the design and validation of the team's AI research tools, including a searchable repository of 1,043 research studies, synthetic user testing and an automated readability crawler for verizon.com. I also co-led an AI tree-testing platform that compares how different AI agents navigate a site.</p></div>
         <div><h3>Accessibility beyond the product</h3><p>I led the Insights Association's 2025 research initiative on disability identity, ran a workshop and certification at <abbr title="The Market Research Event">TMRE</abbr>, presented at the <abbr title="Corporate Researchers Conference">CRC</abbr>, and helped the Accessible Insights Consortium double its membership. I also mentored two American Foundation for the Blind interns on a study of AI assistants and assistive technology.</p></div>
         <div><h3>Telling the story</h3><p>Research only matters when it changes a decision. I write memos, readouts and executive presentations that make findings simple enough to act on.</p></div>
       </div>
@@ -424,7 +449,7 @@ footer { margin-top: 64px; }
       <div class="section-head"><h2 id="exp-h">Experience</h2></div>
       <ol class="timeline">
         <li><span class="yr">2023–now</span><div><b>Senior UX Research Manager</b> <span class="org">· Verizon</span><p>Owns the customer experience (CX) and UX research roadmap. Built and leads the design system, brand perception and accessibility research programs.</p></div></li>
-        <li><span class="yr">2020–2022</span><div><b>Manager, UX Research</b> <span class="org">· Verizon</span><p>Led a team of six researchers on subscription plan and loyalty strategy.</p></div></li>
+        <li><span class="yr">2020–2022</span><div><b>Manager, UX Research</b> <span class="org">· Verizon</span><p>Led and mentored a team of six researchers, and managed the rapid research portfolio on subscription plan and loyalty strategy.</p></div></li>
         <li><span class="yr">2018–2019</span><div><b>Creative Technologist</b> <span class="org">· Google Creative Lab</span><p>User research and design exploration for Creatability.</p></div></li>
         <li><span class="yr">2018–2019</span><div><b>Accessibility Specialist</b> <span class="org">· 2U</span><p>Usability and accessibility research for e-learning tools.</p></div></li>
         <li><span class="yr">2015–2018</span><div><b>HCI Research Fellow</b> <span class="org">· New York University</span><p>Accessibility studies for Spectrum, Cooper Hewitt and the Processing Foundation, and a stroke rehabilitation device with NYU Rusk.</p></div></li>
@@ -442,7 +467,7 @@ footer { margin-top: 64px; }
     <div class="wrap">
       <div class="section-head"><h2 id="writing-h">Selected publications</h2><p>More on <a href="https://scholar.google.com/citations?user=S8_5jfsAAAAJ&amp;hl=en">Google Scholar</a></p></div>
       <ul class="pubs">
-        <li><span class="yr">2023</span><span>Tangible Progress: Tools, Techniques, and the Impacts of Teaching<span class="venue">ACM Transactions on Accessible Computing (TACCESS)</span></span></li>
+        <li><span class="yr">2023</span><span>Tangible Progress: Tools, Techniques, and Impacts of Teaching Web Development to Screen Reader Users<span class="venue">ACM Transactions on Accessible Computing (TACCESS)</span></span></li>
         <li><span class="yr">2021</span><span>Accessible Web Development<span class="venue">ACM TACCESS</span></span></li>
         <li><span class="yr">2021</span><span>Making the Elusive More Tangible<span class="venue"><abbr title="Web for All Conference">W4A</abbr></span></span></li>
         <li><span class="yr">2019</span><span>Entertainment for All: Understanding Media Streaming Accessibility<span class="venue"><abbr title="ACM Conference on Human Factors in Computing Systems">CHI</abbr> Extended Abstracts</span></span></li>
