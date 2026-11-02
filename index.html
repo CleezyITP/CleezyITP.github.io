@@ -5,7 +5,7 @@
 <meta name="description" content="Claire Ferrari, PhD. UX research leader in mixed methods, accessibility, design systems and AI-enabled research.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;700&display=swap">
 <style>
 /* Layout: a single reading column with a left "study log" rail. Each case study reads like a research readout: question, method, n, finding, what changed. */
 :root {
@@ -18,7 +18,7 @@
   --accent-soft: #e2ede8;
   --mark: #f2d488;
   --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
-  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
   --font-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   --step-0: 1.0625rem;
   --step-1: 1.25rem;
@@ -67,10 +67,10 @@ p { margin: 0; }
 /* Top bar */
 .bar { border-bottom: 1px solid var(--rule); }
 .bar .wrap { display: flex; flex-wrap: wrap; gap: 4px 24px; align-items: center; justify-content: space-between; padding-block: 6px; }
-.bar .name { font-family: var(--font-display); font-weight: 700; font-size: 1rem; letter-spacing: 0.01em; }
+.bar .name { color: var(--ink); text-decoration: none; font-family: var(--font-display); font-weight: 700; font-size: 1rem; letter-spacing: 0.01em; }
 .bar nav { display: flex; flex-wrap: wrap; gap: 0 8px; font-family: var(--font-data); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
-.bar nav a { color: var(--muted); text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; padding: 0 8px; }
-.bar nav a:hover { color: var(--accent); }
+.bar nav a { color: var(--accent); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; padding: 0 8px; }
+.bar nav a:hover { text-decoration: underline; }
 
 /* Hero */
 .hero .wrap { padding-block: 64px 56px; display: grid; gap: 48px; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: center; }
@@ -81,7 +81,7 @@ p { margin: 0; }
 .hero .lede { margin-top: 20px; font-size: var(--step-1); max-width: 58ch; color: var(--ink); }
 .hero .contact { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 8px 20px; font-family: var(--font-data); font-size: 0.85rem; color: var(--muted); }
 .hero .contact span { user-select: all; }
-.hero .contact a { display: inline-flex; align-items: center; min-height: 44px; }
+.hero .contact a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-weight: 700; }
 .hero .contact { align-items: center; }
 .portrait {
   display: block; aspect-ratio: 1 / 1; width: 100%; max-width: 100%; height: auto;
@@ -99,12 +99,13 @@ section.block .wrap { padding-block: 64px 16px; }
 .section-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; border-bottom: 2px solid var(--ink); padding-bottom: 10px; }
 .section-head h2 { font-size: var(--step-2); }
 .section-head p { font-family: var(--font-data); font-size: 0.8rem; color: var(--muted); }
+.section-head p.tag { color: var(--accent); font-weight: 700; }
 
 /* Case studies */
 .study { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 32px; padding-block: 40px; border-bottom: 1px solid var(--rule); }
 .study:last-child { border-bottom: 0; }
 .log { font-family: var(--font-data); font-size: 0.8rem; color: var(--muted); display: flex; flex-direction: column; gap: 10px; }
-.log dt { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.7rem; font-weight: 700; }
+.log dt { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.7rem; font-weight: 700; color: var(--accent); }
 .log dd { margin: 2px 0 0; color: var(--ink); }
 .log dl { margin: 0; display: grid; gap: 10px; }
 .study h3 { font-size: var(--step-2); font-weight: 700; }
@@ -116,7 +117,7 @@ section.block .wrap { padding-block: 64px 16px; }
 .study .body h4 { font-family: var(--font-data); font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin: 0 0 4px; }
 .study ul { margin: 0; padding-left: 1.1em; display: grid; gap: 0.5em; }
 .edu-h { font-size: 1.1rem; margin-top: 40px; }
-abbr[title] { text-decoration: underline dotted; text-underline-offset: 3px; cursor: help; }
+abbr[title] { text-decoration: none; cursor: inherit; }
 
 .figures { margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; }
 .figures div { background: var(--surface); padding: 14px 16px; }
@@ -161,6 +162,9 @@ abbr[title] { text-decoration: underline dotted; text-underline-offset: 3px; cur
 .pubs .yr { font-family: var(--font-data); font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
 .pubs .venue { display: block; font-family: var(--font-data); font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
 
+.read-more { display: inline-flex; align-items: center; min-height: 44px; padding: 0; margin-top: 4px; border: 0; background: none; color: var(--accent); font-family: var(--font-data); font-size: 0.85rem; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.read-more:hover { text-decoration-thickness: 2px; }
+
 /* Timeline */
 .timeline { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 0; }
 .timeline li { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 20px; padding-block: 14px; border-bottom: 1px solid var(--rule); }
@@ -192,6 +196,50 @@ footer { margin-top: 64px; }
   .areas .wrap { grid-template-columns: minmax(0, 1fr); }
   .timeline li, .pubs li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
 }
+
+/* Case study cards (home) */
+.cards { list-style: none; margin: 0; padding: 0; }
+.card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: center; padding-block: 40px; border-bottom: 1px solid var(--rule); }
+.card:last-child { border-bottom: 0; }
+.card .kicker { font-family: var(--font-data); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+.card h3 { font-size: var(--step-2); font-weight: 700; margin-top: 8px; }
+.card h3 a { color: var(--ink); text-decoration: none; }
+.card h3 a:hover { color: var(--accent); text-decoration: underline; }
+.card .summary { margin-top: 12px; max-width: 58ch; }
+.card .figures { margin-top: 20px; }
+.card .figures b { font-size: 1.35rem; }
+.card .more { display: inline-flex; align-items: center; min-height: 44px; margin-top: 12px; font-family: var(--font-data); font-size: 0.85rem; font-weight: 700; }
+.card img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 4px; background: var(--surface); border: 1px solid var(--rule); }
+.card img.contain { object-fit: contain; }
+@media (max-width: 760px) { .card { grid-template-columns: minmax(0, 1fr); gap: 20px; } .card figure { order: -1; } }
+
+/* Case study page */
+.back { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--font-data); font-size: 0.85rem; font-weight: 700; }
+.case-head { padding-block: 24px 8px; }
+.case-head .kicker { font-family: var(--font-data); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-top: 16px; }
+.case-head h1 { font-size: var(--step-3); font-weight: 700; margin-top: 8px; max-width: 22ch; }
+.case-head .deck { margin-top: 16px; font-size: var(--step-1); max-width: 60ch; }
+.facts { margin: 28px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 28px; padding: 20px; background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; font-family: var(--font-data); font-size: 0.85rem; }
+.facts dt { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.72rem; font-weight: 700; color: var(--accent); }
+.facts dd { margin: 4px 0 0; }
+.facts-sub { display: block; margin-top: 2px; color: var(--muted); }
+@media (min-width: 880px) { .facts { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); } }
+@media (max-width: 479px) { .facts { grid-template-columns: 1fr; } }
+.case-body { max-width: 72ch; }
+.case-body section { margin-top: 48px; }
+.case-body h2 { font-size: var(--step-2); border-bottom: 2px solid var(--ink); padding-bottom: 8px; }
+.case-body h3 { font-size: 1.1rem; margin-top: 1.5em; }
+.case-body p { margin-top: 1em; }
+.case-body ul { margin: 0.75em 0 0; padding-left: 1.1em; display: grid; gap: 0.5em; }
+.case-body .figures { margin-top: 20px; }
+.case-body .study-fig { margin-top: 24px; }
+.case-wide { max-width: 1040px; }
+.q-lead p { margin-top: 40px; font-style: italic; color: var(--muted); font-size: var(--step-1); }
+.pager { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--rule); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; }
+.pager a { display: inline-flex; flex-direction: column; justify-content: center; min-height: 44px; font-family: var(--font-display); font-weight: 700; text-decoration: none; }
+.pager a span { font-family: var(--font-data); font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.pager a:hover { text-decoration: underline; }
+.pager .next { text-align: right; margin-left: auto; }
 </style>
 
 <a class="skip" href="#work">Skip to selected work</a>
@@ -239,188 +287,80 @@ footer { margin-top: 64px; }
     <div class="wrap">
       <div class="section-head">
         <h2 id="work-h">Selected work</h2>
-        <p>5 studies · 2018–2026</p>
+        <p class="tag">5 case studies · 2018–2026</p>
       </div>
-
-      <!-- 1. My Offers -->
-      <article class="study" aria-labelledby="s1">
-        <div class="log">
-          <dl>
-            <div><dt>Org</dt><dd>Verizon</dd></div>
-            <div><dt>Year</dt><dd>2025</dd></div>
-            <div><dt>Role</dt><dd>Research lead, Offer Orchestration</dd></div>
-            <div><dt>Methods</dt><dd>Behavioral analytics, in-depth interviews, usability, color study</dd></div>
-          </dl>
-        </div>
-        <div>
-          <h3 id="s1">Making personalized offers easier to act on</h3>
-          <p class="q">Why were customers bouncing off offers that were built for them?</p>
-          <p class="tldr"><b>In short</b> My synthesis of Verizon's offer research shaped a tile redesign, and the design changes contributed to a 25% increase in offer acceptance.</p>
-          <div class="body">
-            <div><h4>Context</h4><p>Verizon was introducing multi-offer tiles to bring personalized offers together across the My Verizon app and website, and offer engagement had declined.</p></div>
-            <div><h4>Approach</h4><p>I paired behavioral telemetry with in-depth interviews, then synthesized findings across several offer studies, including a color study and tile usability testing run by my team. The data showed where people dropped off. The interviews explained why: problems with visual hierarchy, color and typography, including brand color combinations that added friction.</p></div>
-            <div><h4>What changed</h4><p>The synthesis became a set of experience principles for offer strategy, and design used it to rework tile layout, color and placement. Those design changes contributed to a 25% increase in offer acceptance.</p></div>
-          </div>
-          <div class="figures" role="list">
-            <div role="listitem"><b>+265%</b><span>average monthly traffic to My Offers</span></div>
-            <div role="listitem"><b>+121%</b><span>average monthly click-through rate</span></div>
-            <div role="listitem"><b>+216%</b><span>average monthly add-a-line orders</span></div>
+      <ul class="cards">
+        <li class="card">
+          <div>
+            <p class="kicker">01 · Verizon · 2025</p>
+            <h3><a href="work/my-offers.html">Helping people act on personalized offers</a></h3>
+            <p class="summary">My synthesis of Verizon's offer research shaped a tile redesign, and the design changes contributed to a 25% increase in offer acceptance.</p>
+            <div class="figures" role="list">
             <div role="listitem"><b>+25%</b><span>offer acceptance rate</span></div>
+            <div role="listitem"><b>+216%</b><span>average monthly add-a-line orders</span></div>
+            <div role="listitem"><b>+265%</b><span>average monthly traffic to My Offers</span></div>
           </div>
-          <p class="source">Program results. Traffic, click-through and orders are 9-month monthly averages before vs. after the work began (March 2025). Offer acceptance is from Verizon's analytics team.</p>
-          <figure class="study-fig">
-            <img src="img/my-offers-tiles.jpg" width="2400" height="1322" alt="Two versions of the My Offers page side by side. Before, on the left: a For All lines dropdown, a long row of filter chips, and a grid of offer tiles in mixed white, black and bright red with competing headline colors. After, on the right: Phone offers and Home internet offers tabs, shorter filter labels, a personalized Save $10 a month tile first, and a calmer grid of mostly neutral tiles with consistent headline color.">
-            <figcaption>My Offers before (left) and after (right) the redesign.</figcaption>
-          </figure>
-        </div>
-      </article>
-
-      <!-- 2. Verizon Assistant -->
-      <article class="study" aria-labelledby="s2">
-        <div class="log">
-          <dl>
-            <div><dt>Org</dt><dd>Verizon</dd></div>
-            <div><dt>Year</dt><dd>2026</dd></div>
-            <div><dt>Role</dt><dd>Research lead, design system research</dd></div>
-            <div><dt>Methods</dt><dd>Unmoderated interaction testing, n=193</dd></div>
-          </dl>
-        </div>
-        <div>
-          <h3 id="s2">Choosing a line or device inside a chat</h3>
-          <p class="q">What selection pattern helps people pick the right line or device in Verizon Assistant, on a phone screen?</p>
-          <p class="tldr"><b>In short</b> A 193-person test showed vertical lists were 10 seconds faster than carousels, and led to a recommended standard for choosing a line in chat.</p>
-          <div class="body">
-            <div><h4>Context</h4><p>Verizon Assistant had no standard template for choosing a line or device in chat. The goal was to find the layout, controls and level of detail that worked best and turn them into a standard.</p></div>
-            <div><h4>Approach</h4><p>I ran unmoderated interaction tests with 193 participants, comparing vertical layouts with carousels, different selection controls, and levels of information density up to Level 4: name, number, device image, plan details and pricing.</p></div>
-            <div><h4>What changed</h4><p>Vertical layouts beat carousels on speed, and the most detailed rows gave people the most confidence. The findings led to a recommendation to standardize vertical layouts on mobile across plan management flows, and a baseline rule requiring a device image for every troubleshooting line selection. People preferred confirming a selection because it prevented mistakes, and the pattern with radio buttons and a confirm step scored 58% confidence and 41% ease of use.</p></div>
+            <a class="more" href="work/my-offers.html" aria-label="Read the case study: Helping people act on personalized offers">Read the case study <span aria-hidden="true">&nbsp;→</span></a>
           </div>
-          <div class="figures" role="list">
+          <figure><img src="img/my-offers-tiles.jpg" width="2400" height="1322" alt="The My Offers page before and after the redesign." class="contain"></figure>
+        </li>
+        <li class="card">
+          <div>
+            <p class="kicker">02 · Verizon · 2026</p>
+            <h3><a href="work/verizon-assistant.html">Making selections inside a chat</a></h3>
+            <p class="summary">A 193-person test showed vertical lists were 10 seconds faster than carousels, and set the standard for choosing a line in Verizon's AI chat.</p>
+            <div class="figures" role="list">
             <div role="listitem"><b>193</b><span>participants</span></div>
             <div role="listitem"><b>10 sec</b><span>faster median task time, vertical vs. carousel</span></div>
             <div role="listitem"><b>70%</b><span>confidence at the highest detail level</span></div>
           </div>
-          <figure class="study-fig">
-            <img src="img/vza-selection-patterns-ab.jpg" width="1600" height="1085" alt="Two Verizon Assistant chat screens, labeled A and B, asking which line eligible for international travel to start with. A: each line is a row with a device image, the line owner's name, the phone number and an arrow, so one tap selects it. B: the same rows with radio buttons, the first line selected, and a Confirm button below.">
-            <figcaption>Two of the tested line selection patterns: tap-to-select rows (A) and radio buttons with Confirm (B).</figcaption>
-          </figure>
-        </div>
-      </article>
-
-      <!-- 3. NGD accessibility -->
-      <article class="study" aria-labelledby="s3">
-        <div class="log">
-          <dl>
-            <div><dt>Org</dt><dd>Verizon</dd></div>
-            <div><dt>Year</dt><dd>2026</dd></div>
-            <div><dt>Role</dt><dd>Lead, accessibility research and benchmarking</dd></div>
-            <div><dt>Methods</dt><dd>Assistive technology usability, n=27</dd></div>
-          </dl>
-        </div>
-        <div>
-          <h3 id="s3">Finding the traps in a mobile checkout</h3>
-          <p class="q">Could people using assistive technology actually buy a phone in the reskinned mobile sales flow?</p>
-          <p class="tldr"><b>In short</b> Assistive technology users failed 30% of purchase tasks. I traced the failures to four causes, and every fix I recommended was remediated.</p>
-          <div class="body">
-            <div><h4>Context</h4><p>Verizon's Next Gen Digital mobile sales flow was being reskinned under the new Monarch brand. The study checked whether people using assistive technology could still complete a purchase.</p></div>
-            <div><h4>Approach</h4><p>I ran an unmoderated study with 27 assistive technology users, 10 prospects and 17 existing customers, on desktop and mobile. They included 16 screen reader users, 5 switch and voice control users, and 6 low-vision magnification users, each working through purchase tasks.</p></div>
-            <div><h4>Findings</h4>
-              <ul>
-                <li>Sign-in loops that sent authenticated customers back to the login screen</li>
-                <li>A focus trap in the Estimated Next Bill modal</li>
-                <li>Unlabeled trade-in and porting options that a screen reader announced as "Object Object"</li>
-                <li>Visual density that went beyond what participants could comfortably take in</li>
-              </ul>
-            </div>
-            <div><h4>What changed</h4><p>I turned the findings into prioritized fixes for engineering and design: stop authenticated sessions from resetting, remove the focus trap in the bill review dialog, add programmatic labels to radio buttons, and move dense specs into collapsible sections. Each fix was logged as a Jira ticket and remediated, clearing the blockers from checkout steps where high-intent customers had been dropping out.</p></div>
+            <a class="more" href="work/verizon-assistant.html" aria-label="Read the case study: Making selections inside a chat">Read the case study <span aria-hidden="true">&nbsp;→</span></a>
           </div>
-          <div class="figures" role="list">
+          <figure><img src="img/vza-selection-patterns-ab.jpg" width="1600" height="1085" alt="Two of the tested line selection patterns in Verizon Assistant."></figure>
+        </li>
+        <li class="card">
+          <div>
+            <p class="kicker">03 · Verizon · 2026</p>
+            <h3><a href="work/checkout-accessibility.html">Finding traps in a mobile checkout flow</a></h3>
+            <p class="summary">I tested a reskinned mobile checkout with 27 assistive technology users, traced the barriers they hit to four root causes, and turned them into prioritized fixes for engineering.</p>
+            <div class="figures" role="list">
             <div role="listitem"><b>27</b><span>assistive technology users</span></div>
-            <div role="listitem"><b>30%</b><span>task failure rate overall</span></div>
-            <div role="listitem"><b>50%</b><span>task failure among existing customers</span></div>
+            <div role="listitem"><b>3</b><span>assistive technology groups: screen reader, switch and voice control, magnification</span></div>
+            <div role="listitem"><b>4</b><span>root causes, each turned into a prioritized fix</span></div>
           </div>
-          <figure class="study-fig">
-            <img src="img/ngd-sales-flow.png" width="1676" height="720" alt="Flow diagram of the Next Gen Digital purchase journey tested in the study: 13 screenshots in three rows joined by arrows. It starts at Account Overview and moves through choosing an Unlimited plan, browsing smartphones, customizing an iPhone 17 Pro, picking an offer, getting a new number or bringing one, device protection, a rewards card prompt, accessories and the cart, ending at a Bill Pay Estimate. The first and last screens are labeled Existing Customer only.">
-            <figcaption>The purchase flow participants worked through, from Account Overview to Bill Pay Estimate. <a href="img/ngd-sales-flow.png">Open the full-size flow</a></figcaption>
-          </figure>
-        </div>
-      </article>
-
-      <!-- 4. VDS -->
-      <article class="study" aria-labelledby="s4">
-        <div class="log">
-          <dl>
-            <div><dt>Org</dt><dd>Verizon</dd></div>
-            <div><dt>Year</dt><dd>2026</dd></div>
-            <div><dt>Role</dt><dd>Leads the design system research program</dd></div>
-            <div><dt>Methods</dt><dd>AI-assisted component analytics audit, designer and developer interviews (n=13), moderated usability, expert accessibility reviews</dd></div>
-          </dl>
-        </div>
-        <div>
-          <h3 id="s4">Why teams detach from the design system</h3>
-          <p class="q">Why were product teams detaching from standard Verizon Design System (VDS) components, and what would make the system easier to adopt?</p>
-          <p class="tldr"><b>In short</b> Teams using the design system worked up to 5 times faster. I found the 10 components teams abandon most, and why.</p>
-          <div class="body">
-            <div><h4>Context</h4><p>Product teams were detaching from components in the VDS central library and building their own. This study was part of VDS Promise, a research program testing whether the system delivers on consistency, inclusivity, and speed and efficiency.</p></div>
-            <div><h4>Approach</h4><p>I configured an AI design audit tool to analyze component analytics and find the 10 components with the highest detachment rates. I then interviewed 13 designers and developers on live product teams about adoption, workflow speed and the friction of integrating the system into their work.</p></div>
-            <div><h4>Findings</h4>
-              <ul>
-                <li>Teams using VDS components worked up to 5 times faster than teams building custom ones, saved about 25% of redesign time, shortened development cycles by more than a month, and got pre-vetted accessibility compliance</li>
-                <li>A web-first engineering bias with outdated viewports that didn't support mobile-first layouts</li>
-                <li>A rigid atomic structure that lacked complex, ready-made components</li>
-                <li>Poor discoverability, and error-prone transitions between versions</li>
-              </ul>
-            </div>
-            <div><h4>What changed</h4><p>The audit isolated specific gaps in the system and informed updates to the central library. The adoption study led to four recommendations: make VDS usage part of leadership acceptance criteria, set aside sprint time for visual quality defects, expand Figma and front-end coding training, and open contribution paths so teams can add to the system instead of relying on a central team alone. The VDS Promise research also shaped roadmap items, including a Figma bulk-updating plugin, low-fidelity wireframe libraries and motion packs.</p></div>
+            <a class="more" href="work/checkout-accessibility.html" aria-label="Read the case study: Finding traps in a mobile checkout flow">Read the case study <span aria-hidden="true">&nbsp;→</span></a>
           </div>
-          <div class="figures" role="list">
-            <div role="listitem"><b>10</b><span>components with the highest detachment rates, found by the audit</span></div>
-            <div role="listitem"><b><span aria-hidden="true">up to 5×</span><span class="sr">up to 5 times</span></b><span>faster design workflows with system components</span></div>
-            <div role="listitem"><b><span aria-hidden="true">~25%</span><span class="sr">about 25%</span></b><span>less redesign time</span></div>
+          <figure><img src="img/ngd-sales-flow.png" width="1676" height="720" alt="The mobile purchase flow participants worked through." class="contain"></figure>
+        </li>
+        <li class="card">
+          <div>
+            <p class="kicker">04 · Verizon · 2026</p>
+            <h3><a href="work/design-system.html">Evaluating a Design System</a></h3>
+            <p class="summary">A program of research on how product teams use the design system, why they adopt or detach from it, and whether it delivers on its promises. System components made delivery 5 times faster than custom builds.</p>
+            <div class="figures" role="list">
+            <div role="listitem"><b><span aria-hidden="true">5×</span><span class="sr">5 times</span></b><span>faster component delivery than custom builds</span></div>
+            <div role="listitem"><b><span aria-hidden="true">~25%</span><span class="sr">about 25%</span></b><span>of redesign time saved</span></div>
             <div role="listitem"><b><span aria-hidden="true">1+ month</span><span class="sr">more than 1 month</span></b><span>shorter development cycles</span></div>
           </div>
-          <figure class="study-fig">
-            <img src="img/vds-illustration.jpg" width="1588" height="1030" alt="Illustration in three panels of yellow, red and neutral blocks. Left: two pairs of stacked blocks, one with a wide gap and one with a narrow gap, marked by red arrows. Middle: three blocks nested inside a framed container. Right: a tree that branches from one large red block down through a smaller red block to two yellow blocks and three neutral blocks.">
-          </figure>
-        </div>
-      </article>
-
-      <!-- 5. Creatability -->
-      <article class="study" aria-labelledby="s5">
-        <div class="log">
-          <dl>
-            <div><dt>Org</dt><dd>Google Creative Lab, with NYU Ability Project</dd></div>
-            <div><dt>Year</dt><dd>2018–2019</dd></div>
-            <div><dt>Role</dt><dd>Creative Technologist, user research</dd></div>
-            <div><dt>Methods</dt><dd>User research, multimodal prototype testing</dd></div>
-          </dl>
-        </div>
-        <div>
-          <h3 id="s5">Creative tools for people of all abilities</h3>
-          <p class="q">How do gesture, sight and sound work as inputs for making art and music, for people with diverse physical, sensory and cognitive abilities?</p>
-          <p class="tldr"><b>In short</b> User research for a set of accessible creative tools that won the 2019 Cannes Lions Design Grand Prix.</p>
-          <div class="body">
-            <div><h4>Context</h4><p>Creatability is an open-source set of experiments that use machine learning to make creative tools more accessible, built by Google Creative Lab with NYU's Ability Project.</p></div>
-            <div><h4>Approach</h4><p>I ran user research with people with diverse abilities and tested new interaction modes as they were built, working across research, design and engineering.</p></div>
-            <div><h4>What changed</h4><p>Research findings guided the design of the tools. The project went on to win the 2019 Cannes Lions Design Grand Prix.</p></div>
+            <a class="more" href="work/design-system.html" aria-label="Read the case study: Evaluating a Design System">Read the case study <span aria-hidden="true">&nbsp;→</span></a>
           </div>
-          <figure class="study-fig study-fig--square">
-            <img src="img/creatability.jpg" width="1200" height="1175" alt="Creatability, shown over a darkened photo of a hand on a laptop keyboard. On screen is a Creatability experiment with a Keyboard settings panel, body tracking options and large colored keys labeled C and D.">
-          <ul class="gallery" aria-label="Creatability experiments">
-            <li>
-              <video src="img/creatability-draw.mp4" poster="img/creatability-draw-still.jpg" width="512" height="288" controls muted loop playsinline preload="none" aria-describedby="cr-draw-desc"></video>
-              <p id="cr-draw-desc" class="sr">Video, 8 seconds, no sound: a person faces a webcam and draws looping black lines across the frame by moving their nose, tracked as a blue dot.</p>
-            </li>
-            <li>
-              <img src="img/creatability-body.jpg" width="512" height="288" alt="A person in a striped sweater stands in an office while yellow zigzag lines from body tracking trace their head, shoulders and arms.">
-            </li>
-            <li>
-              <img src="img/creatability-keys.jpg" width="512" height="288" alt="Colored note columns labeled C, D, E, G, A and C over a webcam view of a person. A blue line from their nose points into the D column, which is highlighted orange.">
-            </li>
-          </ul>
-            <figcaption>Creatability – a series of accessible creative tools.</figcaption>
-          </figure>
-        </div>
-      </article>
+          <figure><img src="img/vds-illustration.jpg" width="1588" height="1030" alt="Illustration of design system building blocks."></figure>
+        </li>
+        <li class="card">
+          <div>
+            <p class="kicker">05 · Google Creative Lab · 2018–2019</p>
+            <h3><a href="work/creatability.html">Creative tools for people of all abilities</a></h3>
+            <p class="summary">I led user research with 25 people with disabilities for a set of accessible creative tools that won the 2019 Cannes Lions Design Grand Prix.</p>
+            <div class="figures" role="list">
+            <div role="listitem"><b>25</b><span>participants with disabilities</span></div>
+            <div role="listitem"><b>Grand Prix</b><span>2019 Cannes Lions, Design</span></div>
+            <div role="listitem"><b>Open source</b><span>experiments anyone can use and build on</span></div>
+          </div>
+            <a class="more" href="work/creatability.html" aria-label="Read the case study: Creative tools for people of all abilities">Read the case study <span aria-hidden="true">&nbsp;→</span></a>
+          </div>
+          <figure><img src="img/creatability.jpg" width="1200" height="1175" alt="A Creatability experiment on a laptop screen."></figure>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -434,11 +374,11 @@ footer { margin-top: 64px; }
         <div role="listitem"><b><span aria-hidden="true">2×</span><span class="sr">Doubled</span></b><span>Accessible Insights Consortium membership</span></div>
       </div>
       <div class="two">
-        <div><h3>Choosing the method for the question</h3><p>Conjoint showed people liked each feature of a purchase flow on its own. Usability testing showed they got lost when the features were combined. I pick methods by the evidence a decision needs, like using diary studies over interviews to see how people with disabilities fit connected devices into daily routines.</p></div>
+        <div><h3>Choosing the method for the question</h3><p>Conjoint showed people liked each feature of a purchase flow on its own. Usability testing showed they got lost when the features were combined.<span class="more-text" id="lead-more-1"> I pick methods by the evidence a decision needs, like using diary studies over interviews to see how people with disabilities fit connected devices into daily routines.</span></p><button type="button" class="read-more" aria-expanded="false" aria-controls="lead-more-1" hidden><span class="rm-label">Read more</span><span class="sr"> about Choosing the method for the question</span></button></div>
         <div><h3>Growing researchers</h3><p>I managed and coached a team of six early-career rapid researchers on study design, synthesis and holding up under stakeholder questions. Four moved into senior roles.</p></div>
-        <div><h3>Raising the bar on rigor</h3><p>I partnered with Verizon's Insights Center of Excellence on standards for sample size, data quality and representation, and wrote the team's internal accessibility guidelines for surveys and vendors.</p></div>
-        <div><h3>Moving faster with AI</h3><p>I lead the design and validation of the team's AI research tools, including a searchable repository of 1,043 research studies, synthetic user testing and an automated readability crawler for verizon.com. I also co-led an AI tree-testing platform that compares how different AI agents navigate a site.</p></div>
-        <div><h3>Accessibility beyond the product</h3><p>I led the Insights Association's 2025 research initiative on disability identity, ran a workshop and certification at <abbr title="The Market Research Event">TMRE</abbr>, presented at the <abbr title="Corporate Researchers Conference">CRC</abbr>, and helped the Accessible Insights Consortium double its membership. I also mentored two American Foundation for the Blind interns on a study of AI assistants and assistive technology.</p></div>
+        <div><h3>Raising the bar on rigor</h3><p>I partnered with Verizon's Insights Center of Excellence on standards for sample size, data quality and representation, and wrote our accessibility guidelines for surveys and vendors.</p></div>
+        <div><h3>Moving faster with AI</h3><p>I lead the design and validation of the team's AI research tools, including a searchable repository of 1,043 research studies. I also wrote our <a href="writing/uxr-ai-framework.html">framework for using AI in research</a>.<span class="more-text" id="lead-more-2"> Others include synthetic user testing and an automated readability crawler for verizon.com. I also co-led an AI tree-testing platform that compares how different AI agents navigate a site.</span></p><button type="button" class="read-more" aria-expanded="false" aria-controls="lead-more-2" hidden><span class="rm-label">Read more</span><span class="sr"> about Moving faster with AI</span></button></div>
+        <div><h3>Accessibility beyond the product</h3><p>I led the Insights Association's 2025 research initiative on disability identity, ran a workshop and certification at <abbr title="The Market Research Event">TMRE</abbr>, and presented at the <abbr title="Corporate Researchers Conference">CRC</abbr>.<span class="more-text" id="lead-more-3"> I also helped the Accessible Insights Consortium double its membership, and mentored two American Foundation for the Blind interns on a study of AI assistants and assistive technology.</span></p><button type="button" class="read-more" aria-expanded="false" aria-controls="lead-more-3" hidden><span class="rm-label">Read more</span><span class="sr"> about Accessibility beyond the product</span></button></div>
         <div><h3>Telling the story</h3><p>Research only matters when it changes a decision. I write memos, readouts and executive presentations that make findings simple enough to act on.</p></div>
       </div>
     </div>
@@ -465,8 +405,9 @@ footer { margin-top: 64px; }
 
   <section class="block" id="writing" aria-labelledby="writing-h">
     <div class="wrap">
-      <div class="section-head"><h2 id="writing-h">Selected publications</h2><p>More on <a href="https://scholar.google.com/citations?user=S8_5jfsAAAAJ&amp;hl=en">Google Scholar</a></p></div>
+      <div class="section-head"><h2 id="writing-h">Writing and frameworks</h2><p>More on <a href="https://scholar.google.com/citations?user=S8_5jfsAAAAJ&amp;hl=en">Google Scholar</a></p></div>
       <ul class="pubs">
+        <li><span class="yr">2026</span><span><a href="writing/uxr-ai-framework.html">UXR × AI: Distributing intelligence</a><span class="venue">Framework for adopting AI in UX research</span></span></li>
         <li><span class="yr">2023</span><span>Tangible Progress: Tools, Techniques, and Impacts of Teaching Web Development to Screen Reader Users<span class="venue">ACM Transactions on Accessible Computing (TACCESS)</span></span></li>
         <li><span class="yr">2021</span><span>Accessible Web Development<span class="venue">ACM TACCESS</span></span></li>
         <li><span class="yr">2021</span><span>Making the Elusive More Tangible<span class="venue"><abbr title="Web for All Conference">W4A</abbr></span></span></li>
@@ -518,5 +459,19 @@ footer { margin-top: 64px; }
   </div>
   </div>
 </footer>
+<script>
+document.querySelectorAll('.read-more').forEach(function (btn) {
+  var more = document.getElementById(btn.getAttribute('aria-controls'));
+  var label = btn.querySelector('.rm-label');
+  more.hidden = true;
+  btn.hidden = false;
+  btn.addEventListener('click', function () {
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    more.hidden = open;
+    label.textContent = open ? 'Read more' : 'Show less';
+  });
+});
+</script>
 
 </body></html>
