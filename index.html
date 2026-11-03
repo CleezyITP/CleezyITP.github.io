@@ -119,8 +119,8 @@ section.block .wrap { padding-block: 64px 16px; }
 .edu-h { font-size: 1.1rem; margin-top: 40px; }
 abbr[title] { text-decoration: none; cursor: inherit; }
 
-.figures { margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; }
-.figures div { background: var(--surface); padding: 14px 16px; }
+.figures { margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0; background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; }
+.figures div { background: var(--surface); padding: 14px 16px; box-shadow: 1px 0 0 var(--rule), 0 1px 0 var(--rule); }
 .figures b { display: block; font-family: var(--font-display); font-size: 1.7rem; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--accent); line-height: 1.1; }
 .figures span { display: block; font-size: 0.88rem; color: var(--muted); margin-top: 4px; line-height: 1.4; }
 .figures b span { display: inline; font-size: inherit; color: inherit; margin-top: 0; line-height: inherit; }
@@ -210,7 +210,7 @@ footer { margin-top: 64px; }
 .card .figures b { font-size: 1.35rem; }
 .card .more { display: inline-flex; align-items: center; min-height: 44px; margin-top: 12px; font-family: var(--font-data); font-size: 0.85rem; font-weight: 700; }
 .card img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 4px; background: var(--surface); border: 1px solid var(--rule); }
-.card img.contain { object-fit: contain; }
+.card img.contain { object-fit: contain; box-sizing: border-box; padding: clamp(14px, 5%, 32px); }
 @media (max-width: 760px) { .card { grid-template-columns: minmax(0, 1fr); gap: 20px; } .card figure { order: -1; } }
 
 /* Case study page */
@@ -316,7 +316,7 @@ footer { margin-top: 64px; }
           </div>
             <a class="more" href="work/verizon-assistant.html" aria-label="Read the case study: Making selections inside a chat">Read the case study <span aria-hidden="true">&nbsp;→</span></a>
           </div>
-          <figure><img src="img/vza-selection-patterns-ab.jpg" width="1600" height="1085" alt="Two of the tested line selection patterns in Verizon Assistant."></figure>
+          <figure><img src="img/chat-selection-patterns-ab.png" width="1486" height="1176" alt="Two of the tested line selection patterns in Verizon Assistant." class="contain"></figure>
         </li>
         <li class="card">
           <div>
@@ -330,21 +330,21 @@ footer { margin-top: 64px; }
           </div>
             <a class="more" href="work/checkout-accessibility.html" aria-label="Read the case study: Finding traps in a mobile checkout flow">Read the case study <span aria-hidden="true">&nbsp;→</span></a>
           </div>
-          <figure><img src="img/ngd-sales-flow.png" width="1676" height="720" alt="The mobile purchase flow participants worked through." class="contain"></figure>
+          <figure><img src="img/checkout-flow.png" width="1676" height="720" alt="The mobile purchase flow participants worked through." class="contain"></figure>
         </li>
         <li class="card">
           <div>
             <p class="kicker">04 · Verizon · 2026</p>
             <h3><a href="work/design-system.html">Evaluating a Design System</a></h3>
-            <p class="summary">A program of research on how product teams use the design system, why they adopt or detach from it, and whether it delivers on its promises. System components made delivery 5 times faster than custom builds.</p>
+            <p class="summary">A program of research on how product teams use the design system, why they adopt or detach from it, and whether it delivers on its promises. System components saved about 25% of redesign time.</p>
             <div class="figures" role="list">
-            <div role="listitem"><b><span aria-hidden="true">5×</span><span class="sr">5 times</span></b><span>faster component delivery than custom builds</span></div>
             <div role="listitem"><b><span aria-hidden="true">~25%</span><span class="sr">about 25%</span></b><span>of redesign time saved</span></div>
             <div role="listitem"><b><span aria-hidden="true">1+ month</span><span class="sr">more than 1 month</span></b><span>shorter development cycles</span></div>
+            <div role="listitem"><b>10</b><span>most-detached components identified</span></div>
           </div>
             <a class="more" href="work/design-system.html" aria-label="Read the case study: Evaluating a Design System">Read the case study <span aria-hidden="true">&nbsp;→</span></a>
           </div>
-          <figure><img src="img/vds-illustration.jpg" width="1588" height="1030" alt="Illustration of design system building blocks."></figure>
+          <figure><img src="img/design-system-illustration.png" width="1220" height="740" alt="Abstract illustration of interface components built from one color palette." class="contain"></figure>
         </li>
         <li class="card">
           <div>
