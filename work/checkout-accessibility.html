@@ -121,8 +121,8 @@ section.block .wrap { padding-block: 64px 16px; }
 .edu-h { font-size: 1.1rem; margin-top: 40px; }
 abbr[title] { text-decoration: none; cursor: inherit; }
 
-.figures { margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; }
-.figures div { background: var(--surface); padding: 14px 16px; }
+.figures { margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0; background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; }
+.figures div { background: var(--surface); padding: 14px 16px; box-shadow: 1px 0 0 var(--rule), 0 1px 0 var(--rule); }
 .figures b { display: block; font-family: var(--font-display); font-size: 1.7rem; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--accent); line-height: 1.1; }
 .figures span { display: block; font-size: 0.88rem; color: var(--muted); margin-top: 4px; line-height: 1.4; }
 .figures b span { display: inline; font-size: inherit; color: inherit; margin-top: 0; line-height: inherit; }
@@ -271,12 +271,12 @@ body { margin: 0; }
       <dl class="facts">
         <div><dt>Org<span aria-hidden="true"> · </span><span class="sr"> and </span>Year</dt><dd>Verizon, 2026</dd></div>
         <div><dt>Role<span aria-hidden="true"> · </span><span class="sr"> and </span>Team</dt><dd>Senior IC, UX + Accessibility Research</dd></div>
-        <div><dt>Methods</dt><dd>Assistive technology usability, n=27</dd></div>
+        <div><dt>Methods</dt><dd>Assistive technology usability testing with 27 participants</dd></div>
         <div><dt>Partners</dt><dd>Wireless plan sales experience team, design leads and engineering</dd></div>
       </dl>
     </div>
     <div class="case-wide">
-      <figure class="study-fig"><img src="../img/ngd-sales-flow.png" width="1676" height="720" alt="Flow diagram of the Next Gen Digital purchase journey tested in the study: 13 screenshots in three rows joined by arrows. It starts at Account Overview and moves through choosing an Unlimited plan, browsing smartphones, customizing an iPhone 17 Pro, picking an offer, getting a new number or bringing one, device protection, a rewards card prompt, accessories and the cart, ending at a Bill Pay Estimate. The first and last screens are labeled Existing Customer only."><figcaption>The purchase flow participants worked through, from Account Overview to Bill Pay Estimate. <a href="../img/ngd-sales-flow.png">Open the full-size flow</a></figcaption></figure>
+      <figure class="study-fig"><img src="../img/checkout-flow.png" width="1676" height="720" alt="Flow diagram of the Next Gen Digital purchase journey tested in the study: 13 screenshots in three rows joined by arrows. It starts at Account Overview and moves through choosing an Unlimited plan, browsing smartphones, customizing an iPhone 17 Pro, picking an offer, getting a new number or bringing one, device protection, a rewards card prompt, accessories and the cart, ending at a Bill Pay Estimate. The first and last screens are labeled Existing Customer only."><figcaption>The purchase flow participants worked through, from Account Overview to Bill Pay Estimate. <a href="../img/checkout-flow.png">Open the full-size flow</a></figcaption></figure>
     </div>
     <div class="case-body">
       <div class="q-lead"><p>Could people using assistive technology actually buy a phone in the reskinned mobile sales flow?</p></div>
