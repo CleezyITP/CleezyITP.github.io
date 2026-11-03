@@ -11,14 +11,14 @@
 <style>
 /* Layout: a single reading column with a left "study log" rail. Each case study reads like a research readout: question, method, n, finding, what changed. */
 :root {
-  --paper: #f6f7f4;
-  --surface: #ffffff;
-  --ink: #18212b;
-  --muted: #46515b;
-  --rule: #d9ddd6;
-  --accent: #1f5c4d;
-  --accent-soft: #e2ede8;
-  --mark: #f2d488;
+  --paper: #ffffff;
+  --surface: #f5f5f5;
+  --ink: #111111;
+  --muted: #4d4d4d;
+  --rule: #e5e5e5;
+  --accent: #1d3bb3;
+  --accent-soft: #fdecea;
+  --mark: #ffe08a;
   --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
   --font-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
   --font-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
@@ -29,14 +29,14 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #12171c; --surface: #1a2128; --ink: #e6e9e4; --muted: #adb7be;
-    --rule: #2c353d; --accent: #7cc4ad; --accent-soft: #1d3530; --mark: #5a4b22;
+    --paper: #0f0f0f; --surface: #1a1a1a; --ink: #f2f2f2; --muted: #b5b5b5;
+    --rule: #2b2b2b; --accent: #a3b6ff; --accent-soft: #3a1714; --mark: #5a4712;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --paper: #12171c; --surface: #1a2128; --ink: #e6e9e4; --muted: #adb7be;
-  --rule: #2c353d; --accent: #7cc4ad; --accent-soft: #1d3530; --mark: #5a4b22;
+  --paper: #0f0f0f; --surface: #1a1a1a; --ink: #f2f2f2; --muted: #b5b5b5;
+  --rule: #2b2b2b; --accent: #a3b6ff; --accent-soft: #3a1714; --mark: #5a4712;
   color-scheme: dark;
 }
 
@@ -91,7 +91,7 @@ p { margin: 0; }
 }
 
 /* Focus areas strip */
-.areas { border-block: 1px solid var(--rule); background: var(--surface); }
+.areas { --ink: #f2f2f2; --muted: #b5b5b5; --rule: #2b2b2b; --accent: #a3b6ff; border-block: 1px solid #1a1a1a; background: #1a1a1a; color: var(--ink); }
 .areas .wrap { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; padding-block: 28px; }
 .areas h3 { font-size: 1rem; font-weight: 700; }
 .areas p { font-size: 0.95rem; color: var(--muted); margin-top: 6px; line-height: 1.5; }
@@ -211,8 +211,9 @@ footer { margin-top: 64px; }
 .card .figures { margin-top: 20px; }
 .card .figures b { font-size: 1.35rem; }
 .card .more { display: inline-flex; align-items: center; min-height: 44px; margin-top: 12px; font-family: var(--font-data); font-size: 0.85rem; font-weight: 700; }
-.card img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 4px; background: var(--surface); border: 1px solid var(--rule); }
-.card img.contain { object-fit: contain; }
+.card img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 4px; background: #ffffff; border: 1px solid var(--rule); }
+.study-fig img { background: #ffffff; }
+.card img.contain { object-fit: contain; box-sizing: border-box; padding: clamp(14px, 5%, 32px); }
 @media (max-width: 760px) { .card { grid-template-columns: minmax(0, 1fr); gap: 20px; } .card figure { order: -1; } }
 
 /* Case study page */
@@ -285,7 +286,7 @@ body { margin: 0; }
       <section aria-labelledby="h-changed"><h2 id="h-changed">What changed</h2><p>Each fix was logged in Jira and prioritized with the wireless plan sales experience team, design leads and engineering, focused on the checkout steps where high-intent customers were dropping out.</p>
           <div class="figures" role="list">
             <div role="listitem"><b>27</b><span>assistive technology users</span></div>
-            <div role="listitem"><b>3</b><span>assistive technology groups: screen reader, switch and voice control, magnification</span></div>
+            <div role="listitem"><b>3</b><span>assistive technology user groups</span></div>
             <div role="listitem"><b>4</b><span>root causes, each turned into a prioritized fix</span></div>
           </div>
           
