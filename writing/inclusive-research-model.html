@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accessibility is a team sport · Claire Ferrari, PhD</title>
+<meta name="description" content="A model for spreading accessibility research across a team: training with hands-on practice, a shared home for resources, and four clear triggers for when a study has to include people with disabilities.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;700&display=swap">
+<style>
+/* Layout: a single reading column with a left "study log" rail. Each case study reads like a research readout: question, method, n, finding, what changed. */
+:root {
+  --paper: #ffffff;
+  --surface: #f5f5f5;
+  --ink: #111111;
+  --muted: #4d4d4d;
+  --rule: #e5e5e5;
+  --accent: #1d3bb3;
+  --accent-soft: #fdecea;
+  --mark: #ffe08a;
+  --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --step-0: 1.0625rem;
+  --step-1: 1.25rem;
+  --step-2: 1.6rem;
+  --step-3: clamp(2.1rem, 5vw, 3.4rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0f0f0f; --surface: #1a1a1a; --ink: #f2f2f2; --muted: #b5b5b5;
+    --rule: #2b2b2b; --accent: #a3b6ff; --accent-soft: #3a1714; --mark: #5a4712;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0f0f0f; --surface: #1a1a1a; --ink: #f2f2f2; --muted: #b5b5b5;
+  --rule: #2b2b2b; --accent: #a3b6ff; --accent-soft: #3a1714; --mark: #5a4712;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; line-height: 1.15; margin: 0; }
+p { margin: 0; }
+
+.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: var(--paper); padding: 12px 16px; min-height: 44px; z-index: 20; }
+.sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.skip:focus { left: max(16px, env(safe-area-inset-left, 0px)); }
+
+.wrap {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Top bar */
+.bar { border-bottom: 1px solid var(--rule); }
+.bar .wrap { display: flex; flex-wrap: wrap; gap: 4px 24px; align-items: center; justify-content: space-between; padding-block: 6px; }
+.bar .name { color: var(--ink); text-decoration: none; font-family: var(--font-display); font-weight: 700; font-size: 1rem; letter-spacing: 0.01em; }
+.bar nav { display: flex; flex-wrap: wrap; gap: 0 8px; font-family: var(--font-data); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.bar nav a { color: var(--accent); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; padding: 0 8px; }
+.bar nav a:hover { text-decoration: underline; }
+
+/* Hero */
+.hero .wrap { padding-block: 64px 56px; display: grid; gap: 48px; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: center; }
+.hero .portrait { justify-self: center; max-width: 400px; }
+.eyebrow { font-family: var(--font-data); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+.hero h1 { font-size: var(--step-3); font-weight: 700; margin-top: 12px; max-width: 18ch; }
+.hero h1 mark { background: linear-gradient(transparent 58%, var(--mark) 58%); color: inherit; padding: 0 2px; }
+.hero .lede { margin-top: 20px; font-size: var(--step-1); max-width: 58ch; color: var(--ink); }
+.hero .contact { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 8px 20px; font-family: var(--font-data); font-size: 0.85rem; color: var(--muted); }
+.hero .contact span { user-select: all; }
+.hero .contact a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-weight: 700; }
+.hero .contact { align-items: center; }
+.portrait {
+  display: block; aspect-ratio: 1 / 1; width: 100%; max-width: 100%; height: auto;
+  object-fit: cover; border-radius: 4px; background: var(--surface);
+}
+
+/* Focus areas strip */
+.areas { --ink: #f2f2f2; --muted: #b5b5b5; --rule: #2b2b2b; --accent: #a3b6ff; border-block: 1px solid #1a1a1a; background: #1a1a1a; color: var(--ink); }
+.areas .wrap { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; padding-block: 28px; }
+.areas h3 { font-size: 1rem; font-weight: 700; }
+.areas p { font-size: 0.95rem; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+
+/* Section heads */
+section.block .wrap { padding-block: 64px 16px; }
+.section-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; border-bottom: 2px solid var(--ink); padding-bottom: 10px; }
+.section-head h2 { font-size: var(--step-2); }
+.section-head p { font-family: var(--font-data); font-size: 0.8rem; color: var(--muted); }
+.section-head p.tag { color: var(--accent); font-weight: 700; }
+
+/* Case studies */
+.study { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 32px; padding-block: 40px; border-bottom: 1px solid var(--rule); }
+.study:last-child { border-bottom: 0; }
+.log { font-family: var(--font-data); font-size: 0.8rem; color: var(--muted); display: flex; flex-direction: column; gap: 10px; }
+.log dt { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.7rem; font-weight: 700; color: var(--accent); }
+.log dd { margin: 2px 0 0; color: var(--ink); }
+.log dl { margin: 0; display: grid; gap: 10px; }
+.study h3 { font-size: var(--step-2); font-weight: 700; }
+.study .q { margin-top: 10px; font-style: italic; color: var(--muted); max-width: 62ch; }
+.study .tldr { margin-top: 16px; padding: 12px 16px; border-left: 3px solid var(--accent); background: var(--accent-soft); }
+.study .tldr b { font-family: var(--font-data); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink); margin-right: 6px; }
+.lead-figs { margin-top: 28px; }
+.study .body { margin-top: 1.5em; display: grid; gap: 2.25em; max-width: 66ch; }
+.study .body h4 { font-family: var(--font-data); font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin: 0 0 4px; }
+.study ul { margin: 0; padding-left: 1.1em; display: grid; gap: 0.5em; }
+.edu-h { font-size: 1.1rem; margin-top: 40px; }
+abbr[title] { text-decoration: none; cursor: inherit; }
+
+.figures { margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0; background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; }
+.figures div { background: var(--surface); padding: 14px 16px; box-shadow: -1px 0 0 var(--rule), 0 -1px 0 var(--rule); }
+.figures { container-type: inline-size; }
+@container (max-width: 449px) { .figures > div:last-child:nth-child(odd) { grid-column: 1 / -1; } }
+.figures b { display: block; font-family: var(--font-display); font-size: 1.7rem; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--accent); line-height: 1.1; }
+.figures span { display: block; font-size: 0.88rem; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+.figures b span { display: inline; font-size: inherit; color: inherit; margin-top: 0; line-height: inherit; }
+.source { margin-top: 8px; font-family: var(--font-data); font-size: 0.72rem; color: var(--muted); }
+
+.study-fig { margin: 24px 0 0; }
+.study-fig img { display: block; width: 100%; max-width: 100%; height: auto; border-radius: 4px; }
+.study-fig--square { max-width: 520px; margin-inline: 0; }
+.study .gallery { list-style: none; margin: 12px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.gallery li { min-width: 0; display: grid; gap: 6px; align-content: start; }
+.gallery img, .gallery video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 4px; background: var(--surface); }
+.gallery-desc { font-family: var(--font-data); font-size: 0.75rem; color: var(--muted); line-height: 1.45; }
+@media (max-width: 560px) { .study .gallery { grid-template-columns: minmax(0, 1fr); } }
+.study-fig figcaption { margin-top: 8px; font-family: var(--font-data); font-size: 0.78rem; color: var(--muted); }
+.shot {
+  margin-top: 24px; aspect-ratio: 16 / 9; max-width: 100%;
+  border: 1.5px dashed var(--rule); border-radius: 4px; background: var(--surface);
+  display: grid; place-items: center; text-align: center; padding: 16px;
+  font-family: var(--font-data); font-size: 0.78rem; color: var(--muted);
+}
+
+/* Earlier work */
+.earlier { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px 24px; padding-top: 28px; list-style: none; margin: 0; padding-left: 0; }
+.earlier li { display: grid; gap: 12px; align-content: start; min-width: 0; }
+.earlier figure { margin: 0; }
+.earlier img { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 2 / 1; object-fit: cover; border: 1px solid var(--rule); border-radius: 4px; background: var(--surface); }
+.earlier .kicker { font-family: var(--font-data); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+.earlier h3 { font-size: 1.05rem; }
+.earlier p { color: var(--muted); font-size: 0.92rem; max-width: 60ch; }
+.earlier a.more { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--font-data); font-size: 0.8rem; }
+@media (max-width: 1000px) { .earlier { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Practice + publications */
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5em 48px; padding-top: 28px; }
+.two h3 { font-size: 1.1rem; margin-bottom: 8px; }
+.two p { color: var(--muted); font-size: 0.98rem; }
+.pubs { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 14px; }
+.pubs li { display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: 16px; border-bottom: 1px solid var(--rule); padding-bottom: 14px; }
+.pubs .yr { font-family: var(--font-data); font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.pubs .venue { display: block; font-family: var(--font-data); font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+
+.read-more { display: inline-flex; align-items: center; min-height: 44px; padding: 0; margin-top: 4px; border: 0; background: none; color: var(--accent); font-family: var(--font-data); font-size: 0.85rem; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.read-more:hover { text-decoration-thickness: 2px; }
+
+/* Timeline */
+.timeline { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 0; }
+.timeline li { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 20px; padding-block: 14px; border-bottom: 1px solid var(--rule); }
+.timeline .yr { font-family: var(--font-data); font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.timeline b { font-family: var(--font-display); font-weight: 700; }
+.timeline .org { color: var(--muted); }
+.timeline p { font-size: 0.95rem; color: var(--muted); margin-top: 2px; }
+
+footer { margin-top: 64px; }
+.foot-earlier { background: var(--surface); border-top: 1px solid var(--rule); }
+.foot-earlier .wrap { padding-block: 48px; }
+.foot-earlier .section-head { border-bottom-width: 1px; }
+.foot-earlier .section-head h2 { font-size: var(--step-1); }
+.foot-contact { background: var(--ink); color: var(--paper); }
+.foot-contact .wrap { padding-block: 40px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 32px; align-items: baseline; }
+.foot-contact h2 { font-size: var(--step-2); color: var(--paper); }
+.foot-contact p { font-family: var(--font-data); font-size: 0.85rem; }
+.foot-contact span { user-select: all; }
+
+@media (max-width: 760px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); padding-block: 40px 32px; }
+  .hero .portrait { max-width: 280px; justify-self: start; }
+  .areas .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .study { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .log dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .two, .earlier { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 420px) {
+  .areas .wrap { grid-template-columns: minmax(0, 1fr); }
+  .timeline li, .pubs li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+}
+
+/* Case study cards (home) */
+.cards { list-style: none; margin: 0; padding: 0; }
+.card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: center; padding-block: 40px; border-bottom: 1px solid var(--rule); }
+.card:last-child { border-bottom: 0; }
+.card .kicker { font-family: var(--font-data); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+.card h3 { font-size: var(--step-2); font-weight: 700; margin-top: 8px; }
+.card h3 a { color: var(--ink); text-decoration: none; }
+.card h3 a:hover { color: var(--accent); text-decoration: underline; }
+.card .summary { margin-top: 12px; max-width: 58ch; }
+.card .figures { margin-top: 20px; }
+.card .figures b { font-size: 1.35rem; }
+.card .more { display: inline-flex; align-items: center; min-height: 44px; margin-top: 12px; font-family: var(--font-data); font-size: 0.85rem; font-weight: 700; }
+.card img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 4px; background: #ffffff; border: 1px solid var(--rule); }
+.study-fig img { background: #ffffff; }
+.card img.contain { object-fit: contain; box-sizing: border-box; padding: clamp(14px, 5%, 32px); }
+@media (max-width: 760px) { .card { grid-template-columns: minmax(0, 1fr); gap: 20px; } .card figure { order: -1; } }
+
+/* Case study page */
+.back { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--font-data); font-size: 0.85rem; font-weight: 700; }
+.case-head { padding-block: 24px 8px; }
+.case-head .kicker { font-family: var(--font-data); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-top: 16px; }
+.case-head h1 { font-size: var(--step-3); font-weight: 700; margin-top: 8px; max-width: 22ch; }
+.case-head .deck { margin-top: 16px; font-size: var(--step-1); max-width: 60ch; }
+.facts { margin: 28px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 28px; padding: 20px; background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; font-family: var(--font-data); font-size: 0.85rem; }
+.facts dt { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.72rem; font-weight: 700; color: var(--accent); }
+.facts dd { margin: 4px 0 0; }
+.facts-sub { display: block; margin-top: 2px; color: var(--muted); }
+.facts-org { display: flex; align-items: center; }
+.facts-org dd { margin: 0; font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; line-height: 1.15; color: var(--ink); }
+.facts-year { display: block; margin-top: 6px; font-family: var(--font-data); font-size: 1rem; font-weight: 500; color: var(--muted); }
+@media (min-width: 880px) { .facts { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); } }
+@media (max-width: 479px) { .facts { grid-template-columns: 1fr; } }
+.case-body { max-width: 72ch; }
+.case-body section { margin-top: 48px; }
+.case-body h2 { font-size: var(--step-2); border-bottom: 2px solid var(--ink); padding-bottom: 8px; }
+.case-body h3 { font-size: 1.1rem; margin-top: 1.5em; }
+.case-body p { margin-top: 1em; }
+.case-body ul { margin: 0.75em 0 0; padding-left: 1.1em; display: grid; gap: 0.5em; }
+.case-body .figures { margin-top: 20px; }
+.case-body .study-fig { margin-top: 24px; }
+.case-wide { max-width: 1040px; }
+.q-lead p { margin-top: 40px; font-style: italic; color: var(--muted); font-size: var(--step-1); }
+.pager { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--rule); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; }
+.pager a { display: inline-flex; flex-direction: column; justify-content: center; min-height: 44px; font-family: var(--font-display); font-weight: 700; text-decoration: none; }
+.pager a span { font-family: var(--font-data); font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.pager a:hover { text-decoration: underline; }
+.pager .next { text-align: right; margin-left: auto; }
+
+.fw-quote { margin: 16px 0 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); background: color-mix(in srgb, var(--accent) 12%, transparent); font-size: var(--step-1); font-weight: 700; }
+.fw-quote p { margin: 0; }
+.fw-num { font-family: var(--font-data); font-size: 0.8rem; font-weight: 700; color: var(--accent); letter-spacing: 0.08em; display: block; margin-bottom: 4px; }
+.fw-lede { font-style: italic; color: var(--muted); }
+.fw-table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 0.95rem; }
+.fw-table th, .fw-table td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--rule); }
+.fw-table th { font-family: var(--font-data); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); }
+.fw-table td:first-child { font-weight: 600; }
+.fw-pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 16px; }
+.fw-pair > div { background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; padding: 16px; }
+.fw-pair h4 { font-family: var(--font-display); font-size: 1rem; margin: 0; }
+.fw-pair p { margin-top: 8px; }
+.fw-pair .verdict { font-family: var(--font-data); font-size: 0.8rem; font-weight: 700; color: var(--accent); }
+.fw-steps { list-style: none; counter-reset: step; padding: 0 !important; }
+.fw-steps li { counter-increment: step; position: relative; padding: 12px 16px 12px 56px; background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; }
+.fw-steps li::before { content: counter(step); position: absolute; left: 16px; top: 10px; font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; color: var(--accent); }
+.fw-phase { margin-top: 40px; padding: 24px; background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; }
+.case-body .fw-phase h2 { border-bottom: 0; padding-bottom: 0; }
+.fw-summary { font-size: var(--step-1); }
+.fw-content { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--rule); }
+.fw-content .fw-pair > div { background: var(--paper); }
+.fw-content .fw-steps li { background: var(--paper); }
+@media (max-width: 480px) { .fw-phase { padding: 16px; } .fw-table { font-size: 0.86rem; } .fw-table th, .fw-table td { padding: 8px 6px; overflow-wrap: anywhere; } }
+.fw-origin { margin-top: 40px; }
+.fw-tools { list-style: none; padding: 0 !important; display: grid !important; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px !important; margin-top: 16px !important; }
+.fw-tools li { background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; padding: 16px; }
+.case-body .fw-tools h3 { margin-top: 0; font-size: 1.05rem; }
+.fw-tools p { margin-top: 8px !important; font-size: 0.95rem; }
+.fw-example { margin-top: 20px; padding: 14px 16px; border-left: 3px solid var(--accent); background: var(--accent-soft); }
+.fw-example p { margin: 0 !important; }
+.fw-foot { margin-top: 48px; font-family: var(--font-data); font-size: 0.8rem; color: var(--muted); }
+
+.es-options { list-style: none; padding: 0 !important; display: grid !important; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px !important; margin-top: 16px !important; }
+.es-options li { background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; padding: 16px; }
+.case-body .es-options h3 { margin-top: 0; font-size: 1.05rem; }
+.es-options p { margin-top: 8px !important; font-size: 0.95rem; }
+.fw-table caption { text-align: left; font-family: var(--font-data); font-size: 0.8rem; color: var(--muted); padding-bottom: 4px; }
+
+body { margin: 0; }
+</style>
+</head>
+<body>
+<a class="skip" href="#article">Skip to the article</a>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="name home-link" href="../index.html">Claire Ferrari, PhD</a>
+    <nav aria-label="Sections">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#practice">How I lead</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#writing">Writing</a>
+    </nav>
+  </div>
+</header>
+
+<main id="article">
+  <div class="wrap">
+    <div class="case-head">
+      <a class="back" href="../index.html#writing"><span aria-hidden="true">←&nbsp;</span>Writing and frameworks</a>
+      <p class="kicker">Musings · 2026</p>
+      <h1>Accessibility is a team sport</h1>
+      <p class="deck">A model for spreading accessibility research across a team: training with hands-on practice, a shared home for resources, and four clear triggers for when a study has to include people with disabilities.</p>
+    </div>
+    <article class="case-body">
+      <blockquote class="fw-quote"><p>When every researcher can run inclusive studies, accessibility becomes part of how a team works, not a request to one person.</p></blockquote>
+      <p>Spreading it across a team makes the practice more resilient and more effective. More studies include people with disabilities, findings reach more product decisions, and the work keeps going when any one person's focus shifts. When that knowledge sits with a single specialist, the practice is more vulnerable and set up to reach fewer studies than it should.</p>
+      <p>And the people it serves aren't an edge case. About one in four adults in the United States has a disability, according to the <a href="https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html">Centers for Disease Control and Prevention</a>.</p>
+      <p>When I tested a rebranded <a href="../work/checkout-accessibility.html">mobile checkout</a> with screen reader, switch, voice control and magnification users, their barriers traced back to four root causes. Each became a prioritized engineering fix, on the exact steps where people ready to buy were dropping out. I want work like that to be within reach of every researcher on a team, not just the one with "accessibility" in their title.</p>
+      <p>Here is the model I'd use to get there.</p>
+
+      <section class="fw-origin" aria-labelledby="es-0">
+        <h2 id="es-0">Shared ownership, light structure</h2>
+        <p>Every researcher owns inclusion in their own studies. A small, rotating group keeps the shared tools, standards and community healthy. Knowledge, partner relationships and tool experience are shared, so the practice grows with the team.</p>
+        <table class="fw-table">
+          <caption>Who owns what</caption>
+          <thead><tr><th scope="col">Role</th><th scope="col">What they own</th></tr></thead>
+          <tbody>
+            <tr><td>Every researcher</td><td>Checks the triggers when planning a study and, when one applies, chooses a disability-inclusive sample or a dedicated accessibility study.</td></tr>
+            <tr><td>Accessibility research stewards</td><td>Two or three researchers, rotating every six months, who keep resources current, host office hours, and help colleagues choose an approach.</td></tr>
+            <tr><td>A program lead</td><td>Builds the training and resources over the first quarter, trains the first stewards, then steps back to advise.</td></tr>
+            <tr><td>Research leadership</td><td>Builds the triggers into study intake and planning reviews, and protects steward time.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="fw-phase" aria-labelledby="es-1">
+        <h2 id="es-1"><span class="fw-num">01</span>Training and hands-on practice</h2>
+        <p>Two sessions give every researcher what they need to plan and run an inclusive study without a specialist in the room.</p>
+        <ol class="fw-steps">
+          <li><strong>Foundations.</strong> Disability as identity and experience, respectful language, the social model of disability, and why inclusive samples change findings, drawing on the work of the Insights Association's <a href="https://www.insightsassociation.org/About-Us/Accessible-Insights-Consortium-AIC">Accessible Insights Consortium</a>. Live demonstrations of screen readers, switch and voice control, and magnification show researchers what participants are doing and how to observe it.</li>
+          <li><strong>Designing and running the study.</strong> Recruiting and screening, consent and compensation, accessible materials and surveys, and moderating sessions with assistive technology users, ending in a hands-on lab where each researcher sets up a small practice study.</li>
+        </ol>
+        <p>Independence comes from doing: co-run one study with a steward, then run the next one alone. And use the lightest method that answers the question. Quick compatibility checks cover many projects at low cost, while moderated sessions are worth saving for the studies that need them most.</p>
+      </section>
+
+      <section class="fw-phase" aria-labelledby="es-2">
+        <h2 id="es-2"><span class="fw-num">02</span>A shared home for resources</h2>
+        <p>One place for everything a researcher needs, kept wherever the team already stores research, plus one chat channel where questions get answered within a day.</p>
+        <ul>
+          <li>Screener templates and inclusive demographic questions</li>
+          <li>Accessible templates for discussion guides, consent forms, surveys and readouts</li>
+          <li>Past accessibility studies, tagged so they show up alongside other research</li>
+          <li>Recorded training, a plain-language glossary, and trusted recruiting partners and disability organizations</li>
+        </ul>
+        <p>The channel is for the quick questions that otherwise go unasked: "Is this screener question respectful?" or "How do I test this with someone who uses a switch?" Stewards review the resources each quarter and add one new piece from every accessibility study the team runs.</p>
+      </section>
+
+      <section class="fw-phase" aria-labelledby="es-3">
+        <h2 id="es-3"><span class="fw-num">03</span>Knowing when it's essential</h2>
+        <p>Four triggers decide when a study must include people with disabilities. Researchers check them at planning, the same way they choose a method.</p>
+        <table class="fw-table">
+          <caption>The four triggers</caption>
+          <thead><tr><th scope="col">Trigger</th><th scope="col">Why it matters</th></tr></thead>
+          <tbody>
+            <tr><td>A new topic or source of innovation</td><td>People with disabilities are often extreme users whose workarounds point to ideas that help everyone.</td></tr>
+            <tr><td>A novel interaction pattern</td><td>New patterns, like choosing options inside an AI chat or voice-first flows, have no proven accessible version yet.</td></tr>
+            <tr><td>A big design change</td><td>A reskin or redesign can break things that used to work, like focus order and labels.</td></tr>
+            <tr><td>A high-impact or high-visibility project</td><td>Barriers in checkout, sign-up or account changes cost the most, for customers and for the business.</td></tr>
+          </tbody>
+        </table>
+        <p>When a trigger applies, the researcher picks whichever option fits the question:</p>
+        <ul class="es-options">
+          <li><h3>A disability-inclusive sample</h3><p>People with disabilities join the general sample, recruited and accommodated like everyone else, so their experiences shape the main findings. It fits inside a study already planned. I aim for at least one in five participants.</p></li>
+          <li><h3>Dedicated accessibility research</h3><p>A study built around assistive technology users, with tasks and analysis focused on barriers and their root causes. It's the right choice when some people might not be able to finish a key task at all.</p></li>
+        </ul>
+        <p>When no trigger applies, inclusion is still encouraged, and any accessibility issues spotted go in the readout. For unmoderated studies and surveys, check that the tool works with a screen reader before launch.</p>
+      </section>
+
+      <section class="fw-origin" aria-labelledby="es-4">
+        <h2 id="es-4">How you'd know it's working</h2>
+        <p>Within two quarters, every researcher has completed the training and most have run an accessibility study on their own. Every study that meets a trigger includes people with disabilities. Accessibility fixes from research are logged and prioritized with product teams each quarter, and researchers report feeling more confident running inclusive studies than they did before the training.</p>
+        <p>The goal isn't a better accessibility specialist. It's a team where inclusive research is simply how research gets done.</p>
+      </section>
+
+      <p class="fw-foot">Musings, November 2026.</p>
+
+    </article>
+    <nav class="pager" aria-label="More">
+      <a class="prev" href="uxr-ai-framework.html"><span>Read</span>UX research and AI: Distributing intelligence</a>
+      <a class="next" href="../index.html#work"><span>See</span>Selected work</a>
+    </nav>
+  </div>
+</main>
+
+<footer>
+<div class="foot-contact">
+  <div class="wrap">
+    <h2>Let's talk research.</h2>
+    <p><span>clairev8@gmail.com</span></p>
+  </div>
+  </div>
+</footer>
+</body>
+</html>
