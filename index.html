@@ -120,7 +120,9 @@ section.block .wrap { padding-block: 64px 16px; }
 abbr[title] { text-decoration: none; cursor: inherit; }
 
 .figures { margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0; background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; }
-.figures div { background: var(--surface); padding: 14px 16px; box-shadow: 1px 0 0 var(--rule), 0 1px 0 var(--rule); }
+.figures div { background: var(--surface); padding: 14px 16px; box-shadow: -1px 0 0 var(--rule), 0 -1px 0 var(--rule); }
+.figures { container-type: inline-size; }
+@container (max-width: 449px) { .figures > div:last-child:nth-child(odd) { grid-column: 1 / -1; } }
 .figures b { display: block; font-family: var(--font-display); font-size: 1.7rem; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--accent); line-height: 1.1; }
 .figures span { display: block; font-size: 0.88rem; color: var(--muted); margin-top: 4px; line-height: 1.4; }
 .figures b span { display: inline; font-size: inherit; color: inherit; margin-top: 0; line-height: inherit; }
@@ -224,6 +226,9 @@ footer { margin-top: 64px; }
 .facts dt { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.72rem; font-weight: 700; color: var(--accent); }
 .facts dd { margin: 4px 0 0; }
 .facts-sub { display: block; margin-top: 2px; color: var(--muted); }
+.facts-org { display: flex; align-items: center; }
+.facts-org dd { margin: 0; font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; line-height: 1.15; color: var(--ink); }
+.facts-year { display: block; margin-top: 6px; font-family: var(--font-data); font-size: 1rem; font-weight: 500; color: var(--muted); }
 @media (min-width: 880px) { .facts { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); } }
 @media (max-width: 479px) { .facts { grid-template-columns: 1fr; } }
 .case-body { max-width: 72ch; }
@@ -288,7 +293,7 @@ footer { margin-top: 64px; }
     <div class="wrap">
       <div class="section-head">
         <h2 id="work-h">Selected work</h2>
-        <p class="tag">5 case studies · 2018–2026</p>
+        <p class="tag">5 case studies · 2019–2026</p>
       </div>
       <ul class="cards">
         <li class="card">
@@ -309,9 +314,9 @@ footer { margin-top: 64px; }
           <div>
             <p class="kicker">02 · Verizon · 2026</p>
             <h3><a href="work/verizon-assistant.html">Making selections inside a chat</a></h3>
-            <p class="summary">A 193-person test showed vertical lists were 10 seconds faster than carousels, and set the standard for choosing a line in Verizon's AI chat.</p>
+            <p class="summary">Unmoderated usability testing (n=193) showed vertical lists were 10 seconds faster than carousels, and preferred, setting the standard for choosing a line in Verizon's AI chat.</p>
             <div class="figures" role="list">
-            <div role="listitem"><b>193</b><span>participants</span></div>
+            <div role="listitem"><b>1st</b><span>organizational standard set for conversational design components</span></div>
             <div role="listitem"><b>10 sec</b><span>faster median task time, vertical vs. carousel</span></div>
             <div role="listitem"><b>70%</b><span>confidence at the highest detail level</span></div>
           </div>
@@ -325,8 +330,7 @@ footer { margin-top: 64px; }
             <h3><a href="work/checkout-accessibility.html">Finding traps in a mobile checkout flow</a></h3>
             <p class="summary">I tested a reskinned mobile checkout with 27 assistive technology users, traced the barriers they hit to four root causes, and turned them into prioritized fixes for engineering.</p>
             <div class="figures" role="list">
-            <div role="listitem"><b>27</b><span>assistive technology users</span></div>
-            <div role="listitem"><b>3</b><span>assistive technology user groups</span></div>
+            <div role="listitem"><b><span aria-hidden="true">16 · 5 · 6</span><span class="sr">16, 5 and 6</span></b><span>screen reader, switch and voice control, and magnification users</span></div>
             <div role="listitem"><b>4</b><span>root causes, each turned into a prioritized fix</span></div>
           </div>
             <a class="more" href="work/checkout-accessibility.html" aria-label="Read the case study: Finding traps in a mobile checkout flow">Read the case study <span aria-hidden="true">&nbsp;→</span></a>
@@ -349,11 +353,11 @@ footer { margin-top: 64px; }
         </li>
         <li class="card">
           <div>
-            <p class="kicker">05 · Google Creative Lab · 2018–2019</p>
+            <p class="kicker">05 · Google Creative Lab · 2019</p>
             <h3><a href="work/creatability.html">Creative tools for people of all abilities</a></h3>
             <p class="summary">I led user research with 25 people with disabilities for a set of accessible creative tools that won the 2019 Cannes Lions Design Grand Prix.</p>
             <div class="figures" role="list">
-            <div role="listitem"><b>25</b><span>participants with disabilities</span></div>
+            <div role="listitem"><b>5</b><span>disability organizations</span></div>
             <div role="listitem"><b>Grand Prix</b><span>2019 Cannes Lions, Design</span></div>
             <div role="listitem"><b>Open source</b><span>experiments anyone can use and build on</span></div>
           </div>
@@ -391,7 +395,7 @@ footer { margin-top: 64px; }
       <ol class="timeline">
         <li><span class="yr">2023–now</span><div><b>Senior UX Research Manager</b> <span class="org">· Verizon</span><p>Owns the customer experience (CX) and UX research roadmap. Built and leads the design system, brand perception and accessibility research programs.</p></div></li>
         <li><span class="yr">2020–2022</span><div><b>Manager, UX Research</b> <span class="org">· Verizon</span><p>Led and mentored a team of six researchers, and managed the rapid research portfolio on subscription plan and loyalty strategy.</p></div></li>
-        <li><span class="yr">2018–2019</span><div><b>Creative Technologist</b> <span class="org">· Google Creative Lab</span><p>User research and design exploration for Creatability.</p></div></li>
+        <li><span class="yr">2019</span><div><b>Creative Technologist</b> <span class="org">· Google Creative Lab</span><p>User research and design exploration for Creatability.</p></div></li>
         <li><span class="yr">2018–2019</span><div><b>Accessibility Specialist</b> <span class="org">· 2U</span><p>Usability and accessibility research for e-learning tools.</p></div></li>
         <li><span class="yr">2015–2018</span><div><b>HCI Research Fellow</b> <span class="org">· New York University</span><p>Accessibility studies for Spectrum, Cooper Hewitt and the Processing Foundation, and a stroke rehabilitation device with NYU Rusk.</p></div></li>
       </ol>
@@ -408,6 +412,7 @@ footer { margin-top: 64px; }
     <div class="wrap">
       <div class="section-head"><h2 id="writing-h">Writing and frameworks</h2><p>More on <a href="https://scholar.google.com/citations?user=S8_5jfsAAAAJ&amp;hl=en">Google Scholar</a></p></div>
       <ul class="pubs">
+        <li><span class="yr">2026</span><span><a href="writing/inclusive-research-model.html">Accessibility is a team sport</a><span class="venue">Musings on distributing accessibility research across a team</span></span></li>
         <li><span class="yr">2026</span><span><a href="writing/uxr-ai-framework.html">UXR × AI: Distributing intelligence</a><span class="venue">Framework for adopting AI in UX research</span></span></li>
         <li><span class="yr">2023</span><span>Tangible Progress: Tools, Techniques, and Impacts of Teaching Web Development to Screen Reader Users<span class="venue">ACM Transactions on Accessible Computing (TACCESS)</span></span></li>
         <li><span class="yr">2021</span><span>Accessible Web Development<span class="venue">ACM TACCESS</span></span></li>
