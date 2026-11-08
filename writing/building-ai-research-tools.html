@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Build for trust, not speed · Claire Ferrari, PhD</title>
+<meta name="description" content="What my team learned building and validating AI research tools: start from vetted data, separate rules from guesses, enforce constraints in code, and test every change before trusting it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;700&display=swap">
+<style>
+/* Layout: a single reading column with a left "study log" rail. Each case study reads like a research readout: question, method, n, finding, what changed. */
+:root {
+  --paper: #ffffff;
+  --surface: #f5f5f5;
+  --ink: #111111;
+  --muted: #4d4d4d;
+  --rule: #e5e5e5;
+  --accent: #1d3bb3;
+  --accent-soft: #fdecea;
+  --mark: #ffe08a;
+  --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --step-0: 1.0625rem;
+  --step-1: 1.25rem;
+  --step-2: 1.6rem;
+  --step-3: clamp(2.1rem, 5vw, 3.4rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0f0f0f; --surface: #1a1a1a; --ink: #f2f2f2; --muted: #b5b5b5;
+    --rule: #2b2b2b; --accent: #a3b6ff; --accent-soft: #3a1714; --mark: #5a4712;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0f0f0f; --surface: #1a1a1a; --ink: #f2f2f2; --muted: #b5b5b5;
+  --rule: #2b2b2b; --accent: #a3b6ff; --accent-soft: #3a1714; --mark: #5a4712;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; line-height: 1.15; margin: 0; }
+p { margin: 0; }
+
+.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: var(--paper); padding: 12px 16px; min-height: 44px; z-index: 20; }
+.sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.skip:focus { left: max(16px, env(safe-area-inset-left, 0px)); }
+
+.wrap {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Top bar */
+.bar { border-bottom: 1px solid var(--rule); }
+.bar .wrap { display: flex; flex-wrap: wrap; gap: 4px 24px; align-items: center; justify-content: space-between; padding-block: 6px; }
+.bar .name { color: var(--ink); text-decoration: none; font-family: var(--font-display); font-weight: 700; font-size: 1rem; letter-spacing: 0.01em; }
+.bar nav { display: flex; flex-wrap: wrap; gap: 0 8px; font-family: var(--font-data); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.bar nav a { color: var(--accent); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; padding: 0 8px; }
+.bar nav a:hover { text-decoration: underline; }
+
+/* Hero */
+.hero .wrap { padding-block: 64px 56px; display: grid; gap: 48px; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: center; }
+.hero .portrait { justify-self: center; max-width: 400px; }
+.eyebrow { font-family: var(--font-data); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+.hero h1 { font-size: var(--step-3); font-weight: 700; margin-top: 12px; max-width: 18ch; }
+.hero h1 mark { background: linear-gradient(transparent 58%, var(--mark) 58%); color: inherit; padding: 0 2px; }
+.hero .lede { margin-top: 20px; font-size: var(--step-1); max-width: 58ch; color: var(--ink); }
+.hero .contact { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 8px 20px; font-family: var(--font-data); font-size: 0.85rem; color: var(--muted); }
+.hero .contact span { user-select: all; }
+.hero .contact a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-weight: 700; }
+.hero .contact { align-items: center; }
+.portrait {
+  display: block; aspect-ratio: 1 / 1; width: 100%; max-width: 100%; height: auto;
+  object-fit: cover; border-radius: 4px; background: var(--surface);
+}
+
+/* Focus areas strip */
+.areas { --ink: #f2f2f2; --muted: #b5b5b5; --rule: #2b2b2b; --accent: #a3b6ff; border-block: 1px solid #1a1a1a; background: #1a1a1a; color: var(--ink); }
+.areas .wrap { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; padding-block: 28px; }
+.areas h3 { font-size: 1rem; font-weight: 700; }
+.areas p { font-size: 0.95rem; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+
+/* Section heads */
+section.block .wrap { padding-block: 64px 16px; }
+.section-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; border-bottom: 2px solid var(--ink); padding-bottom: 10px; }
+.section-head h2 { font-size: var(--step-2); }
+.section-head p { font-family: var(--font-data); font-size: 0.8rem; color: var(--muted); }
+.section-head p.tag { color: var(--accent); font-weight: 700; }
+
+/* Case studies */
+.study { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 32px; padding-block: 40px; border-bottom: 1px solid var(--rule); }
+.study:last-child { border-bottom: 0; }
+.log { font-family: var(--font-data); font-size: 0.8rem; color: var(--muted); display: flex; flex-direction: column; gap: 10px; }
+.log dt { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.7rem; font-weight: 700; color: var(--accent); }
+.log dd { margin: 2px 0 0; color: var(--ink); }
+.log dl { margin: 0; display: grid; gap: 10px; }
+.study h3 { font-size: var(--step-2); font-weight: 700; }
+.study .q { margin-top: 10px; font-style: italic; color: var(--muted); max-width: 62ch; }
+.study .tldr { margin-top: 16px; padding: 12px 16px; border-left: 3px solid var(--accent); background: var(--accent-soft); }
+.study .tldr b { font-family: var(--font-data); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink); margin-right: 6px; }
+.lead-figs { margin-top: 28px; }
+.study .body { margin-top: 1.5em; display: grid; gap: 2.25em; max-width: 66ch; }
+.study .body h4 { font-family: var(--font-data); font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin: 0 0 4px; }
+.study ul { margin: 0; padding-left: 1.1em; display: grid; gap: 0.5em; }
+.edu-h { font-size: 1.1rem; margin-top: 40px; }
+abbr[title] { text-decoration: none; cursor: inherit; }
+
+.figures { margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0; background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; }
+.figures div { background: var(--surface); padding: 14px 16px; box-shadow: -1px 0 0 var(--rule), 0 -1px 0 var(--rule); }
+.figures { container-type: inline-size; }
+@container (max-width: 449px) { .figures > div:last-child:nth-child(odd) { grid-column: 1 / -1; } }
+.figures b { display: block; font-family: var(--font-display); font-size: 1.7rem; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--accent); line-height: 1.1; }
+.figures span { display: block; font-size: 0.88rem; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+.figures b span { display: inline; font-size: inherit; color: inherit; margin-top: 0; line-height: inherit; }
+.source { margin-top: 8px; font-family: var(--font-data); font-size: 0.72rem; color: var(--muted); }
+
+.study-fig { margin: 24px 0 0; }
+.study-fig img { display: block; width: 100%; max-width: 100%; height: auto; border-radius: 4px; }
+.study-fig--square { max-width: 520px; margin-inline: 0; }
+.study .gallery { list-style: none; margin: 12px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.gallery li { min-width: 0; display: grid; gap: 6px; align-content: start; }
+.gallery img, .gallery video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 4px; background: var(--surface); }
+.gallery-desc { font-family: var(--font-data); font-size: 0.75rem; color: var(--muted); line-height: 1.45; }
+@media (max-width: 560px) { .study .gallery { grid-template-columns: minmax(0, 1fr); } }
+.study-fig figcaption { margin-top: 8px; font-family: var(--font-data); font-size: 0.78rem; color: var(--muted); }
+.shot {
+  margin-top: 24px; aspect-ratio: 16 / 9; max-width: 100%;
+  border: 1.5px dashed var(--rule); border-radius: 4px; background: var(--surface);
+  display: grid; place-items: center; text-align: center; padding: 16px;
+  font-family: var(--font-data); font-size: 0.78rem; color: var(--muted);
+}
+
+/* Earlier work */
+.earlier { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px 24px; padding-top: 28px; list-style: none; margin: 0; padding-left: 0; }
+.earlier li { display: grid; gap: 12px; align-content: start; min-width: 0; }
+.earlier figure { margin: 0; }
+.earlier img { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 2 / 1; object-fit: cover; border: 1px solid var(--rule); border-radius: 4px; background: var(--surface); }
+.earlier .kicker { font-family: var(--font-data); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+.earlier h3 { font-size: 1.05rem; }
+.earlier p { color: var(--muted); font-size: 0.92rem; max-width: 60ch; }
+.earlier a.more { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--font-data); font-size: 0.8rem; }
+@media (max-width: 1000px) { .earlier { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Practice + publications */
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5em 48px; padding-top: 28px; }
+.two h3 { font-size: 1.1rem; margin-bottom: 8px; }
+.two p { color: var(--muted); font-size: 0.98rem; }
+.pubs { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 14px; }
+.pubs li { display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: 16px; border-bottom: 1px solid var(--rule); padding-bottom: 14px; }
+.pubs .yr { font-family: var(--font-data); font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.pubs .venue { display: block; font-family: var(--font-data); font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+
+.read-more { display: inline-flex; align-items: center; min-height: 44px; padding: 0; margin-top: 4px; border: 0; background: none; color: var(--accent); font-family: var(--font-data); font-size: 0.85rem; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.read-more:hover { text-decoration-thickness: 2px; }
+
+/* Timeline */
+.timeline { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 0; }
+.timeline li { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 20px; padding-block: 14px; border-bottom: 1px solid var(--rule); }
+.timeline .yr { font-family: var(--font-data); font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.timeline b { font-family: var(--font-display); font-weight: 700; }
+.timeline .org { color: var(--muted); }
+.timeline p { font-size: 0.95rem; color: var(--muted); margin-top: 2px; }
+
+footer { margin-top: 64px; }
+.foot-earlier { background: var(--surface); border-top: 1px solid var(--rule); }
+.foot-earlier .wrap { padding-block: 48px; }
+.foot-earlier .section-head { border-bottom-width: 1px; }
+.foot-earlier .section-head h2 { font-size: var(--step-1); }
+.foot-contact { background: var(--ink); color: var(--paper); }
+.foot-contact .wrap { padding-block: 40px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 32px; align-items: baseline; }
+.foot-contact h2 { font-size: var(--step-2); color: var(--paper); }
+.foot-contact p { font-family: var(--font-data); font-size: 0.85rem; }
+.foot-contact span { user-select: all; }
+
+@media (max-width: 760px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); padding-block: 40px 32px; }
+  .hero .portrait { max-width: 280px; justify-self: start; }
+  .areas .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .study { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .log dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .two, .earlier { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 420px) {
+  .areas .wrap { grid-template-columns: minmax(0, 1fr); }
+  .timeline li, .pubs li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+}
+
+/* Case study cards (home) */
+.cards { list-style: none; margin: 0; padding: 0; }
+.card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: center; padding-block: 40px; border-bottom: 1px solid var(--rule); }
+.card:last-child { border-bottom: 0; }
+.card .kicker { font-family: var(--font-data); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+.card h3 { font-size: var(--step-2); font-weight: 700; margin-top: 8px; }
+.card h3 a { color: var(--ink); text-decoration: none; }
+.card h3 a:hover { color: var(--accent); text-decoration: underline; }
+.card .summary { margin-top: 12px; max-width: 58ch; }
+.card .figures { margin-top: 20px; }
+.card .figures b { font-size: 1.35rem; }
+.card .more { display: inline-flex; align-items: center; min-height: 44px; margin-top: 12px; font-family: var(--font-data); font-size: 0.85rem; font-weight: 700; }
+.card img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 4px; background: #ffffff; border: 1px solid var(--rule); }
+.study-fig img { background: #ffffff; }
+.card img.contain { object-fit: contain; box-sizing: border-box; padding: clamp(14px, 5%, 32px); }
+@media (max-width: 760px) { .card { grid-template-columns: minmax(0, 1fr); gap: 20px; } .card figure { order: -1; } }
+
+/* Case study page */
+.back { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--font-data); font-size: 0.85rem; font-weight: 700; }
+.case-head { padding-block: 24px 8px; }
+.case-head .kicker { font-family: var(--font-data); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-top: 16px; }
+.case-head h1 { font-size: var(--step-3); font-weight: 700; margin-top: 8px; max-width: 22ch; }
+.case-head .deck { margin-top: 16px; font-size: var(--step-1); max-width: 60ch; }
+.facts { margin: 28px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 28px; padding: 20px; background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; font-family: var(--font-data); font-size: 0.85rem; }
+.facts dt { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.72rem; font-weight: 700; color: var(--accent); }
+.facts dd { margin: 4px 0 0; }
+.facts-sub { display: block; margin-top: 2px; color: var(--muted); }
+.facts-org { display: flex; align-items: center; }
+.facts-org dd { margin: 0; font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; line-height: 1.15; color: var(--ink); }
+.facts-year { display: block; margin-top: 6px; font-family: var(--font-data); font-size: 1rem; font-weight: 500; color: var(--muted); }
+@media (min-width: 880px) { .facts { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); } }
+@media (max-width: 479px) { .facts { grid-template-columns: 1fr; } }
+.case-body { max-width: 72ch; }
+.case-body section { margin-top: 48px; }
+.case-body h2 { font-size: var(--step-2); border-bottom: 2px solid var(--ink); padding-bottom: 8px; }
+.case-body h3 { font-size: 1.1rem; margin-top: 1.5em; }
+.case-body p { margin-top: 1em; }
+.case-body ul { margin: 0.75em 0 0; padding-left: 1.1em; display: grid; gap: 0.5em; }
+.case-body .figures { margin-top: 20px; }
+.case-body .study-fig { margin-top: 24px; }
+.case-wide { max-width: 1040px; }
+.q-lead p { margin-top: 40px; font-style: italic; color: var(--muted); font-size: var(--step-1); }
+.pager { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--rule); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; }
+.pager a { display: inline-flex; flex-direction: column; justify-content: center; min-height: 44px; font-family: var(--font-display); font-weight: 700; text-decoration: none; }
+.pager a span { font-family: var(--font-data); font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.pager a:hover { text-decoration: underline; }
+.pager .next { text-align: right; margin-left: auto; }
+
+.fw-quote { margin: 16px 0 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); background: color-mix(in srgb, var(--accent) 12%, transparent); font-size: var(--step-1); font-weight: 700; }
+.fw-quote p { margin: 0; }
+.fw-num { font-family: var(--font-data); font-size: 0.8rem; font-weight: 700; color: var(--accent); letter-spacing: 0.08em; display: block; margin-bottom: 4px; }
+.fw-lede { font-style: italic; color: var(--muted); }
+.fw-table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 0.95rem; }
+.fw-table th, .fw-table td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--rule); }
+.fw-table th { font-family: var(--font-data); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); }
+.fw-table td:first-child { font-weight: 600; }
+.fw-pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 16px; }
+.fw-pair > div { background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; padding: 16px; }
+.fw-pair h4 { font-family: var(--font-display); font-size: 1rem; margin: 0; }
+.fw-pair p { margin-top: 8px; }
+.fw-pair .verdict { font-family: var(--font-data); font-size: 0.8rem; font-weight: 700; color: var(--accent); }
+.fw-steps { list-style: none; counter-reset: step; padding: 0 !important; }
+.fw-steps li { counter-increment: step; position: relative; padding: 12px 16px 12px 56px; background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; }
+.fw-steps li::before { content: counter(step); position: absolute; left: 16px; top: 10px; font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; color: var(--accent); }
+.fw-phase { margin-top: 40px; padding: 24px; background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; }
+.case-body .fw-phase h2 { border-bottom: 0; padding-bottom: 0; }
+.fw-summary { font-size: var(--step-1); }
+.fw-content { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--rule); }
+.fw-content .fw-pair > div { background: var(--paper); }
+.fw-content .fw-steps li { background: var(--paper); }
+@media (max-width: 480px) { .fw-phase { padding: 16px; } .fw-table { font-size: 0.86rem; } .fw-table th, .fw-table td { padding: 8px 6px; overflow-wrap: anywhere; } }
+.fw-origin { margin-top: 40px; }
+.fw-tools { list-style: none; padding: 0 !important; display: grid !important; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px !important; margin-top: 16px !important; }
+.fw-tools li { background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; padding: 16px; }
+.case-body .fw-tools h3 { margin-top: 0; font-size: 1.05rem; }
+.fw-tools p { margin-top: 8px !important; font-size: 0.95rem; }
+.fw-example { margin-top: 20px; padding: 14px 16px; border-left: 3px solid var(--accent); background: var(--accent-soft); }
+.fw-example p { margin: 0 !important; }
+.fw-foot { margin-top: 48px; font-family: var(--font-data); font-size: 0.8rem; color: var(--muted); }
+
+.case-body .fw-pair h3.h4 { font-family: var(--font-display); font-size: 1rem; margin: 0; }
+
+body { margin: 0; }
+</style>
+</head>
+<body>
+<a class="skip" href="#article">Skip to the article</a>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="name home-link" href="../index.html">Claire Ferrari, PhD</a>
+    <nav aria-label="Sections">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#practice">How I lead</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#writing">Writing</a>
+    </nav>
+  </div>
+</header>
+
+<main id="article">
+  <div class="wrap">
+    <div class="case-head">
+      <a class="back" href="../index.html#writing"><span aria-hidden="true">←&nbsp;</span>Writing and frameworks</a>
+      <p class="kicker">AI in research · Part 2 of 2</p>
+      <h1>Build for trust, not speed</h1>
+      <p class="deck">What my team learned building and validating AI research tools: start from vetted data, separate rules from guesses, enforce constraints in code, and test every change before trusting it.</p>
+    </div>
+    <article class="case-body">
+      <blockquote class="fw-quote"><p>When research is buried in a deck, it dies.<br> When it's built into the systems people use, it scales.</p></blockquote>
+      <p>Research teams are starting to deliver research through AI systems, with people reviewing along the way. Building those systems takes a different discipline than using AI day to day, which <a href="uxr-ai-framework.html">Part 1</a> covers. Small error rates compound at every step of an automated pipeline, so trust has to be designed in.</p>
+
+      <section class="fw-origin" aria-labelledby="b-0">
+        <h2 id="b-0">What we built</h2>
+        <ul class="fw-tools">
+          <li><h3>Dual-agent tree testing</h3><p>A synthetic user agent works through a navigation tree by following semantic scent, and an expert agent evaluates its path against defined logic and heuristics. We ran the same tasks across several models, including Claude, Gemini and Copilot.</p></li>
+          <li><h3>Cognitive load crawler</h3><p>A crawler that fully renders JavaScript-heavy pages, extracts their text, and scores reading difficulty across a large website with the Automated Readability Index. Scores feed a dashboard so teams can track them over time.</p><p><strong>What we learned:</strong> labels, calls to action, page sections and navigation all needed scoring, not just body copy, and sites that restrict crawlers limit what it can reach.</p></li>
+          <li><h3>Research repository</h3><p>A taxonomy and content model that turned more than 1,000 past studies into a searchable repository ready for AI retrieval.</p></li>
+        </ul>
+      </section>
+
+      <section class="fw-phase" aria-labelledby="b-1">
+        <h2 id="b-1"><span class="fw-num">01</span>Start from vetted data</h2>
+        <p>Judge every system against a held-out set of prior research: vetted "golden" data, not whatever happens to be sitting in a shared drive. Otherwise it's easy to justify a system after it's built.</p>
+        <p>A Data Operator owns that set. Before anything is ingested, they audit the baseline data for bias and subjective noise, and label sources for structural bias, such as research drawn mostly from one market.</p>
+        <div class="fw-example"><p><strong>In practice.</strong> We pressure-tested the repository's taxonomy against real survey, persona and concept-test data, and scored it for confidence, before building anything on top of it.</p></div>
+      </section>
+
+      <section class="fw-phase" aria-labelledby="b-2">
+        <h2 id="b-2"><span class="fw-num">02</span>Separate rules from guesses</h2>
+        <p>Split every system into two strict parts. Blurring them lets a probabilistic model quietly override a rule.</p>
+        <div class="fw-pair">
+          <div><h3 class="h4">Hard rules: deterministic</h3><p>Code-enforced, structured constraints that follow the standard rules of the research craft. Easy for an expert to review and audit.</p><p class="verdict">Treat as fact</p></div>
+          <div><h3 class="h4">AI guesswork: probabilistic</h3><p>Model output based on likelihood. Useful, but subject to made-up answers and drift.</p><p class="verdict">Treat as a hypothesis to verify</p></div>
+        </div>
+        <div class="fw-example"><p><strong>In practice.</strong> The crawler scores readability with a fixed formula rather than a model's judgment, so every score can be traced. In tree testing, the synthetic user's navigation is the guesswork, and the expert agent's evaluation runs on defined logic and heuristics.</p></div>
+      </section>
+
+      <section class="fw-phase" aria-labelledby="b-3">
+        <h2 id="b-3"><span class="fw-num">03</span>Match the model and set safeguards</h2>
+        <table class="fw-table">
+          <thead><tr><th scope="col">Task</th><th scope="col">Model</th></tr></thead>
+          <tbody>
+            <tr><td>Extraction and recognition</td><td>Lightweight, fast models with fixed output formats, for pulling interface elements, dates or other single facts</td></tr>
+            <tr><td>Reasoning and clustering</td><td>High-capability models with large context windows, for qualitative synthesis and spotting contradictions</td></tr>
+          </tbody>
+        </table>
+        <p>Three safeguards are necessities, not preferences:</p>
+        <ul>
+          <li><strong>Null-handling.</strong> When data is missing, the model returns nothing. It never fills the gap with something made up.</li>
+          <li><strong>Defined failure states.</strong> Edge cases, such as a tie in clustering, stop the task and flag it for a person instead of guessing through it.</li>
+          <li><strong>Quarantine.</strong> Answer keys and test material never enter the agent's session, so there's no path to contamination.</li>
+        </ul>
+      </section>
+
+      <section class="fw-phase" aria-labelledby="b-4">
+        <h2 id="b-4"><span class="fw-num">04</span>Enforce constraints in code, not prompts</h2>
+        <p>Models quietly ignore instructions written as prose. When a constraint matters, it goes in the code, never in the prompt alone.</p>
+        <ul>
+          <li><strong>Output schemas.</strong> Fixed output structures the model can't drift out of.</li>
+          <li><strong>Scope tags.</strong> Findings are tagged by scope, such as a single market, so a local finding can't quietly become a global one.</li>
+          <li><strong>Clear hierarchy.</strong> Headings and metadata, so the model knows what outranks what in the source.</li>
+        </ul>
+      </section>
+
+      <section class="fw-phase" aria-labelledby="b-5">
+        <h2 id="b-5"><span class="fw-num">05</span>Test every change, then test against people</h2>
+        <p>Every prompt change is measured against a fixed evaluation set before it's trusted.</p>
+        <table class="fw-table">
+          <thead><tr><th scope="col">Change</th><th scope="col">What the evaluation showed</th><th scope="col">Decision</th></tr></thead>
+          <tbody>
+            <tr><td>Retrieval-grounded extraction</td><td>Made-up citations disappeared, and every claim traced back to a source.</td><td>"No citation, no insight" became the rule for automated reports.</td></tr>
+            <tr><td>A higher-reasoning model for edge cases</td><td>It was noticeably better at spotting contradictory user signals.</td><td>Adopted for high-risk strategic discovery only.</td></tr>
+            <tr><td>Scope tags moved into the output schema</td><td>Findings from one market stopped being attributed to another.</td><td>A hard gate for all global synthesis.</td></tr>
+          </tbody>
+        </table>
+        <p>An evaluation set tells you whether a change helped. Only people tell you whether the system is right.</p>
+        <div class="fw-example"><p><strong>In practice.</strong> We validated the tree-testing tool against human tree tests. Synthetic users kept going where real people would give up, results changed from run to run, and they rarely matched what people did. We now treat its results as early flags on structure, never as a substitute for testing with people.</p></div>
+      </section>
+
+      <p class="fw-foot">Framework, revised November 2026.</p>
+
+    </article>
+    <nav class="pager" aria-label="More">
+      <a class="prev" href="uxr-ai-framework.html"><span>Part 1</span>Start with the job, not the model</a>
+      <a class="next" href="../index.html#work"><span>See</span>Selected work</a>
+    </nav>
+  </div>
+</main>
+
+<footer>
+<div class="foot-contact">
+  <div class="wrap">
+    <h2>Let's talk research.</h2>
+    <p><span>clairev8@gmail.com</span></p>
+  </div>
+  </div>
+</footer>
+</body>
+</html>
